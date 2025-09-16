@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #count {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .increase { background-color: #4CAF50; color: white; }
+    .decrease { background-color: #f44336; color: white; }
+    .reset { background-color: #2196F3; color: white; }
+    .edit { background-color: #ff9800; color: white; } /* New button style */
+  </style> 
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">Simple Counter</h1> <!-- Added id for dynamic editing -->
+    <div id="count">0</div>
+    <button class="increase" onclick="increase()">Increase</button>
+    <button class="decrease" onclick="decrease()">Decrease</button>
+    <button class="reset" onclick="resetCount()">Reset</button>
+    <button class="edit" onclick="editTitle()">Edit Title</button> <!-- New button -->
+  </div>
+
+  <script>
+    let count = 0; 
+    console.log(count) // Show initial value in console
+
+    // Function to increase count
+    function increase() {
+      count++;
+      console.log(count) // Log new value
+      document.getElementById("count").innerText = count;
+    }
+
+    // Function to decrease count
+    function decrease() {
+      count--;
+      document.getElementById("count").innerText = count;
+    }
+
+    // Function to reset count
+    function resetCount() {
+      count = 0;
+      document.getElementById("count").innerText = count;
+    }
+
+    // ✅ New Function: Edit the heading dynamically
+    function editTitle() {
+      // Ask the user for new title
+      let newTitle = prompt("Enter new title for the counter:");
+      
+      // If user typed something, update the heading
+      if (newTitle) {
+        document.getElementById("title").innerText = newTitle;
+      }
+    }
+  </script>
+</body>
+</html>
