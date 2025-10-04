@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Box Model Playground — All Defaults Zero</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --margin-color: rgba(255,99,71,0.18);
+      --border-color: rgba(0,128,255,0.16);
+      --padding-color: rgba(60,179,113,0.18);
+      --content-color: rgba(255,215,0,0.20);
+      --overlay-z: 9999;
+    }
+
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+      padding: 20px;
+    }
+    h1 { color: #1e6fb6; margin: 0 0 6px 0; }
+    p { margin: 0 0 12px 0; color: #333; }
+
+    .code-block { margin: 12px 0; max-width: 900px; }
+    pre {
+      border-radius: 6px;
+      padding: 12px;
+      background: #2d2d2d;
+      color: #f8f8f2;
+      min-height: 90px;
+      overflow: auto;
+    }
+    code[contenteditable="true"] { display:block; outline:none; white-space:pre; }
+
+    .preview-box {
+      margin-top: 18px;
+      border: 1px solid #d2d6db;
+      padding: 14px;
+      border-radius: 8px;
+      background: #fff;
+      position: relative;
+      min-height: 220px;
+      max-width: 900px;
+    }
+
+    .card {
+      width: 250px;
+      padding: 0;    /* default zero */
+      margin: 0;     /* default zero */
+      border: 0;     /* default zero */
+      border-radius: 0;
+      box-sizing: border-box;
+      position: relative;
+      background: #f0f9ff;
+      transition: all .15s ease;
+    }
+    .card h3 { margin: 0 0 6px 0; }
+
+    .controls { margin-top: 12px; display:flex; gap:8px; flex-wrap:wrap; }
+    .btn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #2b6cb0;
+      color: white;
+      cursor: pointer;
+    }
+    #result { margin-top: 10px; font-weight:600; min-height: 20px; }
+
+    /* overlay container */
+    .overlay-root {
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      z-index: var(--overlay-z);
+    }
+    .overlay-box {
+      position: absolute;
+      box-sizing: border-box;
+      pointer-events: none;
+      border-radius: 6px;
+    }
+    .overlay-margin { background: var(--margin-color); border: 2px dashed rgba(255,99,71,0.6); }
+    .overlay-border { background: var(--border-color); }
+    .overlay-padding { background: var(--padding-color); }
+    .overlay-content { background: var(--content-color); }
+
+    .hidden { display: none !important; }
+
+    .legend { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 12px; font-size: 14px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+    .legend-color { width: 18px; height: 18px; border-radius: 4px; border: 1px solid #ccc; }
+    .legend-margin { background: var(--margin-color); border:2px dashed tomato; }
+    .legend-border { background: var(--border-color); }
+    .legend-padding { background: var(--padding-color); }
+    .legend-content { background: var(--content-color); }
+  </style>
+</head>
+<body>
+  <h1>🎯 Box Model Playground — Defaults Zero</h1>
+  <p>Edit the CSS below — default margin, padding, and border are zero.</p>
+
+  <div class="code-block">
+    <pre><code id="editor" class="language-css" contenteditable="true">.card {
+  width: 250px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+</code></pre>
+  </div>
+
+  <div class="preview-box" id="previewBox">
+    <div id="overlayRoot" class="overlay-root hidden"></div>
+    <div class="card" id="playCard">
+      <h3>Card Header</h3>
+      <p>This is the content area. Style me using CSS!</p>
+      <button>Click Me</button>
+    </div>
+    <div class="controls">
+      <button class="btn" id="checkBtn">Check Task</button>
+      <button class="btn" id="resetBtn">Reset</button>
+      <button class="btn" id="toggleBtn">Show Layers</button>
+      <button class="btn" id="autoBtn">Auto: OFF</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-color legend-margin"></div> Margin</div>
+    <div class="legend-item"><div class="legend-color legend-border"></div> Border</div>
+    <div class="legend-item"><div class="legend-color legend-padding"></div> Padding</div>
+    <div class="legend-item"><div class="legend-color legend-content"></div> Content</div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script>
+    const editor = document.getElementById('editor');
+    const playCard = document.getElementById('playCard');
+    const resultBox = document.getElementById('result');
+    const overlayRoot = document.getElementById('overlayRoot');
+    const previewBox = document.getElementById('previewBox');
+    const defaultCSS = editor.innerText;
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const autoBtn = document.getElementById('autoBtn');
+
+    let overlaysVisible = false;
+    let autoMode = false;
+    let overlayUpdateTimer = null;
+
+    function applyStyles() {
+      const existing = document.getElementById('liveStyles');
+      if(existing) existing.remove();
+      const s = document.createElement('style');
+      s.id='liveStyles';
+      s.textContent=editor.innerText;
+      document.head.appendChild(s);
+    }
+
+    function px(v){ return parseFloat(v)||0; }
+    function clearOverlays(){ overlayRoot.innerHTML=''; overlayRoot.classList.add('hidden'); }
+    function makeBox(cls,l,t,w,h){ const d=document.createElement('div'); d.className='overlay-box '+cls; d.style.left=l+'px'; d.style.top=t+'px'; d.style.width=Math.max(0,w)+'px'; d.style.height=Math.max(0,h)+'px'; overlayRoot.appendChild(d); }
+
+    function showHighlights(){
+      applyStyles(); clearOverlays();
+      const cardRect = playCard.getBoundingClientRect();
+      const previewRect = previewBox.getBoundingClientRect();
+      const cs = window.getComputedStyle(playCard);
+
+      const margin={top:px(cs.marginTop),right:px(cs.marginRight),bottom:px(cs.marginBottom),left:px(cs.marginLeft)};
+      const border={top:px(cs.borderTopWidth),right:px(cs.borderRightWidth),bottom:px(cs.borderBottomWidth),left:px(cs.borderLeftWidth)};
+      const padding={top:px(cs.paddingTop),right:px(cs.paddingRight),bottom:px(cs.paddingBottom),left:px(cs.paddingLeft)};
+      const outerW=cardRect.width, outerH=cardRect.height;
+
+      if(margin.top||margin.right||margin.bottom||margin.left){
+        const mLeft = cardRect.left - previewRect.left - margin.left;
+        const mTop = cardRect.top - previewRect.top - margin.top;
+        const mW = outerW + margin.left + margin.right;
+        const mH = outerH + margin.top + margin.bottom;
+        makeBox('overlay-margin', mLeft,mTop,mW,mH);
+      }
+
+      const bLeft = cardRect.left - previewRect.left, bTop = cardRect.top - previewRect.top;
+      if(border.top||border.right||border.bottom||border.left) makeBox('overlay-border', bLeft,bTop,outerW,outerH);
+
+      const pLeft = bLeft + border.left, pTop = bTop + border.top;
+      const pW = outerW - border.left - border.right, pH = outerH - border.top - border.bottom;
+      if(padding.top||padding.right||padding.bottom||padding.left && pW>0 && pH>0)
+        makeBox('overlay-padding',pLeft,pTop,pW,pH);
+
+      const cLeft = pLeft + padding.left, cTop = pTop + padding.top;
+      const cW = pW - padding.left - padding.right, cH = pH - padding.top - padding.bottom;
+      if(cW>0 && cH>0) makeBox('overlay-content',cLeft,cTop,cW,cH);
+
+      overlayRoot.classList.remove('hidden');
+      overlaysVisible=true;
+      toggleBtn.textContent='Hide Layers';
+    }
+
+    function scheduleOverlayUpdate(){ if(!autoMode)return; if(overlayUpdateTimer) clearTimeout(overlayUpdateTimer); overlayUpdateTimer=setTimeout(()=>{ if(overlaysVisible) showHighlights(); },120); }
+    function checkTask(){
+      const cs=window.getComputedStyle(playCard); let f=[],s=0;
+      if(px(cs.marginTop)||px(cs.marginRight)||px(cs.marginBottom)||px(cs.marginLeft))s++;else f.push("❌ Add margin");
+      if(px(cs.paddingTop)||px(cs.paddingRight)||px(cs.paddingBottom)||px(cs.paddingLeft))s++;else f.push("❌ Add padding");
+      if(px(cs.borderTopWidth)||px(cs.borderRightWidth)||px(cs.borderBottomWidth)||px(cs.borderLeftWidth))s++;else f.push("❌ Add border");
+      if(px(cs.borderTopLeftRadius)||px(cs.borderTopRightRadius)||px(cs.borderBottomLeftRadius)||px(cs.borderBottomRightRadius))s++;else f.push("❌ Add border-radius");
+      if(cs.boxSizing==='border-box')s++;else f.push("❌ Use box-sizing: border-box");
+      if(s===5){resultBox.innerHTML=`✅ Great job! You scored ${s}/5 🎉`;resultBox.style.color='green';}
+      else{resultBox.innerHTML=`Score: ${s}/5 <br>${f.join('<br>')}`;resultBox.style.color='crimson';}
+    }
+    function resetTask(){editor.innerText=defaultCSS;applyStyles();clearOverlays();resultBox.innerText='';overlaysVisible=false;toggleBtn.textContent='Show Layers';}
+    function toggleHighlights(){ if(overlaysVisible){clearOverlays();overlaysVisible=false;toggleBtn.textContent='Show Layers';}else showHighlights(); }
+
+    editor.addEventListener('input',()=>{applyStyles();scheduleOverlayUpdate();});
+    checkBtn.addEventListener('click',checkTask);
+    resetBtn.addEventListener('click',resetTask);
+    toggleBtn.addEventListener('click',toggleHighlights);
+    autoBtn.addEventListener('click',()=>{autoMode=!autoMode;autoBtn.textContent=autoMode?'Auto: ON':'Auto: OFF'; if(autoMode&&overlaysVisible) showHighlights();});
+
+    window.addEventListener('resize',()=>{if(overlaysVisible) showHighlights();});
+    window.addEventListener('scroll',()=>{if(overlaysVisible) showHighlights();},true);
+
+    applyStyles();
+    Prism.highlightElement(editor);
+  </script>
+</body>
+</html>

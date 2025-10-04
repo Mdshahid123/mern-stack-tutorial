@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Notes</title>
+  <!-- Prism.js for syntax highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #2b6cb0;
+    }
+    .code-block {
+      position: relative;
+      margin: 10px 0 5px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    pre {
+      margin: 0;
+      border-radius: 6px;
+    }
+    code[contenteditable="true"] {
+      outline: none;
+      display: block;
+      white-space: pre;
+    }
+    .live-preview {
+      width: 100%;
+      height: 40px;
+      margin: 5px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .color-demo {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .slider-label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .slider {
+      width: 200px;
+      margin: 0 10px;
+    }
+    .value-display {
+      font-weight: bold;
+      color: #2b6cb0;
+      min-width: 50px;
+      display: inline-block;
+    }
+    .demo-box {
+      width: 100%;
+      height: 100px;
+      border: 1px solid #aaa;
+      margin-top: 10px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter – 2 (Colors & Backgrounds)</h1>
+
+  <h2>The color property</h2>
+  <p>The CSS <code>color</code> property can be used to set the text color of an HTML element.</p>
+
+  <h2>Ways to specify colors in CSS</h2>
+  <p>Many ways to specify colors in CSS:</p>
+
+  <h3>1) By Color Name</h3>
+  <pre><code class="language-css">p {
+  color: red; /* Text color will be changed to red */
+}</code></pre>
+  <p>Similarly, we can set color for different elements.</p>
+
+  <h3>2) HEX Code</h3>
+  <p>A hex code (short for hexadecimal code) is a way to represent colors in web design and digital graphics using a 6-digit combination of numbers and letters.</p>
+  <ul>
+    <li>Format: <code>#RRGGBB</code></li>
+    <li>RR → Red value (00–FF)</li>
+    <li>GG → Green value (00–FF)</li>
+    <li>BB → Blue value (00–FF)</li>
+  </ul>
+  <p>Examples:</p>
+  <ul>
+    <li><code>#FF0000</code> → Red</li>
+    <li><code>#00FF00</code> → Green</li>
+    <li><code>#0000FF</code> → Blue</li>
+    <li><code>#FFFFFF</code> → White</li>
+    <li><code>#000000</code> → Black</li>
+  </ul>
+  <p>Shorthand:</p>
+  <ul>
+    <li><code>#FFF</code> = <code>#FFFFFF</code></li>
+    <li><code>#000</code> = <code>#000000</code></li>
+  </ul>
+
+  <h3>3) RGB</h3>
+  <p>The RGB color model specifies colors using the intensity of Red, Green, and Blue on a scale of 0–255.</p>
+  <pre><code class="language-css">p {
+  color: rgb(255, 0, 0); /* Red */
+  color: rgb(0, 255, 0); /* Green */
+  color: rgb(0, 0, 255); /* Blue */
+}</code></pre>
+
+  <h3>4) RGBA</h3>
+  <p>RGBA is an extension of RGB with an additional Alpha (opacity) channel, ranging from 0 (transparent) to 1 (opaque).</p>
+  <pre><code class="language-css">p {
+  color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
+}</code></pre>
+
+  <h3>5) HSL</h3>
+  <p>HSL stands for Hue, Saturation, and Lightness:</p>
+  <ul>
+    <li>Hue: degree on the color wheel (0–360)</li>
+    <li>Saturation: intensity (0%–100%)</li>
+    <li>Lightness: brightness (0%–100%)</li>
+  </ul>
+  <pre><code class="language-css">p {
+  color: hsl(0, 100%, 50%); /* Red */
+  color: hsl(120, 100%, 50%); /* Green */
+  color: hsl(240, 100%, 50%); /* Blue */
+}</code></pre>
+
+  <h3>6) HSLA</h3>
+  <p>HSLA adds an Alpha (opacity) channel to HSL.</p>
+  <pre><code class="language-css">p {
+  color: hsla(0, 100%, 50%, 0.5); /* Semi-transparent red */
+}</code></pre>
+
+  <h2>Edit and Preview Colors</h2>
+  <p>Edit the <code>color</code> value in each code block and see the live preview update:</p>
+
+  <h3>1. Color Names</h3>
+  <div class="code-block">
+    <pre><code class="language-css live-editor" contenteditable="true">p {
+    color: red;
+}</code></pre>
+  </div>
+  <div class="live-preview" id="preview-name">This is a preview</div>
+
+  <h3>2. RGB</h3>
+  <div class="code-block">
+    <pre><code class="language-css live-editor" contenteditable="true">p {
+    color: rgb(200, 98, 70);
+}</code></pre>
+  </div>
+  <div class="live-preview" id="preview-rgb">This is a preview</div>
+
+  <h3>3. HEX</h3>
+  <div class="code-block">
+    <pre><code class="language-css live-editor" contenteditable="true">p {
+    color: #ff7180;
+}</code></pre>
+  </div>
+  <div class="live-preview" id="preview-hex">This is a preview</div>
+
+  <h3>4. HSL</h3>
+  <div class="code-block">
+    <pre><code class="language-css live-editor" contenteditable="true">p {
+    color: hsl(8, 90%, 63%);
+}</code></pre>
+  </div>
+  <div class="live-preview" id="preview-hsl">This is a preview</div>
+
+  <h3>5. RGBA</h3>
+  <div class="code-block">
+    <pre><code class="language-css live-editor" contenteditable="true">p {
+    color: rgba(200, 98, 70, 0.5);
+}</code></pre>
+  </div>
+  <div class="live-preview" id="preview-rgba">This is a preview</div>
+
+  <h3>6. HSLA</h3>
+  <div class="code-block">
+    <pre><code class="language-css live-editor" contenteditable="true">p {
+    color: hsla(8, 90%, 63%, 0.5);
+}</code></pre>
+  </div>
+  <div class="live-preview" id="preview-hsla">This is a preview</div>
+
+  <h2>🎛️ Live Color Playground</h2>
+  <p>Adjust the sliders below to see live preview of RGB, HEX, HSL, RGBA, and HSLA values all applied to a common preview box.</p>
+  <div class="color-demo">
+    <div class="slider-label">Red <input type="range" min="0" max="255" value="200" class="slider" id="rgbR"><span id="valR" class="value-display">200</span></div>
+    <div class="slider-label">Green <input type="range" min="0" max="255" value="98" class="slider" id="rgbG"><span id="valG" class="value-display">98</span></div>
+    <div class="slider-label">Blue <input type="range" min="0" max="255" value="70" class="slider" id="rgbB"><span id="valB" class="value-display">70</span></div>
+
+    <div class="slider-label">Alpha <input type="range" min="0" max="1" step="0.01" value="1" class="slider" id="alpha"><span id="valA" class="value-display">1</span></div>
+
+    <div class="slider-label">Hue <input type="range" min="0" max="360" value="8" class="slider" id="hue"><span id="valH" class="value-display">8</span></div>
+    <div class="slider-label">Saturation <input type="range" min="0" max="100" value="90" class="slider" id="sat"><span id="valS" class="value-display">90%</span></div>
+    <div class="slider-label">Lightness <input type="range" min="0" max="100" value="63" class="slider" id="light"><span id="valL" class="value-display">63%</span></div>
+
+    <div class="slider-label">HEX <input type="color" id="hexPicker" value="#ff7180"><span id="valHex" class="value-display">#ff7180</span></div>
+
+    <h4>RGB / RGBA / HEX Preview</h4>
+    <div id="valRgbHex" class="value-display"></div>
+    <div class="demo-box" id="previewBoxRgb">This is RGB/RGBA/HEX preview</div>
+
+    <h4>HSL / HSLA Preview</h4>
+    <div id="valHsl" class="value-display"></div>
+    <div class="demo-box" id="previewBoxHsl">This is HSL/HSLA preview</div>
+  </div>
+
+  <h2>Background Properties</h2>
+
+  <h3>The background-color property</h3>
+  <p>The CSS <code>background-color</code> property specifies the background color of a container.</p>
+  <pre><code class="language-css">.brown {
+  background-color: brown;
+}</code></pre>
+
+  <h3>The background-image property</h3>
+  <p>Used to set an image as the background.</p>
+  <pre><code class="language-css">body {
+  background-image: url("harry.jpg");
+}</code></pre>
+  <p>The image is by default repeated in X & Y directions.</p>
+
+  <h3>The background-repeat property</h3>
+  <p>Defines how a background image is repeated.</p>
+  <ul>
+    <li><code>repeat-x</code>: repeat in the horizontal direction</li>
+    <li><code>repeat-y</code>: repeat in the vertical direction</li>
+    <li><code>no-repeat</code>: image not repeated</li>
+    <li><code>repeat</code>: default (repeats both directions)</li>
+  </ul>
+
+  <h3>The background-size property</h3>
+  <p>Specifies the size of the background image.</p>
+  <ul>
+    <li><code>cover</code>: fits ,no empty space remains and croping and streching poassible</li>
+    <li><code>contain</code>: image is fully visible and vacant space can be remain</li>
+    <li><code>auto</code>: display in original size</li>
+    <li><code>&lt;width&gt;</code>: set width, height auto</li>
+    <li><code>&lt;width&gt; &lt;height&gt;</code>: set width & height</li>
+  </ul>
+  <p><b>Note:</b> Always check MDN docs to dissect a given CSS property. Practice will make you perfect.</p>
+
+  <h3>The background-position property</h3>
+  <p>Sets the starting position of a background image.</p>
+  <pre><code class="language-css">.div1 {
+  background-position: left top;
+}</code></pre>
+
+  <h3>The background-attachment property</h3>
+  <p>Defines whether the background is scrollable or fixed.</p>
+  <pre><code class="language-css">.div2 {
+  background-attachment: fixed;
+}</code></pre>
+
+  <h3>The background shorthand</h3>
+  <p>A single property to set multiple background values at once.</p>
+  <pre><code class="language-css">.div3 {
+  background: red url("img.png") no-repeat fixed right top;
+}</code></pre>
+  <p>👉 One or more values can be skipped, as long as the others are in order.</p>
+
+  <h2>Background-color Preview</h2>
+  <div class="code-block">
+    <pre><code class="language-css live-editor" contenteditable="true">.demo-bg {
+  background-color: lightblue;
+}</code></pre>
+  </div>
+  <div class="live-preview" id="preview-bg">This is a preview box</div>
+
+  <h2>Chapter – 2 (Practice Set)</h2>
+  <ul>
+    <li>Create a dark blue navigation bar with light color items.</li>
+    <li>Change the color of the main container on your page to dark red.</li>
+    <li>Create a div and add a background image with a given width and height.</li>
+    <li>Create a vertical box and add a fixed non-scrolling background to it.</li>
+    <li>Verify that the background shorthand property works with some of the values skipped.</li>
+  </ul>
+
+  <!-- Prism.js script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+
+  <script>
+    function bindLiveEditors() {
+      const editors = document.querySelectorAll('.live-editor');
+      const previewIds = ['preview-name','preview-rgb','preview-hex','preview-hsl','preview-rgba','preview-hsla','preview-bg'];
+
+      editors.forEach((editor, index) => {
+        const preview = document.getElementById(previewIds[index]);
+        function updatePreview() {
+          const text = editor.innerText;
+          const colorMatch = text.match(/color:\s*([^;]+);/);
+          const bgMatch = text.match(/background-color:\s*([^;]+);/);
+          if (colorMatch) preview.style.color = colorMatch[1].trim();
+          if (bgMatch) preview.style.backgroundColor = bgMatch[1].trim();
+        }
+        editor.addEventListener('input', updatePreview);
+        updatePreview();
+      });
+    }
+
+    function rgbToHex(r, g, b) {
+      return "#" + [r, g, b].map(x => {
+        const hex = parseInt(x).toString(16);
+        return hex.length === 1 ? "0" + hex : hex;
+      }).join("");
+    }
+
+    function updateSlidersPreview() {
+      const r = document.getElementById('rgbR').value;
+      const g = document.getElementById('rgbG').value;
+      const b = document.getElementById('rgbB').value;
+      const a = document.getElementById('alpha').value;
+      const h = document.getElementById('hue').value;
+      const s = document.getElementById('sat').value;
+      const l = document.getElementById('light').value;
+      const hexPicker = document.getElementById('hexPicker');
+
+      document.getElementById('valR').innerText = r;
+      document.getElementById('valG').innerText = g;
+      document.getElementById('valB').innerText = b;
+      document.getElementById('valA').innerText = a;
+      document.getElementById('valH').innerText = h;
+      document.getElementById('valS').innerText = s + "%";
+      document.getElementById('valL').innerText = l + "%";
+
+      const hex = rgbToHex(r, g, b);
+      document.getElementById('valHex').innerText = hex;
+      hexPicker.value = hex;
+
+      // Update RGB/HEX/RGBA preview
+const previewRgb = document.getElementById('previewBoxRgb');
+previewRgb.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+document.getElementById('valRgbHex').innerText =
+  `RGB: rgb(${r}, ${g}, ${b}) | RGBA: rgba(${r}, ${g}, ${b}, ${a}) | HEX: ${hex}`;
+
+// Update HSL/HSLA preview
+const previewHsl = document.getElementById('previewBoxHsl');
+previewHsl.style.color = `hsl(${h}, ${s}%, ${l}%)`;
+document.getElementById('valHsl').innerText =
+  `HSL: hsl(${h}, ${s}%, ${l}%) | HSLA: hsla(${h}, ${s}%, ${l}%, ${a})`;
+    }
+
+    bindLiveEditors();
+    document.querySelectorAll('.slider, #hexPicker').forEach(input => {
+      input.addEventListener('input', updateSlidersPreview);
+    });
+    updateSlidersPreview();
+  </script>
+</body>
+</html>

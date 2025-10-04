@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CSS Selectors Notes</title>
+<!-- Prism.js for syntax highlighting -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #2b6cb0;
+    }
+    .code-block {
+      position: relative;
+      margin: 10px 0 20px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    pre {
+      margin: 0;
+      border-radius: 6px;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #2b6cb0;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      z-index: 10;
+    }
+    .copy-btn:hover {
+      background: #1a4f8b;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .note {
+      background: #fff9c4;
+      padding: 10px;
+      border-left: 4px solid #fbc02d;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+<h1>Chapter 1: Introduction to CSS</h1>
+<h2>What is CSS and Why Learn It?</h2>
+<p><b>CSS (Cascading Style Sheets)</b> is a stylesheet language used to control the look and feel of a webpage. 
+  While HTML is used to structure the content of a webpage, CSS is used to style it, such as changing colors, fonts, layouts, and backgrounds.</p>
+<p><b>Why learn CSS?</b> Because it allows us to make websites visually attractive, user-friendly, and responsive across different devices. 
+  It helps separate content from design, making the code easier to maintain and scale.</p>
+
+<h1>CSS Selectors</h1>
+<p>A CSS Selector is used to select an HTML element(s) for styling.</p>
+<h2>Example</h2>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-css">body {
+    color: red;           /* Declaration (property: value) */
+    background: pink;     /* Declaration */
+}</code></pre>
+</div>
+<p><b>#body</b> is the selector.</p>
+<h2>Element Selector</h2>
+<p>It is used to select an element based on the tag name.</p>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-css">h2 {
+    color: blue;
+}</code></pre>
+</div>
+<h2>Id Selector</h2>
+<p>It is used to select an element with a given id. <b>#</b> is used to target by id.</p>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-css">#first {
+    color: white;
+    background: black;
+}</code></pre>
+</div>
+<h2>Class Selector</h2>
+<p>It is used to select an element with a given class.</p>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-css">.red {
+    background: red;
+}</code></pre>
+</div>
+<h2>Important Notes</h2>
+<div class="note">We can group selectors like this:</div>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-css">h1, h2, h3, div {
+    color: blue;   /* h1, h2, h3 and div will be blue */
+}</code></pre>
+</div>
+<div class="note">We can use element class as a selector like this:</div>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-css">p.red {
+    color: red;   /* all paragraphs will get color of red */
+}</code></pre>
+</div>
+<div class="note">'*' can be used as a universal selector to select all the elements:</div>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}</code></pre>
+</div>
+
+<h2>Ways to Add CSS in HTML</h2>
+<p>Below are the three main methods to add CSS in HTML:</p>
+
+<h3>1. Inline CSS</h3>
+<ul>
+<li>Written inside the <code>style</code> attribute of an element.</li>
+<li><b>Advantages:</b> Quick, no external file.</li>
+<li><b>Disadvantages:</b> Not reusable, hard to maintain.</li>
+</ul>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-html">&lt;h1 style="color: red; font-size: 20px;"&gt;Hello World&lt;/h1&gt;</code></pre>
+</div>
+
+<h3>2. Internal CSS</h3>
+<ul>
+<li>Written inside a <code>&lt;style&gt;</code> tag within the <code>&lt;head&gt;</code>.</li>
+<li><b>Advantages:</b> Good for single-page sites.</li>
+<li><b>Disadvantages:</b> Not reusable across pages.</li>
+</ul>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-html">&lt;style&gt;
+  h1 { color: blue; }
+&lt;/style&gt;</code></pre>
+</div>
+
+<h3>3. External CSS</h3>
+<ul>
+<li>Written in a separate <code>.css</code> file and linked with <code>&lt;link&gt;</code>.</li>
+<li><b>Advantages:</b> Reusable, scalable, clean.</li>
+<li><b>Disadvantages:</b> Needs extra file request.</li>
+</ul>
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+/* styles.css */
+h1 { color: green; }</code></pre>
+</div>
+
+<h3>Quick Comparison Table</h3>
+<table border="1" cellpadding="8" cellspacing="0">
+<tr><th>Method</th><th>Where it's written</th><th>Best For</th><th>Drawback</th></tr>
+<tr><td>Inline CSS</td><td><code>style</code> attribute</td><td>Quick fixes</td><td>Hard to maintain</td></tr>
+<tr><td>Internal CSS</td><td><code>&lt;style&gt;</code> in <code>&lt;head&gt;</code></td><td>Small single-page sites</td><td>Not reusable</td></tr>
+<tr><td>External CSS</td><td>Separate <code>.css</code> file</td><td>Large, multi-page sites</td><td>Extra file load</td></tr>
+</table>
+
+<p><b>Conclusion:</b></p>
+<ul>
+<li>Use <b>Inline CSS</b> for very small fixes.</li>
+<li>Use <b>Internal CSS</b> for single-page projects.</li>
+<li>Use <b>External CSS</b> for professional, large projects.</li>
+</ul>
+
+<p><b>Note:</b> An inline style will override external and internal styles.</p>
+<h2>Comments in CSS</h2>
+<p>Comments in CSS are the text which is not parsed and is thus ignored.</p>
+<h2>Chapter – 1 (Practice Set)</h2>
+<ul>
+<li>Create a website with a class <b>red</b> div which has a background color of red and color white.</li>
+<li>Create an element with id <b>head</b> and verify that background color works on it as inline, external as well as using style tag CSS.</li>
+<li>Create a CSS class <b>one</b> and verify that it works on multiple elements.</li>
+<li>Create multiple CSS classes and verify that all of these work on the same element.</li>
+<li>Have a look at the MDN CSS reference and try to play around with few key-value CSS rules.</li>
+</ul>
+<!-- Prism.js script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+<script>
+    function copyCode(button) {
+      const codeBlock = button.nextElementSibling.innerText;
+      navigator.clipboard.writeText(codeBlock).then(() => {
+        button.innerText = "Copied!";
+        setTimeout(() => button.innerText = "Copy", 2000);
+      });
+    }
+  </script>
+</body>
+</html>
