@@ -4,7 +4,7 @@
 
 <!-- 1) You can use predefined keywords: -->
 
-left top
+<!-- left top
 
 left center
 
@@ -20,38 +20,71 @@ right top
 
 right center
 
-right bottom 
+right bottom  -->
 
 <!-- Example: -->
-.box {
+<!-- .box {
   background-image: url("image.jpg");
   background-position: right bottom;
-}
+} -->
 
 
 <!-- 2. Length values (px, em, etc.) -->
 <!--  You can use lengths to move the image at exact postion in a container: --> 
-examples:
+<!-- examples:
 .box {
   background-position: 50px 100px;
 }
 
-Places the image 50px from the left and 100px from the top.
+Places the image 50px from the left and 100px from the top. -->
 
 <!-- 3. Percentage values (%) -->
-examples:
+<!-- examples:
 .box {
   background-position: 25% 75%;
 }
 
-Places the image 25% across the width and 75% down the height of the element.
+Places the image 25% across the width and 75% down the height of the element. -->
 
 <!-- 4. One-value syntax
 if you provide only one value, the second one defaults to center. -->
-Examples:
+<!-- Examples:
 
 background-position: top;    /* same as top center */
-background-position: 20px;   /* same as 20px center */
-background-position: right;  /* same as right center */
+background-position: 20px;   /* same as 20px top */
+background-position: right;  /* same as right center */ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+       body{
+         display: flex;
+         justify-content: center;
+       }
+
+       div{
+         background-image: url(../images.jpeg);
+         background-repeat: no-repeat;
+         width: 400px;
+         height: 400px;
+         background-color: brown;
+         background-position:20px 50px ;
+       }
+
+      
+  </style>
+  <title>Document</title>
+</head>
+<body>
+         <div>
+               
+         </div>
+</body>
+</html>
 
 
