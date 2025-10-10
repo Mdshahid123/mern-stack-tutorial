@@ -1,0 +1,18 @@
+<!-- flex-grow:flex-grow controls how much a flex item grows relative to the other items inside a flex container when there is extra space available. i.e flex-grow decides how much extra space a flex item should take  after all items have taken up their minimum space. -->
+
+<!-- by default all boxes have flex-grow: 0 —so each box stays 100px wide, and the remaining space stays empty.
+  -->
+
+
+note:
+
+If there is NO available (vacant) space
+
+Then flex-grow does nothing.
+
+Because:flex-grow only works when there’s extra free space left in the flex container after laying out all the items with their base sizes (flex-basis or width).
+
+
+for example if Each box is 100px, and the container is 300px.
+So — 100 + 100 + 100 = 300 → no extra space remains.
+Therefore, flex-grow has no visible effect — boxes stay the same width.
