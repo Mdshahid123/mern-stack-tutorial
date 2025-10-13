@@ -4,7 +4,7 @@
   -->
 
 
-note:
+<!-- note:
 
 If there is NO available (vacant) space
 
@@ -15,4 +15,67 @@ Because:flex-grow only works when there’s extra free space left in the flex co
 
 for example if Each box is 100px, and the container is 300px.
 So — 100 + 100 + 100 = 300 → no extra space remains.
-Therefore, flex-grow has no visible effect — boxes stay the same width.
+Therefore, flex-grow has no visible effect — boxes stay the same width. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex grow</title>
+  <style>
+      .container{
+        background-color: aqua;
+        width: 300px;
+        height: 500px;
+        display: flex;
+      }
+
+      .box{
+        width: 100px;
+        height:100px;
+
+      }
+
+      .box1{
+        background-color: red;
+        flex-shrink: 2;
+    
+
+      }
+
+      .box2{
+        background-color: blue;
+      
+      }
+
+      .box3{
+        background-color: blueviolet;
+        
+      }
+
+      .box4{
+        background-color: chartreuse;
+      
+      }
+  </style>
+</head>
+<body>
+        <div class="container">
+              <div class="box1 box">
+                
+              </div>
+              <div class="box2 box">
+
+              </div>
+              <div class="box3 box">
+
+              </div>
+              <div class="box4 box">
+
+              </div>
+        </div>
+</body>
+</html>

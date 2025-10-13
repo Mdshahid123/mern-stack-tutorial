@@ -1,0 +1,50 @@
+<!-- Example 2 – Rotate and Scale -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rotate and scale</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+    }
+  .circle {
+    width: 100px;
+    height: 100px;
+    background: orange;
+    border: 5px solid red;
+    position: relative;
+    top: 100px;
+    left:400px;
+    
+    transition-property:transform;
+    transition-duration: 3s;
+    transition-timing-function:linear;
+    transition-delay: 0s;
+  }
+  
+  .circle:hover {
+    /* transform: rotateX(90deg); */
+    /* transform: skew(45deg,90deg); */
+    transform: translate(500px, 50px)
+             scale(1.2, 1.2)
+             rotate(45deg)
+             skew(10deg, 10deg);
+    /* rotate: y 45deg; */
+    /* skew:X 45deg  Y 90deg; */
+  }
+  </style>
+</head>
+<body>
+  
+  <div class="circle">Hover me</div>
+</body>
+</html>
+
+
+
+ <!-- When you hover, the circle rotates 45° and enlarges smoothly. -->

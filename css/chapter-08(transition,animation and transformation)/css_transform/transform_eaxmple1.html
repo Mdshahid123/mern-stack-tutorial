@@ -1,0 +1,52 @@
+<!-- Example 1 – Moving or translating  an Element -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css translate</title>
+       <style>
+        
+        *{
+          margin: 0;
+          padding: 0;
+        }
+
+        .box{
+
+          width: 100px;
+          height: 100px;
+          background: lightblue;
+      
+          /* transition: transform 0.5s; */
+          transition-property:all;
+          transition-duration: 2s;
+          transition-timing-function: ease-in;
+          transition-delay: 1s; */
+        }
+         
+
+       
+       
+       .box:hover{ 
+         /* transform:scale(3, 1); */
+         /* scale: 3 1;   */
+         background-color: red;
+         color: white;
+        
+       }
+       </style>
+</head>
+<body>
+       <div class="box">Move or translate me</div>
+</body>
+</html>
+
+
+
+
+
+<!-- When you hover, the box moves smoothly 100px right and 50px down. -->

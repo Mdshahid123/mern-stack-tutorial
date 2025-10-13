@@ -1,0 +1,96 @@
+<!-- What is Animation in CSS? -->
+Animation is like a transition, but it happens automatically.”
+
+In simple words:
+
+Animation makes change it's states  automatically  when page load or(we can set it to start)— you don’t need user actions like hover or click.
+
+Transition → needs a trigger (like hover, click, focus).
+
+Animation → runs automatically, no trigger needed.
+
+<!-- Example to remember it easily: -->
+
+Concept	Simple Meaning
+Transition	“Change smoothly when something happens.”
+Animation	“Change smoothly on its own.”
+
+<!-- following proerties are  used in animation -->
+
+1)animation-name:The name of the animation (must match the one in @keyframes)
+
+example:animation-name: moveBox;
+
+
+2)animation-duration:How long one cycle of the animation takes	
+example:
+animation-duration: 2s;
+
+3)animation-timing-function:How the speed of the animation changes (slow/fast)
+example:
+animation-timing-function: ease-in-out;
+
+4)animation-delay:How long to wait before the animation starts	
+example
+animation-delay: 1s;
+
+5)animation-iteration-count:How many times the animation should repeat	
+example
+animation-iteration-count: infinite;
+
+6)animation-direction:Whether to play animation forward, backward, or alternate	animation-direction: alternate;
+
+
+
+<div class="box"></div>
+
+<style>
+.box {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+
+  /* Animation properties */
+  /* animation-name: moveBox;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: forwards; */
+}
+
+/* Keyframes define the movement */
+@keyframes moveBox {
+  from {
+    left: 0;
+    background: red;
+  }
+  to {
+    left: 200px;
+    background: blue;
+  }
+}
+</style>
+
+<!-- 💬 Explanation
+
+🏷 animation-name: connects to @keyframes moveBox.
+
+⏱ animation-duration: takes 3 seconds for one move.
+
+📈 animation-timing-function: starts slow, speeds up, ends slow.
+
+⏳ animation-delay: waits 1 second before starting.
+
+🔁 animation-iteration-count: repeats forever.
+
+🔄 animation-direction: goes forward → backward → forward (alternate).
+
+🧍 animation-fill-mode: keeps the final look after finishing. -->
+
+
+<!-- Shortcut Form -->
+<!-- You can write all in one line too: -->
+<!-- animation: moveBox 3s ease-in-out 1s infinite alternate forwards; -->

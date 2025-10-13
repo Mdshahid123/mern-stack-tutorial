@@ -1,0 +1,60 @@
+<!-- What is transform in CSS? -->
+
+The transform property in CSS is used to change the shape, size, and position of an HTML element without affecting other elements around it.
+
+<!-- In simple terms: -->
+
+The transform property allows you to move (translate), rotate, scale (resize), or skew (tilt) an element on the page.
+
+When we said “transform changes the shape, size, and position of an element it means
+
+1. Position
+
+-> It means moving the element from one place to another — left, right, up, or down.
+This is done using translate().
+
+transform: translate(50px, 100px);
+
+
+-> The element moves 50px right and 100px down,
+but it doesn’t affect other elements’ layout (like margin or position would).
+
+2. Size
+
+➡️ It means making the element bigger or smaller — like zooming in or out.
+This is done using scale().
+
+transform: scale(1.5);
+
+
+-> Makes the element 1.5 times bigger.
+If you use scale(0.5), it becomes half the size.
+
+3. Shape
+->It means rotating or tilting the element, which changes how it looks (its shape visually).
+This is done using rotate() and skew().
+
+transform: rotate(45deg);
+
+Rotates the element 45 degrees.
+
+
+transform: skew(20deg, 0deg);
+-> Tilts (slants) the element horizontally — changes its shape appearance.
+ 
+<!-- Common Transform Functions -->
+Function	                    What it does	                      Example
+translate(x, y)	   Moves the element left/right or up/down   transform: translate(50px, 20px);
+rotate(angle)	         Rotates the element	                        transform: rotate(45deg);
+scale(x, y)	       Changes size (x = width, y = height)	      transform: scale(1.5, 1.5);
+skew(x, y)	       Tilts the element	                      transform: skew(20deg, 10deg);
+matrix()	     Combination of all the above (advanced)	 transform: matrix(...)
+
+
+
+
+<!-- note transform can be happen in 2-D plane as well as 3-D plane -->
+
+
+  transform changes how an element looks (its position, angle, or size),
+  while transition controls how smoothly that change happens.
