@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Layout Example</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+     
+    header{
+        background-color:bisque;
+        height: 50px;
+        text-align: center;
+        padding-top:5px;
+    }
+
+
+    footer{
+        background-color:black;
+        color: white;
+        height: 50px;
+        text-align: center;
+        padding-top:18px;
+    }
+
+    .container{
+        display:flex;
+        height:calc(100vh - 2*50px);
+    
+        
+         
+    }
+
+    .sidebar{
+        background-color: brown;
+        color: white;
+        flex: 1;
+        padding: 5px;
+    }
+    .main{
+        background-color: blueviolet;
+        color: white;
+        flex: 1;
+        padding: 5px;
+        
+    }
+    .extra{
+        background-color: darkolivegreen;
+        color: white;
+        flex: 1;
+        padding: 5px;
+    }
+
+    /* ---------- MEDIA QUERIES ---------- */
+
+     /* 📱 Mobile: width ≤ 600px  */
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar, .main, .extra {
+        min-width: 100%;
+      }
+    }
+
+    /* 💻 Tablet: 601px – 1024px */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .sidebar, .main, .extra {
+        flex: 1;
+      }
+    }
+
+    /* 🖥️ Desktop: width ≥ 1025px */
+    @media (min-width: 1025px) {
+      .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .sidebar {
+        flex: 1;
+      }
+      .main {
+        flex: 2;
+      }
+      .extra {
+        flex:0;
+      }
+    } 
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Responsive Layout</h1>
+  </header>
+
+  <div class="container">
+    <div class="sidebar">Sidebar</div>
+    <div class="main">Main Content</div>
+    <div class="extra">Extra Section</div>
+  </div>
+
+  <footer>
+    <p>Footer</p>
+  </footer>
+</body>
+</html>

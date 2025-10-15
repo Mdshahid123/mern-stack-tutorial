@@ -1,4 +1,11 @@
-<!-- Example 1 – Moving or translating  an Element -->
+<!-- case1: – Moving or translating the element  -->
+
+<!-- element can move or translate only in a plane that is in xy plane,yz plane and xz plane-->
+
+<!-- in any plane element can translate in four possible direction that is left,right ,top and bottom -->
+
+<!-- we can not translate the element's from one plane to another plane like xy to xz etc
+beacuse if we do this then it is not a traslating  actually it is a rotaion  -->
 
 
 
@@ -16,37 +23,37 @@
         }
 
         .box{
-
           width: 100px;
           height: 100px;
           background: lightblue;
-      
-          /* transition: transform 0.5s; */
-          transition-property:all;
-          transition-duration: 2s;
-          transition-timing-function: ease-in;
-          transition-delay: 1s; */
-        }
-         
+          position: relative;
+          left: 200px;
+          top:200px;
 
-       
-       
-       .box:hover{ 
-         /* transform:scale(3, 1); */
-         /* scale: 3 1;   */
-         background-color: red;
-         color: white;
+          /* applying transtion property */
+           transition-property:transform;
+           transition-duration: 3s;
+           transition-timing-function:linear;
+           transition-delay: 0s;
+          }
+
+        .box:hover{
+            /* transform:translateX(200px); */
+            /* transform:translateX(-200px); */ 
+            /* transform: translateY(200px); */
+          /* transform: translateY(-200px); */
+          /* transform: translate3d(200px); */
+          /* shorthand */
+          transform: translate(200px,200px);
+        }
+
         
-       }
+        
        </style>
 </head>
 <body>
-       <div class="box">Move or translate me</div>
+       <div class="box">Move or translate me  in all possible direction</div>
 </body>
 </html>
 
 
-
-
-
-<!-- When you hover, the box moves smoothly 100px right and 50px down. -->
