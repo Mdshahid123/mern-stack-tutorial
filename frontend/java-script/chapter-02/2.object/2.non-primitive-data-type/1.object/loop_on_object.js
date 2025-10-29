@@ -3,7 +3,7 @@
 //Use for...in when you want to loop through the properties of an object
 
 
-person = {
+person={
     name: "md shahid",
     age: 24,
     city: "new delhi"

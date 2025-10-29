@@ -30,25 +30,11 @@ const person3 = new Object({
     age: 50,
     eyeColor: "blue"
 });
-
 console.log(person)
 
 
 
 // advanced topic
-
-// JavaScript Object.create()
-// The Object.create() method creates an object from an existing object.
-
-// Create an Object:
-const person4 = {
-    firstName: "John",
-    lastName: "Doe"
-};
-
-// Create new Object
-const man = Object.create(person);
-man.firstName = "Peter";
 
 
 
@@ -61,27 +47,6 @@ const fruits = [
     ["bananas", 500]
 ];
 
-const myObj = Object.fromEntries(fruits);
+const myfruits=Object.fromEntries(fruits)
+console.log(myfruits)
 
-
-
-// avaScript Object.assign()
-// The Object.assign() method copies properties from one or more source objects to a target object.
-
-//Example
-// Create Target Object
-const person5 = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 50,
-    eyeColor: "blue"
-};
-
-// Create Source Object
-const person6 = {
-    firstName: "Anne",
-    lastName: "Smith"
-};
-
-// Assign Source to Target
-Object.assign(person1, person2);
