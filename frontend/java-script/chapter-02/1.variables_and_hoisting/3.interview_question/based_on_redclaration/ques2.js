@@ -1,0 +1,1 @@
+// case2: for let variable
