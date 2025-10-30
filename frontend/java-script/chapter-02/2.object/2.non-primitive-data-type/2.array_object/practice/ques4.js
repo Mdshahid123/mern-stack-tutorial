@@ -1,0 +1,1 @@
+// print all elment of an array using for ,for in and for of
