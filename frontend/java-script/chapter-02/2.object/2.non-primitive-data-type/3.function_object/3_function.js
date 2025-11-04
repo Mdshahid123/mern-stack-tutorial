@@ -23,6 +23,8 @@ fun()
  }
  let ans=square2()
  console.log(ans)
+
+ 
 //3) with parameter  and without  return value
 
 function fun(name)

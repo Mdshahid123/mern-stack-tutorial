@@ -53,13 +53,13 @@ function test() {
 }
 
 //Summary:
-//Keyword	     Function Scope	       Block Scope
-//var	              ✅ Yes             	 ❌ No
-//let       	     ✅ Yes	                ✅ Yes
-//const	            ✅ Yes           	    ✅ Yes
+//Keyword	     Function Scope	      Block Scope    global scope
+//var	             ✅ Yes             ❌ No          ✅yes
+//let       	     ✅ Yes	             ✅ Yes       ✅yes
+//const	             ✅ Yes           	 ✅ Yes       ✅yes
+//without keyword    ❌ NO               ❌NO          ✅yes 
 
-
-
+// note:varaible without keyord is not hoisted
 
 
 

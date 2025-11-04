@@ -1,4 +1,4 @@
-// pridict the output make executin diagram
+// pridict the output make execution diagram
 var n = 2;
 
 function square(num)

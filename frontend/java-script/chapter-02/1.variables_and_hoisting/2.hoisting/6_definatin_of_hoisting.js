@@ -9,6 +9,11 @@
 
 // hoisting:hoisting is java script behaviur of knowing about variable or function existence before the executing of code 
 
-// example:function is hoisted and intialzedwith code
+// example:
+// function declaration  is hoisted and intialzed with their code
+
  //var variable is hoisted and initialized with undefiend 
+
  //let and const is hoisted but unintilized
+
+//behaviour of function expresstion depends on how variable is declared(let,const,var) 

@@ -11,3 +11,6 @@ int main()
 
   int a = 9;
 }
+
+// in another langauage memory allocation is happen when program  is run
+// that is execution and memory allocation  both happen at run time

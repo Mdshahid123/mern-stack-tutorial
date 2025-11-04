@@ -1,28 +1,39 @@
 // function declartion vs function expresstion
 
 
-// 1)Function Declaration:we defined the function with named function
+// 1)Function Declaration:when we defined the function with named function then it is called function declaration.
+// example:
+
+// function declaration
+function fun()
+{
+    console.log()
+}
+
+fun()
+
+// some imp points about fucntion declaration
+
+// it is hoisted  and intialized with it's corresponding  function object
 
 
-//Hoisted to the top of its scope → you can call it before it’s defined.
-
-//The whole function (code + name) is stored in memory during the creation phase.
 
 
 
-// 2)Function Expression:we defined the function with anonymos function and assign it to the variable.
+// 2)Function Expression:when we  defined the function with anonymos function and assign it to the variable.
 //Syntax:
 const greet = function() {
   console.log("Hello, Shahid!");
 };
 
-//Usage:
-greet(); // ✅ Works (only if called after definition)
+// function call
+greet(); 
 
-// key points
 
-//The function is stored in a variable.
+//some imp points about function expression
 
-//Not hoisted the same way as declarations — only the variable name is hoisted (with undefined).
+// behaviour of function expression depends on how the function expresstion is declared 
 
-//You cannot call it before defining it
+// if it is declared with var then it will be hoisted and intialized with undefined 
+// if it is declared with let and const then it will be hoisted but unintialized(remains In TDZ)
+
