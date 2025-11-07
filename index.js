@@ -1,16 +1,9 @@
-// global scope
-let c=10
+let a=5
+let b='5'
+console.log(a==b)
+console.log(a===b)//check data type first and then equality
 
-function fun()
-{
 
-  console.log(c)
-  let a=9
-  if(true)
-  { console.log(c)
-    var b=8
-  }
-  c=10
-}
-fun()
-//console.log(b)
+
+
+
