@@ -1,9 +1,6 @@
-let a=5
-let b='5'
-console.log(a==b)
-console.log(a===b)//check data type first and then equality
 
 
-
-
-
+for (i = 0; i <= 100; i++) {
+  if (i % 2 === 0)
+    console.log(i)
+}

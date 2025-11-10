@@ -13,4 +13,4 @@ int main()
 }
 
 // in another langauage memory allocation is happen when program  is run
-// that is execution and memory allocation  both happen at run time
+// that is execution and memory allocation  both happen when cpp program run
