@@ -1,13 +1,15 @@
-// getting and modifiyng  attributes value
+// getting attributes value
+//syntax
+getAttribute(attr)//it return the attribute value
+     or
+let attributevalue = node.attributename
 
-//1)getAttribute(attr):it return the attribute value
-or
-//2)let attributevalue=node.attributename
 
+// modifying a attribute value
+// syntax
+setAttribute(attr, value)
+     or
+node.attributename = "newattribute"
 
-// adding new attribute or upadting a attibute value 
-
-//1)setAttribute(attr,value)
-or
-//2) node.attributename="newattribute"
-
+// adding new attribute to the element
+setAttribute(attr, value)

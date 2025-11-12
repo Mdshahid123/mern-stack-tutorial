@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form evenst</title>
+  </head>
+  <body>
+    <!-- form events -->
+    <h1>form evenst</h1>
+    <form onsubmit="alert('Form Submitted!'); return false;">
+      <input
+        type="text"
+        name="username"
+        placeholder="Enter name"
+        onchange="console.log('Value changed!')"
+        oninput="console.log('Typing...')"
+        onfocus="console.log('Input Focused!')"
+        onblur="console.log('Input Lost Focus!')" />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

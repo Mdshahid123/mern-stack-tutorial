@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window events</title>
+  </head>
+  <body>
+    <p>Try scrolling, resizing the window, or reloading the page to see these
+      events in action!</p>
+
+    <script>
+         window.onresize=function(){
+              console.log("Window resized:", window.innerWidth);
+         }
+         window.onload=function(){
+              console.log("loaded");
+         }
+         window.onscroll=function(){
+              console.log("scrolling");
+         }
+         window.onunload=function(){
+              console.log("loading.......");
+         }
+    </script>
+
+  </body>
+</html>
+
+<!-- inline evenet is not possible for window bcz usually we don't have html element for window  -->
+<!-- so we use   -->
+<!--  -->
