@@ -1,0 +1,1 @@
+//search engine is a website (like Google or Bing) used to find information on the internet.

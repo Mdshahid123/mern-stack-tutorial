@@ -6,5 +6,7 @@
 
 // textConent:return the textual content even for hidden elements
 
+// classList:
+
 
 

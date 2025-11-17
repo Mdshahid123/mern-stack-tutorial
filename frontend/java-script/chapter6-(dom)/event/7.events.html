@@ -10,9 +10,12 @@
   <body>
 
     <script>
+      // handling multiple events on same element
        let btn = document.getElementById("btn");
+      //  click
        btn.addEventListener("click", () => {
        alert("Button clicked using addEventListener!");
+      //  mouse events
        btn.addEventListener("mouseover", () => console.log("Mouse over button!"));
       });
     </script>

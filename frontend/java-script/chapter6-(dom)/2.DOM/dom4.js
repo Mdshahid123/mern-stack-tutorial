@@ -1,15 +1,16 @@
-// getting attributes value
+//1) getting element attributes value
+
 //syntax
 getAttribute(attr)//it return the attribute value
      or
 let attributevalue = node.attributename
 
 
-// modifying a attribute value
+//2)modifying a attribute value
 // syntax
 setAttribute(attr, value)
      or
 node.attributename = "newattribute"
 
-// adding new attribute to the element
+//3)adding new attribute to the element
 setAttribute(attr, value)
