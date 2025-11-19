@@ -4,7 +4,7 @@ function fdfs(data) {
   console.log(`getting ${data}....`);
   return new Promise((resolve,reject) => {
     setTimeout(() => {
-      resolve(data);
+      //resolve(data);
       reject("sorry error while feching your data")
     }, 2000);
   });
@@ -12,7 +12,9 @@ function fdfs(data) {
 
 
 async function run() {
+
   try {
+    
     const r1 = await fdfs("data1");
     console.log(r1);
 
@@ -21,10 +23,10 @@ async function run() {
 
     const r3 = await fdfs("data3");
     console.log(r3);
-
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+     console.log(error)
   }
-}
 
+  } 
 run();
+console.log("hello")
