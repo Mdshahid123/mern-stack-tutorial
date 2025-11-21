@@ -1,4 +1,4 @@
-//function need fucntion  method->stroed in Function.prototype 
+//function need function  method->stroed in Function.prototype 
 
 // contains:call(),apply(),bind()
 
