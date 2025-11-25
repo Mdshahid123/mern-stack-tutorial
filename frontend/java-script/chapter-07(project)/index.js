@@ -1,0 +1,1 @@
+console.log(Math.floor(Math.random()*Array.length))// always b/w 0 to 1(excluded)

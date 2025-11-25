@@ -7,11 +7,11 @@ body {
   background: #ccc;
 }
 
-#emoji {
+#emoji{
   font-size: 10rem;
   filter: grayscale(1);
   transition-property: transfrom, filter;
-  transition-duration: 200ms;
+  transition-duration:1s;
   cursor: pointer;
 }
 

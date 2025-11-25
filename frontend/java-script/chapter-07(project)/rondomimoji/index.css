@@ -1,0 +1,27 @@
+body{
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+p{
+   font-size: large;
+   font-weight: bold;
+}
+/* intiial state */
+div{
+  margin-top:20px;
+  font-size: 150px;
+  filter: grayscale(1);
+   transition-property:filter,transform;
+   transition-duration:0.5s;
+   transition-timing-function: ease-in-out;
+}
+/*final state */
+div:hover{
+  filter: grayscale(0);
+  transform: scale(1.5);
+}
+

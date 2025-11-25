@@ -1,0 +1,111 @@
+<!--background-attachment property  Defines whether the background is scrollable or fixed. -->
+
+<!-- we have three property in background attchment  -->
+
+<!-- 1.background-attchment:fixed-whenever we set the background attchment property as a fixed then it is fiexd with repespect to the webpage as well as container -->
+ 
+ <!--2)local-it will be scroll with content with repect to the container as well as webpage  -->
+
+ <!--3)scroll-it will be fixed with respect to the container in which it is and but it will be move with the content when we scroll the webpage -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Attachment Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .box {
+      width: 250px;
+      height: 250px;
+      border: 2px solid #333;
+      overflow: auto;
+      padding: 10px;
+      color: white;
+      background-image: url("https://picsum.photos/400/400");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Different background-attachment values */
+    .scroll {
+      background-attachment: scroll;
+    }
+
+    .local {
+      background-attachment: local;
+    }
+
+    .fixed {
+      background-attachment: fixed;
+    }
+    .container{
+      visibility: visible;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>background-attachment: scroll vs local vs fixed</h1>
+
+  <div class="container">
+    <div class="box scroll">
+      <h3 style="color: red;">Scroll (default)</h3>
+      <p>
+        Background is attached to the element. 
+        When you scroll inside, only the text moves — background stays still.
+      </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+    </div>
+
+    <div class="box local">
+      <h3 style="color: red;">Local</h3>
+      <p>
+        Background moves with the element's content. 
+        Scroll inside and you’ll see the background move along with text.
+      </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+    </div>
+
+    <div class="box fixed">
+      <h3 style="color: red;">fixed</h3>
+      <p>
+        Background is fixed to the viewport. 
+        Scroll the page, and the background will stay fixed in place.
+      </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+    </div>
+  </div>
+
+  <p style="margin: 50px; text-align:center;">
+    Scroll the page down to see how <b>fixed</b> behaves compared to scroll and local.
+    
+  </p>
+  
+
+</body>
+</html>
