@@ -1,55 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap');
-
-body {
+body{
+  background-color: black;
   height: 100vh;
-  background: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: none; /* hides the default mouse cursor */
+  color: white;
+  cursor:none;
 }
 
-.container {
-  text-align: center;
-  margin: 0 auto;
+h1{
+  position: absolute;
+  top: 40%;
+  left:40%;
 }
 
-h1 {
-  color: #fff;
-  font-size: 4rem;
-  font-family: 'Playfair Display SC', serif;
-}
-
-p {
-  color: #fff;
-  max-width: 700px;
-  font-family: sans-serif;
-  letter-spacing: 2px;
-  line-height: 22px;
-  margin-bottom: 40px;
-}
-
-button {
-  padding: 10px 20px;
-  border: 2px solid white;
-  background: transparent;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-/* Cursor styles */
-.cursor {
+.cursor{
+   width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: yellow;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 25px;
-  height: 25px;
-  background: yellow;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
   pointer-events: none;
-  transition: background-color 0.15s ease;
+  transition-property:background-color;
+  transition-duration:0.5s;
+  transition-timing-function: ease;
 }
