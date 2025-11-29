@@ -1,0 +1,17 @@
+*{
+      margin: 0;
+      padding: 0;
+}
+
+.bg{
+  background-color: brown;
+}
+
+.size{
+  width: 200px;
+  height: 200px;
+}
+
+.colour{
+  color: white;
+}

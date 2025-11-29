@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Attachment Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .box {
+      width: 250px;
+      height: 250px;
+      border: 2px solid #333;
+      overflow: auto;
+      padding: 10px;
+      color: white;
+      background-image: url("https://picsum.photos/400/400");
+      background-repeat: no-repeat;
+      background-size: 100px 100px;
+      background-position:bottom right;
+    }
+
+    /* Different background-attachment values */
+    .scroll {
+      background-attachment: scroll;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+   
+
+   
+    .container{
+      visibility: visible;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>background-attachment: scroll vs local vs fixed</h1>
+
+  <div class="container">
+    <div class="box scroll">
+      <h3 style="color: red;">Scroll (default)</h3>
+      <p>
+        Background is attached to the element. 
+        When you scroll inside, only the text moves — background stays still.
+      </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+    </div>
+  </div>
+
+  <p style="margin: 50px; text-align:center;">
+    Scroll the page down to see how <b>fixed</b> behaves compared to scroll and local.
+    
+  </p>
+
+
+  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, veniam numquam? Itaque, velit ullam dicta perferendis quaerat sequi aliquid voluptatem unde, quisquam recusandae nostrum vero, autem magnam dolorum nisi eum.
+  Temporibus modi maxime adipisci corrupti architecto, reprehenderit provident voluptates cum magnam sequi sint quae sapiente, atque unde fuga amet vel saepe tempore ad recusandae dignissimos. Non nisi velit maiores. Nisi!
+  Sed saepe alias quam maiores adipisci cumque optio assumenda praesentium voluptates deleniti dolore veniam molestiae quis soluta nam, modi provident! Debitis eum ex vel cupiditate magnam necessitatibus consequatur sapiente non.
+  Illo corrupti quis soluta quas rerum pariatur fugiat, ex, impedit nemo dicta, mollitia nostrum. Sit mollitia est nobis alias fugiat at voluptate consectetur, asperiores impedit! Necessitatibus hic nostrum facilis labore.
+  Ipsa ad rem impedit maiores unde, sunt, natus est, nostrum voluptates inventore facere esse deleniti. Odit recusandae cumque molestias quam, vero ipsam nobis, libero, quisquam maiores eos aperiam alias quasi?
+  Quasi consectetur obcaecati nobis distinctio error, ab nostrum dicta quis. Iusto neque inventore nisi itaque provident aliquam cum dolore. Quibusdam saepe explicabo aperiam temporibus! Eveniet quae voluptatibus facere eum reprehenderit?
+  Nemo, impedit. Ducimus temporibus tempora vitae fuga dolorum deleniti itaque blanditiis nihil, sunt consectetur voluptas culpa eos eveniet at obcaecati quos quia commodi delectus, similique rerum quam est! Eligendi, hic!
+  Architecto, at repellendus officiis perferendis itaque unde incidunt ipsum vero quod ratione expedita. Sapiente doloribus pariatur, enim aliquid est facilis commodi accusamus ab consectetur distinctio fugiat illum perspiciatis laboriosam iure!
+  Quaerat error aspernatur iusto a at sunt aliquam voluptas optio amet earum, unde exercitationem eaque dolorem deserunt temporibus quam architecto animi vel fugit adipisci, vero illo! Nam possimus at eius.
+  Optio at ipsa incidunt libero nesciunt pariatur culpa, quis voluptatem provident doloribus amet id dolor qui dignissimos ratione maiores? Sunt mollitia illum amet quo tempora, debitis ipsum fugit corrupti molestias?
+  Repellat repudiandae eos consequatur suscipit soluta blanditiis voluptatibus quae esse excepturi est, eum reprehenderit totam fugit fugiat accusantium, repellendus placeat temporibus rerum! Consequatur eos, ipsa nam veniam repellendus autem deserunt?
+  Sed aliquam, placeat nobis vitae et tenetur reiciendis accusamus expedita laudantium ex ratione odit necessitatibus modi nihil aperiam nam rerum, quidem a error, magnam consequatur eum? At earum exercitationem rem.
+  Voluptates, magni quae consequatur ea aspernatur blanditiis aliquam velit commodi ab enim quaerat iusto, libero quod voluptatum explicabo voluptatibus magnam! Ratione dignissimos similique temporibus animi possimus expedita rem dolore accusantium.
+  Quos impedit ipsa dolorem dolore, totam quam quas aut voluptas amet ex assumenda? Repudiandae omnis quas distinctio nesciunt. Corrupti autem eaque, reprehenderit at totam repellendus aspernatur neque necessitatibus! Aliquid, ipsam.
+  In cumque ab at nesciunt vel aut facilis, esse labore sequi quaerat quasi libero facere quisquam aperiam. Quos culpa modi repudiandae officia cum libero soluta voluptatibus! Vero aperiam laborum consequuntur!
+  Ullam ipsum porro necessitatibus hic voluptas possimus saepe earum sit reprehenderit itaque optio laudantium nobis molestiae, officia, minima commodi quia consequatur iure aut quas iusto cupiditate deserunt doloribus. Vitae, perspiciatis?
+  Deleniti nemo, inventore in laborum dolore, asperiores obcaecati perspiciatis fugiat assumenda quos consectetur pariatur ipsa tenetur saepe rerum atque architecto dicta labore non consequatur iusto amet hic doloremque excepturi! Sint.
+  Natus voluptatem dolore nihil voluptates autem voluptas eos cupiditate illum, impedit veritatis numquam debitis pariatur dignissimos non sed atque molestiae eligendi nemo? Unde cumque aut earum laudantium necessitatibus distinctio modi.
+  Incidunt quaerat, provident pariatur explicabo modi blanditiis nam. Animi eos corporis, ratione vel vero repellat inventore rerum eveniet maxime delectus in! Accusantium, natus totam optio sed error sapiente repellendus in?
+  Laboriosam nostrum nesciunt debitis modi accusamus cupiditate, possimus deleniti voluptatem neque, qui blanditiis, consequatur sint quis dolor laudantium fuga architecto a atque quae harum necessitatibus asperiores animi? Labore, qui dolorum?
+  
+
+</body>
+</html>

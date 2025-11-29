@@ -1,6 +1,6 @@
 // Qs. Create a H2 heading element with text - “Hello JavaScript”. Append “from technoglobe students” to this text using JS.
 
-// Qs.Create 3 divs with common class name - “box”. Access them & add some unique text to each of them.Apna
+// Qs.Create 3 divs with common class name - “box”. Access them & add some unique text to each of them.
 
 
 // Qs.Create a new button element.Give it a text “click me”

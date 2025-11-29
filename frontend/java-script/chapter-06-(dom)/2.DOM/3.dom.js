@@ -2,9 +2,9 @@
 
 // innerText:return the textual content of the html element and  all it's children
 
-// innerHTML:return the plain TEXT or HTML content in the element
+// innerHTML:return HTML element with it's content
 
-// textConent:return the textual content even for hidden elements
+// textConent:same as innerText but it can return the teactual content even for the hidden element
 
 // classList:
 

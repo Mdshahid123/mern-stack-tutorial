@@ -12,7 +12,7 @@ const underlineBtn = document.querySelector(".underline");
 
 // Update output as user types
 inputField.addEventListener("input", () => {
-  outputField.textContent = inputField.value || "Output";
+  outputField.textContent = inputField.value ?inputField.value:"Output";
 });
 
 // Text Transform Buttons
@@ -44,7 +44,7 @@ underlineBtn.addEventListener("click", () => {
   toggleStyle(underlineBtn, "textDecoration", "underline", "none");
 });
 
-// Function to toggle style and button highlight
+//Function to toggle style and button highlight
 function toggleStyle(button, styleProp, onValue, offValue) {
   if (outputField.style[styleProp] === onValue) {
     outputField.style[styleProp] = offValue;

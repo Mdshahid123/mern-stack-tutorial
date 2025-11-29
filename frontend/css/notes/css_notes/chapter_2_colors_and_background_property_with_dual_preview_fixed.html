@@ -95,8 +95,33 @@
 }</code></pre>
   <p>Similarly, we can set color for different elements.</p>
 
-  <h3>2) HEX Code</h3>
-  <p>A hex code (short for hexadecimal code) is a way to represent colors in web design and digital graphics using a 6-digit combination of numbers and letters.</p>
+
+  <h3>2) RGB</h3>
+  <p>Instead of specifying colors using predefined color names, 
+     we can use RGB values.</p>
+  <p>This is because, in computers, every color is created by mixing 
+     different intensities of Red, Green, and Blue.</p>
+  <p>RGB color model defines colors using the intensity of 
+     Red, Green, and Blue on a scale from 0 to 255.</p>
+  <p>RGB can produce over 16 million colors, whereas CSS color names 
+     are limited to around 140 predefined names.</p>
+
+  <pre><code class="language-css">p {
+  color: rgb(255, 0, 0); /* Red */
+  color: rgb(0, 255, 0); /* Green */
+  color: rgb(0, 0, 255); /* Blue */
+}</code></pre>
+
+  <h3>3) RGBA</h3>
+  <p>RGBA is an extension of RGB with an additional Alpha (opacity) channel, ranging from 0 (transparent) to 1 (opaque).</p>
+  <pre><code class="language-css">p {
+  color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
+}</code></pre>
+
+<h3>4) HEX Code</h3>
+<p>Hex code is a alternate way of representing the same rgb value</p>
+  <p>Hex code represent the rgb colour in hexadecimal format by using six hexadecimal digit</p>
+  
   <ul>
     <li>Format: <code>#RRGGBB</code></li>
     <li>RR → Red value (00–FF)</li>
@@ -117,19 +142,6 @@
     <li><code>#000</code> = <code>#000000</code></li>
   </ul>
 
-  <h3>3) RGB</h3>
-  <p>The RGB color model specifies colors using the intensity of Red, Green, and Blue on a scale of 0–255.</p>
-  <pre><code class="language-css">p {
-  color: rgb(255, 0, 0); /* Red */
-  color: rgb(0, 255, 0); /* Green */
-  color: rgb(0, 0, 255); /* Blue */
-}</code></pre>
-
-  <h3>4) RGBA</h3>
-  <p>RGBA is an extension of RGB with an additional Alpha (opacity) channel, ranging from 0 (transparent) to 1 (opaque).</p>
-  <pre><code class="language-css">p {
-  color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
-}</code></pre>
 
   <h3>5) HSL</h3>
   <p>HSL stands for Hue, Saturation, and Lightness:</p>
