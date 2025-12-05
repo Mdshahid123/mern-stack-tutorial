@@ -2,7 +2,7 @@
 
 // This installs nodemon and adds it to:
 
-"dependencies"{
+"dependencies":{
    "nodemon": "^3.1.0"
 }
 
@@ -13,11 +13,11 @@
 
 // 2. npm install nodemon --save-dev:This installs nodemon and puts it under:
 
-//Example:
-
 "devDependencies": {
-  "nodemon": "^3.1.0"
-}
+    "nodemon": "^3.1.11"
+  }
+
+
 
 // meaning nodemon required only in development not in production
 

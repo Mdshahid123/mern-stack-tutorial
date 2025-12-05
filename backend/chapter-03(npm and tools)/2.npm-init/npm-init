@@ -1,9 +1,9 @@
-// npm init is a command used to create a new Node.js project.
+//npm init is a command used to create a new Node.js project.
 
-// it create package.json file,which store
+//it create package.json file,which store
 
 ->your project details
--> Installed npm packages or project dependencies(express,mongoose)
+->Installed npm packages or project dependencies(express,mongoose)
 -> Scripts to run your project:instead of typing long terminal commands, you can put them inside "scripts" and run them easily.
 
 
