@@ -19,18 +19,15 @@
 let str = "shahid"
 
 
-  // string length
+  //string length
 
-  // string indices
+  //string indices
 
-  // template literal in js
-  // it used to embedded expression in a string 
+  // template literal in js:it used to embedded expression in a string 
   `this is a template literal`
 
 
-  // string interpolation
-
-  // to create strings by doing substituition of placeholder 
+  // string interpolation:to create strings by doing substituition of placeholder 
 
   `stringtext${expresstion}stringtxt`
 

@@ -2,7 +2,7 @@
 
 
 
-//we can declare a variable uing let ,var , const keyword and without any keyword
+//we can declare a variable using let ,var , const keyword and without any keyword
 
 //var keyword and without any keyword is a older way to declare a variable
 

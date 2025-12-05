@@ -3,11 +3,10 @@
 //first diffrence declaration
 //we can re declare the varibale with var in same scope but let and const can't redclare in same scope
 
-// second dfirrecne declaration without intilization 
+// second diffrence declaration without intilization 
 //we can declare the variable first with let and var and then later on we can intilage it but with const we must has to intialize the variable
 
 //3rd diffrence hoisting
-
 function abc() {
     let d = 9//hoisted and intiallized
     //console.log(a)
@@ -54,7 +53,7 @@ function test() {
 
 //Summary:
 //Keyword	     Function Scope	      Block Scope    global scope
-//var	             ✅ Yes             ❌ No          ✅yes
+//var	             ✅ Yes               ❌ No        ✅yes
 //let       	     ✅ Yes	             ✅ Yes       ✅yes
 //const	             ✅ Yes           	 ✅ Yes       ✅yes
 //without keyword    ❌ NO               ❌NO          ✅yes 

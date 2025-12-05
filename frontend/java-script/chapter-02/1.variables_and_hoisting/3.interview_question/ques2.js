@@ -1,1 +1,1 @@
-// what is the diffrence b/w nulland  undefined
+// what is the diffrence b/w null and  undefined
