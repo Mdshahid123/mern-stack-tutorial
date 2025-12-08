@@ -1,0 +1,9 @@
+error and debugging
+
+1.types of wrror 
+2.syntax error
+3.runtime errors
+4.logical error 
+5.using the debugger 
+6.debugger with Asynch code 
+7.restart Debug with nodemon

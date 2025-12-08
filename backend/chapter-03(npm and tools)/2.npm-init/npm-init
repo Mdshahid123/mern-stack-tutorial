@@ -2,9 +2,9 @@
 
 //it create package.json file,which store
 
-->your project details
-->Installed npm packages or project dependencies(express,mongoose)
--> Scripts to run your project:instead of typing long terminal commands, you can put them inside "scripts" and run them easily.
+->1)your project details
+->2)Installed npm packages or project dependencies(express,mongoose)
+->3)Scripts to run your project(instead of typing long terminal commands, you can put them inside "scripts" and run them easily)
 
 
 
