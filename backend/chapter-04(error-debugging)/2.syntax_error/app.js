@@ -1,15 +1,23 @@
 //importing core module
-const express=require("express")
+const http=require("http")
 //importing local module
 const testingSyntax=require("./syntax_error") 
-const app=express()
 
-//"/syntax" route handler
 
-app.get("/",(req,res)=>{
-   testingSyntax()
+let server=http.createServer((res,req)=>{
+  //"/syntax" route handler
+  if(req.url==="/syntax")
+  {    
+       testingSyntax() 
+       res.write("<h1>succfully subbmitedd reuqest</h1>")
+       res.end()
+  }
+      
 })
+
+
+
 const port=3000
-app.listen(port,()=>{
+server.listen(port,()=>{
   console.log(`server is listening at http://localhost:${port}`)
 })
