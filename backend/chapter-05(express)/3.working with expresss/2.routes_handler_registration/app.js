@@ -3,9 +3,6 @@ const express=require("express")//it return a function
 
 //running  that function give object
 const app=express()
-console.dir(app)
-
-
 
 //route handler registartion
 

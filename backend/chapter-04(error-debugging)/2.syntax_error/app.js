@@ -11,6 +11,7 @@ let server=http.createServer((res,req)=>{
        testingSyntax() 
        res.write("<h1>succfully subbmitedd reuqest</h1>")
        res.end()
+       return 
   }
       
 })
