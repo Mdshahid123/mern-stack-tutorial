@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CSS Position Playground — Full Upgrade</title>
+<style>
+  :root{
+    --bg: #f3f6fb; --card: #fff; --muted:#6b7280; --accent:#2563eb; --glass: rgba(255,255,255,0.6);
+    --mono: 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  }
+  [data-theme="dark"]{
+    --bg:#0b1220; --card:#0f1724; --muted:#95a3b8; --accent:#60a5fa; --glass: rgba(20,24,32,0.6);
+    color: #e6eefb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--mono);background:var(--bg);color: #111;transition:background .25s}
+  header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:linear-gradient(90deg,var(--card),#eef4ff);border-bottom:1px solid rgba(0,0,0,0.05)}
+  header h1{margin:0;font-size:16px}
+  .wrap{max-width:1200px;margin:18px auto;padding:12px;display:grid;grid-template-columns:340px 1fr 360px;gap:16px}
+  @media (max-width:1100px){.wrap{grid-template-columns:1fr;}}
+  /* LEFT CONTROLS */
+  .panel{background:var(--card);border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+  .panel h2{margin:0 0 10px 0;font-size:15px}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .field{margin-bottom:10px}
+  input[type=text], select, input[type=number]{width:100%;padding:8px;border-radius:8px;border:1px solid #e6edf3;font-size:14px;background:transparent}
+  .row{display:flex;gap:8px}
+  .row .field{flex:1}
+  .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;border:none;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
+  .small{padding:6px 8px;font-size:13px}
+  .muted{color:var(--muted);font-size:13px}
+  /* PREVIEW (center) */
+  .preview-card{position:relative;overflow:hidden;min-height:640px}
+  .toolbar{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .preview-area{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:10px;border:1px solid #e6edf8;padding:12px;position:relative;height:520px;overflow:auto}
+  .viewport{--pad:24px;width:100%;max-width:900px;height:100%;margin:0 auto;background:linear-gradient(180deg,#fcfdff,#f6fbff);border-radius:8px;border:1px solid #e6eef8;position:relative;display:block}
+  /* grid overlay */
+  .grid{pointer-events:none;position:absolute;inset:0;background-image:linear-gradient(#e6eef8 1px, transparent 1px),linear-gradient(90deg,#e6eef8 1px, transparent 1px);background-size:20px 20px;opacity:0.9}
+  /* parent container */
+  .parent{
+    width:calc(100% - var(--pad)*2);height:calc(100% - var(--pad)*2);
+    position:relative;margin:var(--pad);border-radius:6px;border:2px dashed rgba(99,102,241,0.12);background:transparent;overflow:hidden;
+  }
+  /* boxes */
+  .box{width:140px;height:120px;border-radius:10px;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;cursor:grab;user-select:none;transition:all .25s ease;box-shadow:0 8px 18px rgba(37,99,235,0.12)}
+  .box:active{cursor:grabbing}
+  .box.small{width:90px;height:70px;font-size:13px}
+  /* RIGHT CODE & EXPLANATION */
+  .explain {padding:12px;background:linear-gradient(180deg,#fff,#fcfeff);border-radius:10px;border:1px solid #eef6ff;font-size:14px}
+  pre{background:#0b1220;color:#dbeafe;padding:12px;border-radius:8px;overflow:auto;font-size:13px}
+  .controls-row{display:flex;gap:8px;align-items:center}
+  /* footer note */
+  footer{grid-column:1/-1;text-align:center;color:var(--muted);font-size:13px;margin-top:10px}
+  /* dark tweaks */
+  [data-theme="dark"] header{background:linear-gradient(90deg,var(--card),#061025);border-bottom-color:rgba(255,255,255,0.03)}
+  [data-theme="dark"] .panel{background:var(--card);box-shadow:none}
+  [data-theme="dark"] .preview-area{background:linear-gradient(180deg,#071022,#081523)}
+  [data-theme="dark"] pre{background:#031022}
+  /* helpers */
+  .top-actions{display:flex;gap:8px}
+  .copyBtn{float:right;margin-left:8px}
+  .mode-toggle{display:flex;gap:8px;align-items:center}
+  .status{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body data-theme="">
+<header>
+  <h1>CSS Position Playground — Full</h1>
+  <div style="display:flex;gap:10px;align-items:center">
+    <div class="mode-toggle">
+      <label class="muted" style="font-size:13px">Theme</label>
+      <button id="themeToggle" class="btn small ghost">Dark</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- LEFT: controls -->
+  <div class="panel">
+    <h2>Controls</h2>
+
+    <div class="field">
+      <label>Choose Box</label>
+      <select id="boxSelect">
+        <option value="box1">Box 1</option>
+        <option value="box2">Box 2</option>
+        <option value="box3">Box 3</option>
+        <option value="box4">Box 4</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Position</label>
+      <select id="posSelect">
+        <option value="static">static</option>
+        <option value="relative">relative</option>
+        <option value="absolute">absolute</option>
+        <option value="fixed">fixed</option>
+        <option value="sticky">sticky</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div class="field"><label>Top</label><input id="top" placeholder="e.g. 10px"></div>
+      <div class="field"><label>Left</label><input id="left" placeholder="e.g. 20px"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label>Right</label><input id="right" placeholder="e.g. 10px"></div>
+      <div class="field"><label>Bottom</label><input id="bottom" placeholder="e.g. 12px"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label>Z-index</label><input id="z" type="number" placeholder="e.g. 5"></div>
+      <div class="field"><label>Width</label><input id="w" placeholder="e.g. 140px"></div>
+    </div>
+    <div class="field"><label>Height</label><input id="h" placeholder="e.g. 120px"></div>
+
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button id="apply" class="btn">Apply</button>
+      <button id="reset" class="btn ghost small">Reset</button>
+      <button id="enableDrag" class="btn ghost small">Enable Drag</button>
+      <button id="lockDrag" class="btn ghost small">Lock Drag</button>
+    </div>
+
+    <div style="margin-top:12px;display:flex;gap:8px">
+      <button id="toggleGrid" class="btn ghost small">Toggle Grid</button>
+      <button id="snapGrid" class="btn ghost small">Snap to Grid</button>
+    </div>
+
+    <div style="margin-top:14px" class="explain" id="explain">
+      <strong>Position explanation</strong>
+      <p id="explainText" style="margin:6px 0 0 0;color:var(--muted)">Select a position to see a short description.</p>
+    </div>
+  </div>
+
+  <!-- CENTER: preview -->
+  <div class="panel preview-card">
+    <div class="toolbar">
+      <div class="top-actions">
+        <div class="muted">Parent container (viewport-like) — place boxes inside</div>
+      </div>
+      <div class="controls-row">
+        <div class="status" id="status">Ready</div>
+      </div>
+    </div>
+
+    <div class="preview-area">
+      <div class="viewport" id="viewport">
+        <div class="grid" id="grid" style="display:none"></div>
+        <div class="parent" id="parent">
+
+          <!-- 4 boxes inside parent -->
+          <div class="box" id="box1" style="position:static">Box 1</div>
+          <div class="box" id="box2" style="position:static;background:#ef4444">Box 2</div>
+          <div class="box" id="box3" style="position:static;background:#f59e0b">Box 3</div>
+          <div class="box" id="box4" style="position:static;background:#10b981">Box 4</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: code + examples -->
+  <div class="panel">
+    <h2>Live CSS & HTML</h2>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div style="flex:1" class="muted">Generated CSS for selected box</div>
+      <button id="copyCss" class="btn small">Copy</button>
+    </div>
+    <pre id="cssCode">/* CSS appears here */</pre>
+
+    <h2 style="margin-top:12px">Examples / Presets</h2>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+      <button class="btn ghost small" data-preset="stickyHeader">Sticky Header</button>
+      <button class="btn ghost small" data-preset="fixedCorner">Fixed Corner</button>
+      <button class="btn ghost small" data-preset="absCorner">Absolute Corner</button>
+      <button class="btn ghost small" data-preset="relativeShift">Relative Shift</button>
+      <button class="btn ghost small" data-preset="centerAbs">Center (absolute)</button>
+    </div>
+
+    <h2 style="margin-top:10px">Viewport / Parent size</h2>
+    <div class="muted">Parent is viewport-like (fills center area). Boxes positioned relative to parent for <code>absolute</code> & <code>sticky</code>.</div>
+  </div>
+
+  <footer>Made by Shahid — tweak values, drag boxes, copy code. Ask to export ZIP or convert to React.</footer>
+</div>
+
+<script>
+/* --- Elements --- */
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const boxSelect = document.getElementById('boxSelect');
+const posSelect = document.getElementById('posSelect');
+const topInp = document.getElementById('top');
+const leftInp = document.getElementById('left');
+const rightInp = document.getElementById('right');
+const bottomInp = document.getElementById('bottom');
+const zInp = document.getElementById('z');
+const wInp = document.getElementById('w');
+const hInp = document.getElementById('h');
+const applyBtn = document.getElementById('apply');
+const resetBtn = document.getElementById('reset');
+const explainText = document.getElementById('explainText');
+const gridEl = document.getElementById('grid');
+const toggleGridBtn = document.getElementById('toggleGrid');
+const snapGridBtn = document.getElementById('snapGrid');
+const enableDragBtn = document.getElementById('enableDrag');
+const lockDragBtn = document.getElementById('lockDrag');
+const parent = document.getElementById('parent');
+const cssCode = document.getElementById('cssCode');
+const copyCss = document.getElementById('copyCss');
+const status = document.getElementById('status');
+const presets = document.querySelectorAll('[data-preset]');
+
+let dragEnabled = false;
+let snapToGrid = false;
+const gridSize = 20;
+
+/* Boxes collection */
+const boxes = {
+  box1: document.getElementById('box1'),
+  box2: document.getElementById('box2'),
+  box3: document.getElementById('box3'),
+  box4: document.getElementById('box4'),
+};
+
+/* Default positions saved (so reset works) */
+const defaults = {};
+Object.keys(boxes).forEach(id=>{
+  const el = boxes[id];
+  defaults[id] = {
+    position: el.style.position || getComputedStyle(el).position,
+    top: el.style.top || '',
+    left: el.style.left || '',
+    right: el.style.right || '',
+    bottom: el.style.bottom || '',
+    z: el.style.zIndex || '',
+    width: el.style.width || '',
+    height: el.style.height || ''
+  };
+});
+
+/* Theme toggle */
+themeToggle.addEventListener('click', ()=>{
+  if(document.body.getAttribute('data-theme') === 'dark'){
+    document.body.setAttribute('data-theme','');
+    themeToggle.textContent = 'Dark';
+  } else {
+    document.body.setAttribute('data-theme','dark');
+    themeToggle.textContent = 'Light';
+  }
+});
+
+/* Explanation texts */
+const explanations = {
+  static: 'static — default. Element stays in normal flow; top/left/right/bottom have no effect.',
+  relative: 'relative — moves relative to its normal position; space stays reserved.',
+  absolute: 'absolute — removed from normal flow and positioned relative to nearest positioned ancestor (parent).',
+  fixed: 'fixed — positioned relative to viewport; stays on screen when scrolling.',
+  sticky: 'sticky — behaves like relative until a threshold (top), then acts like fixed inside its scroll container.'
+};
+function updateExplanation(){
+  explainText.textContent = explanations[posSelect.value] || '';
+}
+
+/* Apply control values to selected box */
+function applyToBox(){
+  const id = boxSelect.value;
+  const el = boxes[id];
+  // If absolute/sticky/relative need parent to be positioned (not static)
+  if(posSelect.value === 'absolute' || posSelect.value==='relative' || posSelect.value==='sticky'){
+    // Ensure parent has position: relative so absolute positions reference it
+    parent.style.position = 'relative';
+  }
+  // if fixed, append to body so it's relative to viewport
+  if(posSelect.value === 'fixed'){
+    document.body.appendChild(el);
+  } else {
+    parent.appendChild(el);
+  }
+  // apply
+  el.style.position = posSelect.value;
+  el.style.top = topInp.value || '';
+  el.style.left = leftInp.value || '';
+  el.style.right = rightInp.value || '';
+  el.style.bottom = bottomInp.value || '';
+  el.style.zIndex = zInp.value ? String(zInp.value) : '';
+  el.style.width = wInp.value || '';
+  el.style.height = hInp.value || '';
+  // remove transform if any (keeps visuals consistent)
+  if(!el.style.left && !el.style.top) el.style.transform = '';
+  updateCSSPanel();
+  status.textContent = `Applied to ${id}`;
+  setTimeout(()=>status.textContent='Ready',900);
+}
+
+/* Reset all boxes to defaults */
+function resetAll(){
+  Object.keys(boxes).forEach(id=>{
+    const el = boxes[id];
+    const d = defaults[id];
+    el.style.position = d.position || '';
+    el.style.top = d.top || '';
+    el.style.left = d.left || '';
+    el.style.right = d.right || '';
+    el.style.bottom = d.bottom || '';
+    el.style.zIndex = d.z || '';
+    el.style.width = d.width || '';
+    el.style.height = d.height || '';
+    // ensure inside parent
+    if(!document.body.contains(el)) parent.appendChild(el);
+  });
+  parent.style.position = 'relative';
+  updateCSSPanel(); updateExplanation();
+  status.textContent = 'Reset';
+  setTimeout(()=>status.textContent='Ready',600);
+}
+
+/* CSS generator */
+function updateCSSPanel(){
+  const id = boxSelect.value;
+  const el = boxes[id];
+  const lines = [];
+  lines.push(`/* ${id} */`);
+  lines.push(`#${id} {`);
+  const s = getComputedStyle(el);
+  lines.push(`  position: ${s.position};`);
+  if(s.top && s.top !== 'auto') lines.push(`  top: ${s.top};`);
+  if(s.left && s.left !== 'auto') lines.push(`  left: ${s.left};`);
+  if(s.right && s.right !== 'auto') lines.push(`  right: ${s.right};`);
+  if(s.bottom && s.bottom !== 'auto') lines.push(`  bottom: ${s.bottom};`);
+  if(s.zIndex && s.zIndex !== 'auto') lines.push(`  z-index: ${s.zIndex};`);
+  if(s.width && s.width !== 'auto') lines.push(`  width: ${s.width};`);
+  if(s.height && s.height !== 'auto') lines.push(`  height: ${s.height};`);
+  lines.push('}');
+  cssCode.textContent = lines.join('\n');
+}
+
+/* Grid toggle */
+toggleGridBtn.addEventListener('click', ()=>{
+  gridEl.style.display = gridEl.style.display === 'block' ? 'none' : 'block';
+});
+
+/* Snap toggle */
+snapGridBtn.addEventListener('click', ()=>{
+  snapToGrid = !snapToGrid;
+  snapGridBtn.textContent = snapToGrid ? 'Snap: ON' : 'Snap to Grid';
+});
+
+/* Drag controls */
+enableDragBtn.addEventListener('click', ()=>{ dragEnabled = true; status.textContent='Drag enabled';});
+lockDragBtn.addEventListener('click', ()=>{ dragEnabled = false; status.textContent='Drag locked';});
+
+/* Copy CSS */
+copyCss.addEventListener('click', ()=>{
+  navigator.clipboard.writeText(cssCode.textContent).then(()=>{
+    copyCss.textContent = 'Copied';
+    setTimeout(()=>copyCss.textContent='Copy',900);
+  },()=>{copyCss.textContent='Failed'; setTimeout(()=>copyCss.textContent='Copy',900);});
+});
+
+/* Presets */
+presets.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const name = btn.dataset.preset;
+    if(name === 'stickyHeader'){
+      boxSelect.value = 'box1'; posSelect.value = 'sticky';
+      topInp.value = '0px'; leftInp.value='0px'; wInp.value='100%'; hInp.value='56px'; zInp.value='10';
+    }
+    if(name === 'fixedCorner'){
+      boxSelect.value='box2'; posSelect.value='fixed'; topInp.value='20px'; rightInp.value='20px'; leftInp.value=''; wInp.value='140px'; hInp.value='60px';
+    }
+    if(name === 'absCorner'){
+      boxSelect.value='box3'; posSelect.value='absolute'; topInp.value='16px'; rightInp.value='16px';
+    }
+    if(name === 'relativeShift'){
+      boxSelect.value='box4'; posSelect.value='relative'; topInp.value='8px'; leftInp.value='12px';
+    }
+    if(name === 'centerAbs'){
+      boxSelect.value='box1'; posSelect.value='absolute'; topInp.value='50%'; leftInp.value='50%';
+      // apply and set transform for centering
+      applyToBox();
+      const el = boxes[boxSelect.value];
+      el.style.transform = 'translate(-50%,-50%)';
+      updateCSSPanel(); return;
+    }
+    applyToBox();
+  });
+});
+
+/* Apply & Reset events */
+applyBtn.addEventListener('click', applyToBox);
+resetBtn.addEventListener('click', resetAll);
+
+/* Update explanation on position change */
+posSelect.addEventListener('change', updateExplanation);
+updateExplanation();
+
+/* Drag implementation (mouse + touch) */
+let dragging = null;
+let dragOffset = {x:0,y:0};
+
+function startDrag(e, el){
+  if(!dragEnabled) return;
+  dragging = el;
+  const rect = el.getBoundingClientRect();
+  const parentRect = parent.getBoundingClientRect();
+  const clientX = (e.touches ? e.touches[0].clientX : e.clientX);
+  const clientY = (e.touches ? e.touches[0].clientY : e.clientY);
+  dragOffset.x = clientX - rect.left;
+  dragOffset.y = clientY - rect.top;
+  // if static -> make absolute so we can move it inside parent
+  if(getComputedStyle(el).position === 'static'){
+    el.style.position = 'absolute';
+    el.style.left = (rect.left - parentRect.left) + 'px';
+    el.style.top = (rect.top - parentRect.top) + 'px';
+  }
+  el.style.transition = 'none';
+  document.body.style.userSelect = 'none';
+}
+
+function moveDrag(e){
+  if(!dragging) return;
+  const el = dragging;
+  const parentRect = parent.getBoundingClientRect();
+  const clientX = (e.touches ? e.touches[0].clientX : e.clientX);
+  const clientY = (e.touches ? e.touches[0].clientY : e.clientY);
+  let x = clientX - parentRect.left - dragOffset.x;
+  let y = clientY - parentRect.top - dragOffset.y;
+  // clamp
+  x = Math.max(0, Math.min(x, parentRect.width - el.offsetWidth));
+  y = Math.max(0, Math.min(y, parentRect.height - el.offsetHeight));
+  if(snapToGrid){
+    x = Math.round(x / gridSize) * gridSize;
+    y = Math.round(y / gridSize) * gridSize;
+  }
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+  // update controls if dragging selected box
+  if(boxSelect.value === el.id){
+    leftInp.value = el.style.left;
+    topInp.value = el.style.top;
+    rightInp.value = '';
+    bottomInp.value = '';
+    updateCSSPanel();
+  }
+}
+
+function endDrag(){
+  if(dragging){
+    dragging.style.transition = '';
+  }
+  dragging = null;
+  document.body.style.userSelect = '';
+}
+
+/* Attach listeners to boxes */
+Object.values(boxes).forEach(el=>{
+  el.addEventListener('mousedown', (e)=> startDrag(e, el));
+  window.addEventListener('mousemove', moveDrag);
+  window.addEventListener('mouseup', endDrag);
+
+  // touch
+  el.addEventListener('touchstart', (e)=> startDrag(e, el), {passive:false});
+  window.addEventListener('touchmove', (e)=> moveDrag(e), {passive:false});
+  window.addEventListener('touchend', endDrag);
+  // when clicking a box, make it selected
+  el.addEventListener('click', ()=>{ boxSelect.value = el.id; updateCSSPanel(); });
+});
+
+/* When selection changes, update control inputs from element's computed style */
+boxSelect.addEventListener('change', ()=>{
+  const el = boxes[boxSelect.value];
+  const s = getComputedStyle(el);
+  posSelect.value = s.position || 'static';
+  topInp.value = el.style.top || '';
+  leftInp.value = el.style.left || '';
+  rightInp.value = el.style.right || '';
+  bottomInp.value = el.style.bottom || '';
+  zInp.value = el.style.zIndex || '';
+  wInp.value = el.style.width || '';
+  hInp.value = el.style.height || '';
+  updateExplanation(); updateCSSPanel();
+});
+
+/* Initialize panel */
+boxSelect.dispatchEvent(new Event('change'));
+updateCSSPanel();
+
+</script>
+</body>
+</html>
