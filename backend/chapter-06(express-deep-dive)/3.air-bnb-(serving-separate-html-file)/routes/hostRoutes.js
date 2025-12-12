@@ -4,11 +4,11 @@ const app=express()
 
 const hostRoutes=express.Router()
 hostRoutes.get("/host/add-home",(req,res)=>{
-     res.sendFile(path.join(__dirname,"../","views",'addHome'))
+     res.sendFile(path.join(__dirname,"../","views",'addHome.html'))
 })
 hostRoutes.post('/host/add-home',(req,res)=>{
      console.log(req.body)
-       res.send(path.join(__dirname,"../","views","home-added.html"))
+       res.sendFile(path.join(__dirname,"../","views","home-added.html"))
 })
 
 
