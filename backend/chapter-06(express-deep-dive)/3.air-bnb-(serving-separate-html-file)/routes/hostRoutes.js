@@ -13,3 +13,4 @@ hostRoutes.post('/host/add-home',(req,res)=>{
 
 
 module.exports=hostRoutes
+// __dirname gives the absolute path of the directory where the current file is located.

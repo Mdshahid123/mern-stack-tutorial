@@ -1,5 +1,6 @@
 // core module
 const express=require("express")
+const path=require("path")
 //local module
 const userRoutes=require('./routes/userRoutes')
 const hostRoutes=require("./routes/hostRoutes")
@@ -22,6 +23,11 @@ app.use(userRoutes)
 
 //middleware4:
 app.use(hostRoutes)
+
+// middleware4:
+app.use((req,res)=>{
+    res.sendFile(path.join(__dirname,"./","views","404.html"))
+})
 
 
 const port=3000

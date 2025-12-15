@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form tag</title>
+</head>
+<body>
+
+  <form action="http://google.com">
+    <!-- type:tex -->
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="name" placeholder="enter your name ">
+    <br>
+    <br>
+    <!-- type:number -->
+    <label for="number">Age:</label>
+    <input id="number" name="age" type="number" placeholder="enter you">
+    <br>
+    <br>
+    <!-- type:email -->
+    <label for="email">email:</label>
+    <input name="email" id="email" type="email" placeholder="enter your email">
+    <br>
+    <br>
+    <!-- type:radio -->
+    <span>Select Gender:</span>
+    <label for="male">male</label>
+    <input id="male" name="gender" value="male" type="radio">
+    <label for="female" >female</label>
+    <input id="female" name="gender" value="female" type="radio">
+    <br>
+    
+    <span>Select Hobbies:</span>
+    <!-- type:check box -->
+    <label for="Cricket" >Cricket</label>
+    <input id="Cricket" name="Hobbies" value="Cricket" type="checkbox">
+    <label for="reading" >reading</label>
+    <input id="reading" name="Hobbies" value="reading" type="checkbox">
+    <label for="singing" >singing</label>
+    <input id="singing" name="Hobbies" value="singing" type="checkbox">
+    <br>
+    <br>
+    <!--range -->
+    <label for="rating">Give Rating</label>
+    <input id="rating" name="rating" type="range" min="1" max="5">
+    <span>(1 to 5)</span>
+
+    <br>
+    <br>
+
+    <!-- type:file -->
+     <input type="file">
+    <br>
+    <br>
+
+
+    <!-- type:select -->
+
+
+<p>choose your Profession</p>
+
+  <select name="" id="">
+
+    <option value="">engineering</option>
+    <option value="">doctor</option>
+    <option value="">teacher</option>
+    <!-- type:submit -->
+    <button type="submit">Button</button>
+  </select>
+
+
+  </form>
+</body>
+</html>
