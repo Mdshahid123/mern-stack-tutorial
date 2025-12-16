@@ -3,14 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="/addHome.css">
+  <title>Air bnb</title>
 </head>
 <body>
-    <h1>Register your home here:</h1>
-    <form action="/host/add-home" method="POST">
-       <input type="text" name="houseName" placeholder="enter the name of your house">
-       <input type="submit">
-    </form>
+    <header>
+        <nav>
+            <ul>
+              <li><a href="/">Go to Home</a></li>
+               <li><a href="/host/add-home">Add Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+     <div class="container">
+         <h1>Register Your Home on Airbnb<h1>
+          <form class="form" action="/host/added" method="POST">
+              <input type="text" placeholder="Enter your House Name">
+              <button type="submit">submit</button>
+          </form>
+     </div>
 </body>
 </html>
       

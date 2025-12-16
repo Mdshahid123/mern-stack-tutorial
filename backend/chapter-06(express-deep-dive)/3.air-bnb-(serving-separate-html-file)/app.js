@@ -1,3 +1,4 @@
+// make a project to server a diffrent html file separately and style it using vanila css
 // core module
 const express=require("express")
 const path=require("path")
@@ -16,6 +17,8 @@ app.use((req,res,next)=>{
 
 //middleware2:parsing body
 app.use(express.urlencoded({ extended: true }));
+//setting path of public folder
+app.use(express.static(path.join(__dirname,"./","public")))
 
 
 //middleware3:
