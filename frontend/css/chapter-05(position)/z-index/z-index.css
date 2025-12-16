@@ -1,0 +1,43 @@
+.container {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  border: 2px solid black;
+  margin: 50px auto;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Box 1 */
+.box1 {
+  background-color: red;
+  /* top: 30px;
+  left: 30px; */
+  z-index: 3;
+  
+}
+
+/* Box 2 */
+.box2 {
+  background-color: blue;
+  /* top: 60px;
+  left: 60px; */
+  
+}
+
+/* Box 3 */
+.box3 {
+  background-color: green;
+  /* top: 90px;
+  left: 90px;
+   */
+}
