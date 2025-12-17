@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.header_nav_items{
+  background-color: red;
+  color: white;
+  display: flex;
+  height:40px;
+  align-items: center;
+
+  
+}
+
+a{
+  color: white;
+  text-decoration: none;
+
+}
+.item{
+  list-style: none;
+  margin-left:100px;
+
+  
+}
+
+
+.cont_items{
+  list-style: none;
+}
+.main_header{
+  text-align: center;
+}
