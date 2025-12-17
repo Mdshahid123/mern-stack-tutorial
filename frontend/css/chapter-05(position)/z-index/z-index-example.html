@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>z-index Example</title>
+   <style>
+    .container{
+      background-color:brown;
+      position:relative;
+      height: 500px;
+    }
+           .box1{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            left: 30px;
+            top: 30px;
+            z-index: 1;
+           }
+           .box2{
+            background-color:blue;
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            left:60px;
+            top: 60px;
+            z-index: 2;
+           }
+           .box3{
+            background-color:yellow;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 90px;
+            top: 90px;
+            z-index:3;
+           }
+
+           .box{
+            position: absolute;
+           }
+           
+           
+   </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+  </div>
+
+</body>
+</html>
