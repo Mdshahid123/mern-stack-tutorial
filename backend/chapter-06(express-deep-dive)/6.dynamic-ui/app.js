@@ -1,7 +1,7 @@
-// make a project to server a diffrent html file separately and style it using vanila css
 // core module
 const express=require("express")
 const path=require("path")
+
 //local module
 const userRoutes=require('./routes/userRoutes')
 const {hostRoutes}=require("./routes/hostRoutes")

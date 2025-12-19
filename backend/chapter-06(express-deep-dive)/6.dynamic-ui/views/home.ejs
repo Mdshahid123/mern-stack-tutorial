@@ -20,16 +20,16 @@
     <!-- main content -->
      <main class="main">
 
-           <h1 class="main_heading">Here Are our registered homes</h1>
+      <h1 class="main_heading">Here Are our registered homes:</h1>
               
 
-                            <ul class="items">
-                              <%registerHomes.forEach((result)=>{%>
-                                <li class="item">
-                                    <%=result.houseName%>
-                                </li>
-                                    <%})%>
-                            </ul>
+      <ul class="main_items">
+          <%registerHomes.forEach((result)=>{%>
+            <li class="items_item">
+                <%=result.houseName%>
+            </li>
+                <%})%>
+      </ul>
      </main>
 </body>
 </html>
