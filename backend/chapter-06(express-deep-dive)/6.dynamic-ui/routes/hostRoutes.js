@@ -9,7 +9,7 @@ hostRoutes.get("/host/add-home",(req,res)=>{
 const registerHomes=[]
 hostRoutes.post('/host/added',(req,res)=>{
        console.log(req.body)
-       registerHomes.push({houseName:req.body.homeName})
+       registerHomes.push(req.body)
        res.sendFile(path.join(__dirname,"../","views","home-added.html"))
 })
 exports.registerHomes=registerHomes
