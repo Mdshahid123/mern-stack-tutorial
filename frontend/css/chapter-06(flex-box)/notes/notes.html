@@ -33,7 +33,7 @@
 </head>
 <body>
 
-  <h1>Chapter – CSS Flexbox</h1>
+  <h1>Chapter-06 – CSS Flexbox</h1>
 
   <h2>What is CSS Flexbox?</h2>
   <p>
@@ -55,9 +55,8 @@
   </div>
 
   <div style="background:#fff; padding:15px; border-radius:6px; text-align:center; margin:20px 0;">
-    <img src="https://blog.logrocket.com/wp-content/uploads/2023/01/flex-direction.png"
-         alt="One Dimensional Flexbox Layout"
-         style="max-width:100%; height:auto;">
+    <img src="https://blog.logrocket.com/wp-content/uploads/2023/01/flex-direction.png"alt="One Dimensional Flexbox Layout"
+         style="max-width:500px; height:auto;">
     <p><b>Figure:</b> One-Dimensional Layout in Flexbox</p>
   </div>
 
@@ -94,6 +93,27 @@
     <p><b>Figure:</b> Main Axis and Cross Axis in Flexbox</p>
   </div>
 
+  <!-- ================= FLEX CONTAINER PROPERTIES ================= -->
+
+<h2>Flex Container Properties</h2>
+
+<p>
+  Flex container properties are applied to the <b>parent element</b>
+  (the element on which <code>display: flex</code> is used).
+  These properties control the <b>layout, alignment, and spacing</b>
+  of flex items collectively.
+</p>
+
+<div class="note">
+  <b>Flex container properties:</b>
+  <ol>
+    <li>flex-direction</li>
+    <li>justify-content</li>
+    <li>align-items</li>
+    <li>flex-wrap</li>
+    <li>align-content</li>
+  </ol>
+</div>
   <h2>flex-direction Property</h2>
   <p>Defines the direction of the main axis.</p>
 
@@ -125,7 +145,7 @@
   </ul>
 
   <h2>align-items Property</h2>
-  <p>Aligns flex items along the <b>cross axis</b>.</p>
+  <p>Aligns-items align the  items along the <b>cross axis</b>.</p>
 
   <pre><code class="language-css">.container {
   align-items: center;
@@ -173,6 +193,83 @@
     <img src="https://sttotherootprodeuw001.blob.core.windows.net/strapi-uploads/assets/image_091ba04893.png" alt="Main Axis and Cross Axis"style="max-width:300px; height:auto;">
     <p><b>Figure:</b> Main Axis and Cross Axis in Flexbox</p>
   </div
+
+  <!-- ================= FLEX ITEM PROPERTIES ================= -->
+
+<h2>Flex Item Properties</h2>
+
+<p>
+  Flex item properties are applied to <b>individual flex items</b>
+  (direct children of a flex container).
+  These properties control the <b>size, order, and alignment</b>
+  of each flex item.
+</p>
+
+<div class="note">
+  <b>Flex item properties:</b>
+  <ol>
+    <li>align-self</li>
+    <li>flex-grow</li>
+    <li>flex-shrink</li>
+    <li>order</li>
+  </ol>
+</div>
+
+<div class="note">
+  <b>Note:</b>  
+  The shorthand property <code>flex</code> is used for
+  <code>flex-grow</code>, <code>flex-shrink</code>, and
+  <code>flex-basis</code>.
+</div>
+
+<h2>flex-grow Property</h2>
+<p>
+  <code>flex-grow</code> controls how much a flex item should grow
+  relative to other flex items when <b>extra space is available</b>.
+</p>
+
+<div class="note">
+  <b>Default:</b> <code>flex-grow: 0</code>  
+  <br>
+  If there is no extra space, flex-grow has no effect.
+</div>
+
+<h2>flex-shrink Property</h2>
+<p>
+  <code>flex-shrink</code> controls how much a flex item should shrink
+  when there is <b>not enough space</b> in the container.
+</p>
+
+<div class="note">
+  <b>Default:</b> <code>flex-shrink: 1</code>
+</div>
+
+<h3>Prevent Shrinking</h3>
+<pre><code class="language-css">.box {
+  flex-shrink: 0;
+}</code></pre>
+
+<div class="note">
+  Item will not shrink even if the container is smaller.
+</div>
+
+<h2>flex-grow vs flex-shrink (Summary)</h2>
+
+<div class="note">
+  <b>flex-grow</b>
+  <ul>
+    <li>Works when extra space is available</li>
+    <li>Grows items to fill empty space</li>
+  </ul>
+</div>
+
+<div class="note">
+  <b>flex-shrink</b>
+  <ul>
+    <li>Works when space is insufficient</li>
+    <li>Shrinks items to fit container</li>
+  </ul>
+</div>
 
   <h2>Short Exam Definition</h2>
   <div class="note">
