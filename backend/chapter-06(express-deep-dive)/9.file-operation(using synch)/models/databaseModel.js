@@ -14,9 +14,9 @@ exports.Home=class Home{
      save(){
 
           // saving the data in fake data base
-          const filePath=path.join(__dirname,'../','data','homes.json')
+          const filePath=path.join(__dirname,'../','fakeDatabase','homes.json')
           try {
-               fs.writeFileSync(filePath,JSON.stringify(registeredHomes))
+               fs.writeFileSync(filePath,JSON.stringify(this))
                console.log('File written successfully')
                
                
@@ -28,9 +28,9 @@ exports.Home=class Home{
      }
 
      static fetchAll(){
-          const filePath=path.join(__dirname,'../','data','homes.json')
+          const filePath=path.join(__dirname,'../','fakeDatabase','homes.json')
           try{
-               const fileContent=fs.readFileSync(filePath,'utf-8')
+               const fileContent=fs.readFileSync(filePath)
                registeredHomes.push(JSON.parse(fileContent))
                console.log("fc",fileContent)
                return registeredHomes
