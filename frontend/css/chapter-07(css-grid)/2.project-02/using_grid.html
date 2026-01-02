@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+      .app-container{
+        display: grid;
+        grid-template-rows: 1fr 2fr 2fr 2fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        height:600px;
+        width: 500px;
+        gap: 10px;
+        background-color: blanchedalmond;
+      }
+      .box1{
+        background-color: brown;
+        grid-column: 1 / span 2;
+        
+      }
+
+      .box2{
+        background-color: blue;
+        grid-row: 2 / span 2;
+      }
+      .box3{
+        background-color: yellow;
+      }
+      .box4{
+        background-color: green;
+      }
+
+      .box5{
+        background-color: seagreen;
+        grid-column: 1 / span 2;
+      }
+
+      .box6{
+        background-color: purple;
+        grid-column: 1/ span 2;
+      
+      }
+  </style>
+  <title>using grid</title>
+</head>
+<body>
+      <div class="app-container">
+
+         <div class="box1">
+          
+         </div>
+         <div class="box2">
+
+         </div>
+         <div class="box3">
+
+         </div>
+         <div class="box4">
+
+         </div>
+         <div class="box5">
+
+         </div>
+         <div class="box6">
+
+         </div>
+          
+      </div>
+</body>
+</html>
