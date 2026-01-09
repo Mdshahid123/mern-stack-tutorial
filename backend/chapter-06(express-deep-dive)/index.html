@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Interactive Slides</title>
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  overflow: hidden;
+  background: #f0f4f8;
+}
+.slide {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  padding: 50px;
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.slide.active { display: block; }
+h1, h2 { color: #1f4e79; }
+p, li { font-size: 20px; line-height: 1.6; }
+ul { padding-left: 20px; }
+.nav-buttons {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+button {
+  font-size: 18px;
+  padding: 10px 25px;
+  margin: 0 10px;
+  background-color: #1f4e79;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { background-color: #3a6ea5; }
+.highlight { color: #e67e22; font-weight: bold; }
+table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+table, th, td { border: 1px solid #1f4e79; }
+th, td { padding: 10px; text-align: left; }
+</style>
+</head>
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active">
+  <h1>What is Data Science?</h1>
+  <p><span class="highlight">Data Science</span> is the field of study that combines <b>data collection, processing, analysis, and visualization</b> to extract insights and support decision-making.</p>
+  <ul>
+    <li>Analyze structured and unstructured data</li>
+    <li>Make predictions and classifications</li>
+    <li>Automate decisions and generate insights</li>
+    <li>Use AI, ML, and statistical techniques</li>
+  </ul>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+  <h2>Branches of AI Used in Data Science</h2>
+  <ul>
+    <li><span class="highlight">Machine Learning:</span> Prediction, classification, clustering</li>
+    <li><span class="highlight">Deep Learning:</span> Complex data, images, audio, large-scale datasets</li>
+    <li><span class="highlight">Generative AI:</span> Automating reports, content, synthetic data</li>
+    <li><span class="highlight">Natural Language Processing (NLP):</span> Text and language data</li>
+    <li><span class="highlight">Computer Vision (CV):</span> Image and video data</li>
+  </ul>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+  <h2>Technologies Used in Data Science</h2>
+  <ul>
+    <li><span class="highlight">Programming Languages:</span> Python, R, SQL</li>
+    <li><span class="highlight">Data Processing:</span> Pandas, Numpy, Spark</li>
+    <li><span class="highlight">Machine Learning / AI:</span> Scikit-Learn, TensorFlow, PyTorch, Keras</li>
+    <li><span class="highlight">Data Visualization:</span> Matplotlib, Seaborn, Tableau, PowerBI</li>
+    <li><span class="highlight">Big Data:</span> Hadoop, Apache Spark</li>
+    <li><span class="highlight">Cloud Platforms:</span> AWS, GCP, Azure</li>
+  </ul>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+  <h2>Types of AI Models in Data Science</h2>
+  <p>As a Data Scientist, the type of AI model is chosen based on <b>business problem, data type, and goal</b>.</p>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+  <h2>Prediction Models</h2>
+  <ul>
+    <li><span class="highlight">Goal:</span> Forecast numeric outcomes</li>
+    <li>Sales prediction, Stock price forecasting, Weather prediction</li>
+    <li>AI Branch: Machine Learning → Regression / Deep Learning</li>
+  </ul>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide">
+  <h2>Classification Models</h2>
+  <ul>
+    <li><span class="highlight">Goal:</span> Categorize data</li>
+    <li>Loan approval, Disease detection, Customer churn, Spam email detection</li>
+    <li>AI Branch: Machine Learning → Classification</li>
+  </ul>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide">
+  <h2>Recommendation Models</h2>
+  <ul>
+    <li><span class="highlight">Goal:</span> Suggest products / content to users</li>
+    <li>Netflix, Amazon, YouTube recommendations</li>
+    <li>AI Branch: Machine Learning / Deep Learning</li>
+  </ul>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide">
+  <h2>Detection / Anomaly Models</h2>
+  <ul>
+    <li><span class="highlight">Goal:</span> Detect abnormal or fraudulent activities</li>
+    <li>Credit card fraud detection, Intrusion detection</li>
+    <li>AI Branch: Machine Learning → Anomaly Detection</li>
+  </ul>
+</div>
+
+<!-- Slide 9 -->
+<div class="slide">
+  <h2>Clustering Models</h2>
+  <ul>
+    <li><span class="highlight">Goal:</span> Group similar items or users</li>
+    <li>Customer segmentation, Market analysis, Behavior analysis</li>
+    <li>AI Branch: Machine Learning → Unsupervised Learning</li>
+  </ul>
+</div>
+
+<!-- Slide 10 -->
+<div class="slide">
+  <h2>NLP Models</h2>
+  <ul>
+    <li><span class="highlight">Goal:</span> Analyze and interpret text</li>
+    <li>Sentiment analysis, Email classification, Resume screening, Chat analysis</li>
+    <li>AI Branch: NLP → ML / Deep Learning</li>
+  </ul>
+</div>
+
+<!-- Slide 11 -->
+<div class="slide">
+  <h2>Computer Vision Models</h2>
+  <ul>
+    <li><span class="highlight">Goal:</span> Analyze images and videos</li>
+    <li>Face recognition, Medical image diagnosis, Object detection</li>
+    <li>AI Branch: Computer Vision → Deep Learning</li>
+  </ul>
+</div>
+
+<!-- Slide 12 -->
+<div class="slide">
+  <h2>Generative AI Models</h2>
+  <ul>
+    <li><span class="highlight">Goal:</span> Create new content / automate insights</li>
+    <li>Text generation (chatbots), Image generation, Report summarization, Synthetic data</li>
+    <li>AI Branch: Deep Learning → Generative AI</li>
+  </ul>
+</div>
+
+<!-- Slide 13 -->
+<div class="slide">
+  <h2>Summary Table: Problem → Model → AI Branch</h2>
+  <table>
+    <tr>
+      <th>Business Goal</th>
+      <th>Model Type</th>
+      <th>AI Branch</th>
+    </tr>
+    <tr><td>Predict numeric value</td><td>Prediction / Regression</td><td>Machine Learning / DL</td></tr>
+    <tr><td>Classify data</td><td>Classification</td><td>Machine Learning</td></tr>
+    <tr><td>Recommend items</td><td>Recommendation System</td><td>ML / DL</td></tr>
+    <tr><td>Detect fraud / anomaly</td><td>Anomaly Detection</td><td>ML</td></tr>
+    <tr><td>Group similar data</td><td>Clustering</td><td>ML → Unsupervised</td></tr>
+    <tr><td>Analyze text</td><td>NLP Model</td><td>NLP → ML / DL</td></tr>
+    <tr><td>Analyze images</td><td>CV Model</td><td>CV → DL</td></tr>
+    <tr><td>Generate content</td><td>Generative AI</td><td>DL → GenAI</td></tr>
+  </table>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="nav-buttons">
+  <button id="prevBtn">◀ Previous</button>
+  <button id="nextBtn">Next ▶</button>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'ArrowRight') document.getElementById('nextBtn').click();
+  if(e.key === 'ArrowLeft') document.getElementById('prevBtn').click();
+});
+</script>
+
+</body>
+</html>
