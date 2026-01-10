@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+   font-family: "Baloo Bhai",cursive;
 }
 .nav-bar nav img{
   width: 60px;
@@ -27,7 +28,7 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
 .nav-bar nav{
@@ -50,6 +51,48 @@
   color: black;
 
 }
+
+/* home section */
+.home-section{
+  text-align: center;
+  background-image: url("../asstes/home-bg.png");
+  padding-top: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 300px;
+  position: absolute;
+  top: 0px;
+  width:100%;
+  z-index: -1;
+  opacity: 0.89;
+}
+
+.home-section h1{
+      color:white;
+      font-size:40px;
+      margin-bottom: 10px;
+}
+
+.home-section p{
+  font-size:20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.home-section button{
+    padding:10px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color:brown;
+    color: white;
+}
+
+.home-section  pre{
+   color: white;
+}
+
 
 
 
