@@ -21,7 +21,7 @@ beacuse if we do this then it is not a traslating  actually it is a rotaion  -->
           margin: 0;
           padding: 0;
         }
-
+/* intial proeprty */
         .box{
           width: 100px;
           height: 100px;
@@ -36,15 +36,17 @@ beacuse if we do this then it is not a traslating  actually it is a rotaion  -->
            transition-timing-function:linear;
            transition-delay: 0s;
           }
+          
 
         .box:hover{
             /* transform:translateX(200px); */
-            /* transform:translateX(-200px); */ 
+            /* transform:translateX(-200px);  */
             /* transform: translateY(200px); */
-          /* transform: translateY(-200px); */
-          /* transform: translate3d(200px); */
+            /* transform: translateY(-200px); */
+            /* transform: translate(200px,200px); */
+            /* transform: translate3d(200px,200px,200px); */
+            /* transform: perspective(600px) translateZ(200px); */
           /* shorthand */
-          transform: translate(200px,200px);
         }
 
         

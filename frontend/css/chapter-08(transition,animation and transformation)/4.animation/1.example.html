@@ -15,30 +15,27 @@
       width: 100px;
       height: 100px;
       background: red;
-      position: relative;
+      position: absolute;
+      left: 20px;
+      top: 20px;
     
       /* Animation properties */
       animation-name:rotate;
-      animation-duration: 3s;
+      animation-duration: 0.2s;
       animation-timing-function: ease-in-out;
-      animation-delay: 1s;
       animation-iteration-count:infinite;
-      animation-direction: alternate;
-      animation-fill-mode:both; 
     }
     
     /* Keyframes for final state*/
     @keyframes rotate {
       from {
-        transform: rotateX(45deg);
+        transform: rotatey(0deg);
         /* transform: scale(45deg,45deg); */
-        left:300px;
         background: red;
       }
       to {
-        left: 800px;
         background: blue;
-        transform: rotateX(90deg);
+        transform: rotatey(360deg);
       }
     }
     </style>
