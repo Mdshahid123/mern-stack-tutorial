@@ -3,60 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Example</title>
+
   <style>
-    /* initial state */
-      .box{
-        position: absolute;
-        top: 20px;
-        left:20px ;
-        width: 100px;
-        height: 100px;
+    .box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+
+      animation: move 4s linear infinite;
+    }
+
+    @keyframes move {
+      /* Initial position */
+      0% {
+        transform: translate(0, 0);
         background-color: red;
-        animation-name: move;
-        animation-duration:0.7s;
-        animation-iteration-count: infinite;
-        animation-timing-function:linear;
-        animation-direction: alternate;
-      
-
       }
 
-      /* final state */
-
-      @keyframes move{
-        0%{
-            left:20px; 
-            top: 20px;
-        }
-
-        25%{
-          left: 1250px;
-          top: 20px;
-          background-color: blue;
-          transform: rotate(45deg);
-        }
-      
-      50%{
-        left: 1250px;
-        top: 1250px;
-        background-color:aqua;
-
+      /* Move horizontally right */
+      25% {
+        transform: translate(calc(100vw - 120px), 0);
+        background-color: blue;
       }
 
-      75%{
-        left:20px;
-
+      /* Move vertically down */
+      50% {
+        transform: translate(calc(100vw - 120px), calc(100vh - 120px));
+        background-color: aqua;
       }
-      100%{
-        top: 20px;
+
+      /* Move horizontally left */
+      75% {
+        transform: translate(0, calc(100vh - 120px));
+        background-color: green;
+      }
+
+      /* Back to initial position */
+      100% {
+        transform: translate(0, 0);
+        background-color: red;
       }
     }
   </style>
-  <title>animation example 2</title>
 </head>
 <body>
-      <div class="box">
-           
-      </div>
+  <div class="box"></div>
 </body>
 </html>

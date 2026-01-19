@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 03 - Hoisting in JavaScript</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      line-height: 1.7;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    hr {
+      margin: 20px 0;
+    }
+    .note {
+      background: #eef6ff;
+      border-left: 5px solid #3498db;
+      padding: 12px;
+      margin: 15px 0;
+    }
+    pre {
+      background: #1e1e1e;
+      border-radius: 6px;
+      padding: 14px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: Consolas, Monaco, 'Courier New', monospace;
+      font-size: 14px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .diagram {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .diagram img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+  </style>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Chapter 03: Hoisting in JavaScript</h1>
+    <hr />
+
+    <h2>1. What is Hoisting?</h2>
+    <p><strong>Common explanation:</strong><br />Hoisting in JavaScript is a behavior where variable and function declarations are moved to the top of their scope before the code is executed.</p>
+    <div class="note">❌ This explanation is misleading — nothing is physically moved.</div>
+
+    <hr />
+
+    <h2>2. Real Definition of Hoisting</h2>
+    <p><strong>Hoisting:</strong><br />JavaScript knows about variables and functions <strong>before execution starts</strong>.</p>
+    <div class="note">👉 JavaScript scans the code before execution and remembers declarations.</div>
+
+    <hr />
+
+    <h2>3. Hoisting Behavior Summary</h2>
+    <ul>
+      <li>Function declarations are hoisted and initialized</li>
+      <li><code>var</code> is hoisted and set to <code>undefined</code></li>
+      <li><code>let</code> and <code>const</code> are hoisted but uninitialized</li>
+    </ul>
+
+    <hr />
+
+    <h2>4. Example 1 — Hoisting with let</h2>
+    <pre><code class="language-js">console.log(b);
+let b = 5;
+console.log(b);</code></pre>
+
+    <div class="note">❗ Accessing <code>let</code> before declaration causes ReferenceError (TDZ).</div>
+
+    <hr />
+
+    <h2>5. Execution Diagram (TDZ)</h2>
+    <div class="diagram">
+      <img src="https://miro.medium.com/1*h7cPH5SpufnosSRdQp3Yuw.gif" alt="TDZ Diagram">
+    </div>
+
+    <hr />
+
+    <h2>6. Example 2 — Function Hoisting</h2>
+
+    <h3>Case 1: Call Before Declaration</h3>
+    <pre><code class="language-js">sayHello();
+
+function sayHello() {
+  console.log("Hello!");
+}</code></pre>
+
+    <h3>Case 2: Call After Declaration</h3>
+    <pre><code class="language-js">function sayHello() {
+  console.log("Hello!");
+}
+
+sayHello();</code></pre>
+
+    <div class="note">✔ Function declarations are hoisted with their full body.</div>
+
+    <h3>Function Hoisting Diagram</h3>
+    <div class="diagram">
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220922124639/FunctionHoisting.png" alt="Function Hoisting Diagram">
+    </div>
+
+  
+
+    <hr />
+
+    <h2>7. Example 3 — Function Expression Hoisting</h2>
+
+    <h3>Case 1: Call Before Function Expression</h3>
+    <pre><code class="language-js">sayHi(); // Error
+// console.log(sayHi); // undefined
+
+var sayHi = function () {
+  console.log("Hi!");
+};</code></pre>
+
+    <h3>Case 2: Call After Function Expression</h3>
+    <pre><code class="language-js">var sayHello = function () {
+  console.log("Hello!");
+};
+
+sayHello();</code></pre>
+
+    <h3>Explanation</h3>
+    <ul>
+      <li>Function expression behavior depends on how it is declared</li>
+      <li><code>var</code> → hoisted and initialized with <code>undefined</code></li>
+      <li><code>let</code> / <code>const</code> → hoisted but uninitialized (TDZ)</li>
+    </ul>
+
+    <div class="note">
+      ❗ Calling a function expression before declaration:
+      <ul>
+        <li><code>var</code> → <strong>TypeError</strong> (not a function)</li>
+        <li><code>let</code> / <code>const</code> → <strong>ReferenceError</strong> (TDZ)</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+</body>
+</html>

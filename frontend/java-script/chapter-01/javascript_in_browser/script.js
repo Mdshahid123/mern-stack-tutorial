@@ -1,2 +1,1 @@
-console.log("hello")
-document.write("hello");
+console.log("piryanshu")

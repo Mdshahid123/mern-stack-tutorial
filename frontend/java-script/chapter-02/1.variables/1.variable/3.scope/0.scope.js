@@ -1,0 +1,14 @@
+// what is scope:scope is a certain region of program where defined variable life exist and beyond that it's life does't exist
+
+// global scope
+
+function fun() {
+    //loacl scope
+
+    {
+        // block scope:
+    
+    }
+}
+
+
