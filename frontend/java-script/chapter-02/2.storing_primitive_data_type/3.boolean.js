@@ -2,6 +2,10 @@
 
 // It’s used to make decisions in your program 
 
-let isOnline = true  // here isOnline is a variable string a boolean value
+let isOnline=false
 console.log(isOnline)
-console.log(typeof isOnline)// Boolean
+console.log(typeof isOnline)
+
+
+
+

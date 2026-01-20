@@ -6,4 +6,3 @@
 
 //in modern js we use let,const keyword to declare a variable.
 
-

@@ -9,6 +9,9 @@
 
 //primitive data types (number, string, boolean, null, undefined, symbol, bigint) stored directly in a variable.
 
+//it take space in stack of a memory
+
+
 //where as non primtive data type is stored by refrence 
 
 
