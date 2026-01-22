@@ -2,3 +2,8 @@
 
 // it has two limitaion
 
+1) redecalre ho jata hain same scope jo ki nahi hona choye
+2) jb hum  ise block level varibale banate  hain toh yeh black scope nahi mana jata hai iska scope ike parent scope mana jayega jo ki asa nahi hona chiye
+
+
+
