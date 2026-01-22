@@ -21,9 +21,8 @@ obj.__proto__ = Person.prototype;
 Person.call(obj, "Shahid");
 
 
-// Returns the new object automatically
+//Returns the new object automatically
 
 return obj;
-
 
 // So, this inside the constructor now points to the newly created object — not the global scope.

@@ -1,32 +1,54 @@
-// what is object? 
-// An object is non primitive data type which store data and defines operations or algorithm or methods  that can be performed on that data.
-                  or
-// object encapsulates data and method
+// what is object?
 
-// in java-script An object is represented as a in key-value pairs format. like
+//An object is non primitive data type which store data and as well as  methods and  written as key value format.
+
+example:
 
 student={
-name:"sohan",
-age:24,
-city:'delhi',
-marks:{
-maths:55,
-english:56,
-hindi:78
+    name:"sohan",
+    age:24,
+    city:'delhi',
+    marks:{
+    maths:55,
+    english:56,
+    hindi:78
+    }
 }
 
-}
 
-// fetaures of object
+//fetaures of object
 
-//object is mutable that means it can be modifi
+//-object is mutable that means it can be modifi
 
-//Objects accupied a space in a heap and varaible pointing to it accupied in a stack
+//-Objects accupied a space in a heap and varaible pointing to it accupied in a stack
 
 
-// now question how object data type organised in a heap memory ? 
 
-//Object are organized in heap memory using hash data table(internally array)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-now question how object data type organised in a heap memory ? 
+
+//-Object are organized in heap memory using hash data table(internally array)
 
 //example
 let person = {

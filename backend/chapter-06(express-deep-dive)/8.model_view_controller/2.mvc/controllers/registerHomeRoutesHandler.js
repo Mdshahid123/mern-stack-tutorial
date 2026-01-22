@@ -1,5 +1,6 @@
 const path=require("path")
-const {Home}=require("../models/databaseModel")
+const Home=require("../models/databaseModel")
+
 const registerHomeRoutesHandler=(req,res)=>{
     res.sendFile(path.join(__dirname,"../","views","registerHomePage.html"))}
 
@@ -9,5 +10,7 @@ const  registerHomeRoutesSubmitHandler=(req,res)=>{
      home.save()
      res.sendFile(path.join(__dirname,"../","views","successPage.html"))
 }
+
 exports.registerHomeRoutesHandler=registerHomeRoutesHandler
 exports.registerHomeRoutesSubmitHandler=registerHomeRoutesSubmitHandler
+

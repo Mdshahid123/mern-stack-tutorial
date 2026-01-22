@@ -1,18 +1,30 @@
 //let vs const vs var
 
-//first diffrence declaration
-//we can re declare the varibale with var in same scope but let and const can't redclare in same scope
+//first difference declaration
+//we can re declare the same varibale with var in same scope but let and const can't redclare in same scope
 
-// second diffrence declaration without intilization 
+//example1:run this program to see it
+
+var a=10
+var a=11
+
+console.log(a)
+
+
+
+//second diffrence declaration without intilization 
 //we can declare the variable first with let and var and then later on we can intilage it but with const we must has to intialize the variable
 
+
+
+
 //3rd diffrence hoisting
-function abc() {
-    let d = 9//hoisted and intiallized
+//function abc() {
+   // let d = 9//hoisted and intiallized
     //console.log(a)
     //console.log(b)
     // console.log(c)
-    console.log(d)
+   // console.log(d)
 
     //let a=9//hoisted but unitialize(tdz)
     //var b=8//hoisted and intialized with u ndefined
@@ -28,37 +40,37 @@ abc()
 
 
 //Example:
-{
-    var x = 10;
-    let y = 20;
-    const z = 30;
-}
+// {
+//     var x = 10;
+//     let y = 20;
+//     const z = 30;
+// }
 
-console.log(x); // ✅ 10 → because `var` is hoisted to global
-console.log(y); // ❌ ReferenceError → block scoped
-console.log(z); // ❌ ReferenceError → block scoped
+//console.log(x); // ✅ 10 → because `var` is hoisted to global
+//console.log(y); // ❌ ReferenceError → block scoped
+//console.log(z); // ❌ ReferenceError → block scoped
 
 // Another example with a function:
-function test() {
-    if (true) {
-        var a = 1;
-        let b = 2;
-        const c = 9;
-    }
+// function test() {
+//     if (true) {
+//         var a = 1;
+//         let b = 2;
+//         const c = 9;
+//     }
 
-    console.log(a); // ✅ 1
-    console.log(b); // ❌ ReferenceError → because `b` is block scoped
-    console.log(c);
-}
+//     console.log(a); // ✅ 1
+//     console.log(b); // ❌ ReferenceError → because `b` is block scoped
+//     console.log(c);
+// }
 
 //Summary:
 //Keyword	     Function Scope	      Block Scope    global scope
 //var	             ✅ Yes               ❌ No        ✅yes
 //let       	     ✅ Yes	             ✅ Yes       ✅yes
 //const	             ✅ Yes           	 ✅ Yes       ✅yes
-//without keyword    ❌ NO               ❌NO          ✅yes 
+//without keyword    ❌ NO                ❌ NO        ✅yes 
 
-// note:varaible without keyord is not hoisted
+//note:varaible without keyword is not hoisted
 
 
 

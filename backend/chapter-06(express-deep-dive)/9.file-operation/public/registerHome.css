@@ -1,12 +1,13 @@
 *{
   margin: 0;
   padding: 0;
+   font-family: "Baloo Bhai", cursive;
 }
 ul{
   background-color: #ff385c;
   color: white;
   display: flex;
-  height:40px;
+  height:45px;
   align-items: center;
 
   
@@ -15,49 +16,63 @@ ul{
 a{
   color: white;
   text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight:600;
+  transition: all 0.8s ease;
+
+}
+a:hover{
+  background-color: white;
+  color: black;
 
 }
 li{
   list-style: none;
   margin-left:100px;
+  padding: 50px 10px;
+  border-radius: 10px;
+  
 
   
 }
-
 .container{
   width: 400px;
   box-shadow: 5px 5px 10px gray;
-  position: relative;
-  top:50px;
-  left: 400px;
-  padding:20px;
+  position:absolute;
+  top:20%;
+  left:35%;
+  padding:30px;
   border-radius: 10px;
   text-align: center;
+  height: 425px;
 
 }
 h1{
-  font-size:23px;
+  font-size:25px;
+  color: rgb(255, 51, 0);
 }
 input{
-  width:70%;
+  width:80%;
   height:30px;
   padding-left: 20px;
   outline: none;
   border:1px solid rgba(128, 128, 128, 0.493);
   border-radius: 5px;
-  margin-top:20px ;
+  margin-top:25px ;
 
 }
 button{
-  width:78%;
+  width:84%;
   background-color:#ff385c;
   border-radius:5px;
   color: white;
   outline: none;
   padding: 5px;
-  font-size:large;
+  font-size:20px;
   border: none;
-  margin-top:20px;
+  margin-top:25px;
 }
 
 button:hover{

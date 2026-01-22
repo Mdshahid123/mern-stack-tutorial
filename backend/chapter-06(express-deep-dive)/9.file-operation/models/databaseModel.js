@@ -21,7 +21,10 @@ exports.Home=class Home{
                     
              
           })
+
+
      }
+     
 
      static fetchAll(callback){
              const filePath=path.join(__dirname,'../','fakeDatabase','homes.json')
@@ -37,8 +40,6 @@ exports.Home=class Home{
                       callback(JSON.parse(data))
                  }
              })
-     }
-
-        
+     }      
 }
 

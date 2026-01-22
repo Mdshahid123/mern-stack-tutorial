@@ -1,8 +1,8 @@
 //fake data base 
 
-const registeredHomes=[]
+const fakeDatabase=[]
 
-exports.Home=class Home{
+class Home{
      constructor(homeName,pricePerNight,Location,rating,photourl){
          this.homeName=homeName
          this.pricePerNight=pricePerNight
@@ -11,12 +11,13 @@ exports.Home=class Home{
          this.photourl=photourl
      }
      save(){
-          registeredHomes.push(this)
+          fakeDatabase.push(this)
      }
 
      static fetchAll(){
-          return registeredHomes
+          return fakeDatabase
      }
         
 }
 
+module.exports=Home

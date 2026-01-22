@@ -11,7 +11,7 @@ app.use(registerHomeRoutes)
 app.use(express.static("public"))
 
 //creating a server
-const port=3000;
+const port=5000;
 app.listen(port,()=>{
     console.log(`server is listining at https://locahost:${port}`)
 })

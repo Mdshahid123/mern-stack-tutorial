@@ -1,5 +1,5 @@
-// what is the diffrence b/w null and  undefined
+//what is the diffrence b/w null and  undefined
 
-null se hum explicitly bata rahe hote hain ki variable has nothing
+null se hum explicitly bata rahe hote hain ki variable has nothing kuch assign nahi kiya gaya hain
 
-undefined implcityly java script bata raha hota hain ki variable has nothing
+undefined se implcityly java script bata raha hota hain ki variable has nothing kuch assing nahi kiya gaya hain

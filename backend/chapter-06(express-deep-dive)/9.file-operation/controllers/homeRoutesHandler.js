@@ -5,5 +5,5 @@ const HomeRoutesHandler=(req,res)=>{
         res.render("homePage.ejs",{registeredHomeData})
     })
 }
-
 module.exports=HomeRoutesHandler
+

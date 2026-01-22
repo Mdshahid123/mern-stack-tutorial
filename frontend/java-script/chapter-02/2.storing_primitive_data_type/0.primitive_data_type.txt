@@ -13,3 +13,6 @@ null
 //features of primitve data type
 
 -it is immutable
+-Stored direcly in a varible
+-create a new copy
+

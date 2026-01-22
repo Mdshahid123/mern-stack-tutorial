@@ -12,12 +12,7 @@
 //it take space in stack of a memory
 
 
-//where as non primtive data type is stored by refrence 
-
-
 //let's stored a primitve data type in variable
-
-
 
 
 
