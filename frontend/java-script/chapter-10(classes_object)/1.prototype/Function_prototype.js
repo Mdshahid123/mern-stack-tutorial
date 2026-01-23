@@ -1,8 +1,6 @@
 //function need function  method->stroed in Function.prototype 
 
 // contains:call(),apply(),bind()
-
-
 function fun()
 {
      console.log("hello")

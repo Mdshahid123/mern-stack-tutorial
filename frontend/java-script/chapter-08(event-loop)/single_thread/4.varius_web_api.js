@@ -8,7 +8,7 @@
 
 // 1)rendring thread:rendring of html document in to the web page is done by rendering thread of browser
 
-// it create a tree like struture of a html document called dom
+// it create a tree like struture of a html document called dom tree
 
 // browser provide dom api to modifi dom tree
 

@@ -1,4 +1,4 @@
-// write a code which can give grades to students according to their scores 
+//write a code which can give grades to students according to their scores 
 
 // 80-100->A 
 // 70-89->B 

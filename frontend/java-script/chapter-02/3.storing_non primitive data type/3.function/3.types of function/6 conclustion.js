@@ -1,0 +1,1 @@
+//conclustion:function in java script is a first class function that means function in java script is treated as a variable
