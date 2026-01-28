@@ -1,0 +1,1 @@
+//Q3. Difference between Math.pow(2,3) and 2 ** 3?

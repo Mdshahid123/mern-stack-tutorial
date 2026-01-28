@@ -1,0 +1,1 @@
+//Q22. Difference between typeof and instanceof?

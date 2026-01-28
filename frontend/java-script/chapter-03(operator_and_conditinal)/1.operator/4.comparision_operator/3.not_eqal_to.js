@@ -1,0 +1,7 @@
+//Not equal to(!=)
+let a=9
+let b="9"
+let c=null
+let d
+console.log(a!=b)
+console.log(c!=d)

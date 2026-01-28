@@ -157,6 +157,18 @@
   width: 100%;
   padding: 10px;
   margin: 5px 0;
+  outline: none;
+  border: none;
+  
+}
+#contact-box input:focus{
+  outline: none;
+  border-color: #3b82f6; /* Blue-500 */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+#contact-box textarea:focus{
+  border-color: #3b82f6; /* Blue-500 */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
 /* FOOTER */

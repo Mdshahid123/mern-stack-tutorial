@@ -1,0 +1,1 @@
+//Q20. When is typeof useful and when is it misleading?

@@ -1,3 +1,0 @@
-// get user to input a number using prompt("enter a number ").check if the  number is multiple of 5 or not
-
-prompt("enter a number")
