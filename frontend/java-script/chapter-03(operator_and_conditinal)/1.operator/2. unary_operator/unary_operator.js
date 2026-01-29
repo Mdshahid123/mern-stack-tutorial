@@ -5,7 +5,6 @@
 
 
 //1)post increment and pre  increment
-
 let a=9;
 // post increment 
 console.log(a++)

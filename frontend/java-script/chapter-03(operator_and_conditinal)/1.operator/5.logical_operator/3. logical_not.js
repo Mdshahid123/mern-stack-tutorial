@@ -8,3 +8,7 @@ let raining = false;
 if (!raining) {
   console.log("You can go outside");
 }
+else{
+  console.log("you can't go outside")
+}
+

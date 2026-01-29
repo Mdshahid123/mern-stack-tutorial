@@ -1,4 +1,4 @@
-// arithmetic operators:it is used to perform a mathematical operation
+//arithmetic operators:it is used to perform a mathematical operation
 
 let a=8.8;
 let b=7;
@@ -19,4 +19,4 @@ console.log("exponent:",a**b)
 
 
 
-// note:*,+,/ etc are called arithmetic  operator where as a and b on which operator perform operation called operand 
+//note:*,+,/ etc are called arithmetic  operator where as a and b on which operator perform operation called operand 

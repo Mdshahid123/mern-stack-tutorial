@@ -1,3 +1,4 @@
+//exmple2:
 let age=Number(prompt("enter your age"))
 let citigenship=prompt("enter your citigen ship")
 

@@ -1,4 +1,4 @@
-// there are build in method(function) to manipulate a string
+//there are build in method(function) to manipulate a string
 
 //toUpperCase():
 

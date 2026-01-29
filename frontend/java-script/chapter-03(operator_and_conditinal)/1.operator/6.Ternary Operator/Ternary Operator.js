@@ -1,8 +1,11 @@
 //A shortcut for if...else — used for simple conditions.
 
-// syntax:   condition ture ? ture ouput:false ouput
+// syntax:
+// result=condition ? agar true hain toh main assign hounga result main :otherwise main
 
-let age = 20;
-let result = (age >= 18) ? "Adult" : "Minor";
+//example:replace your previus program using ternary operator
 
-console.log(result);  // Output: Adult
+let age = 17;
+let result = (age >= 18) ? "your are eglidsgile for vote" : "egligible nahi ho vote ke liye";
+
+console.log(result);
