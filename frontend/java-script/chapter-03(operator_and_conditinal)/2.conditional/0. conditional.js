@@ -16,9 +16,9 @@ if (condition){
 
 
 if (condition) {
-  //code
+  //task1
 } else {
-  //code
+  //task2
 }
 
 
