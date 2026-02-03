@@ -1,0 +1,9 @@
+adding a favourite  page 
+
+-create a partials with  button that submit to /favourite path 
+width hidden input having home-id value.
+
+-add this partial to home-detail page.
+-add this paritals to home-list page. 
+-add router for handling post request to /favoruite path.
+-add a method in user controller to add a home id as favourites,logging the id for now ,before redirecting to /favorites paths.

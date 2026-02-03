@@ -1,7 +1,7 @@
 // with the help of boolean we can take decision in our program
 
 //example
-let age=20
+let age=17
 
 if(age>18)
 {

@@ -1,5 +1,4 @@
 //1)Creating Arrays Using Array Literal
-
 const arr1 = [10, 40, 50, 60, 80, 90] //array of number
 
 const arr2 = ["Hello", "Hi", "How", "are", "you?"]; // Array of strings

@@ -3,14 +3,14 @@
 //example1:
 
 //function declaration or function defination
-function fun()
+function print()
 {
    console.log("shahid")
 
 }
 
 // function call
-fun()
+print()
 
 
 

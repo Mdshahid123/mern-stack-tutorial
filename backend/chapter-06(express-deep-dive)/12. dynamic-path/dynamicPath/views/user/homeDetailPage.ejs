@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Villa in Guwahati - Airbnb</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/homeDetailPage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-airbnb"></i> airbnb
+            </a>
+            <div class="nav-search">
+                <div class="search-box">
+                    <span>Anywhere</span>
+                    <span class="divider">|</span>
+                    <span>Any week</span>
+                    <span class="divider">|</span>
+                    <span class="light-text">Add guests</span>
+                    <button class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="host-link">Become a host</a>
+                <button class="language-btn">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <div class="profile-menu">
+                    <button class="menu-btn">
+                        <i class="fas fa-bars"></i>
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Home Title and Navigation -->
+        <div class="home-header">
+            <h1 id="home-title">Modern Luxury Villa in Guwahati</h1>
+            <div class="header-actions">
+                <div class="share-save">
+                    <button class="share-btn">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                    <button class="save-btn">
+                        <i class="far fa-heart"></i> Save
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rating and Location -->
+        <div class="home-rating-location">
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <span class="rating-value"><%=home.rating%></span>
+                <span class="reviews-count">(45 reviews)</span>
+                <span class="divider">·</span>
+                <span class="superhost">
+                    <i class="fas fa-medal"></i> Superhost
+                </span>
+                <span class="divider">·</span>
+                <span id="home-location"><%=home.Location%></span>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="photo-gallery">
+            <div class="main-photo">
+                <img src="<%=home.photourl%>" 
+                     alt="Modern Luxury Villa" id="main-photo">
+            </div>
+            <div class="secondary-photos">
+                <div class="photo-grid">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&auto=format&fit=crop" 
+                         alt="Living Room">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&auto=format&fit=crop" 
+                         alt="Kitchen">
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&auto=format&fit=crop" 
+                         alt="Bedroom">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop" 
+                         alt="Bathroom">
+                </div>
+                <button class="show-all-photos">
+                    <i class="fas fa-camera"></i> Show all photos
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content-wrapper">
+            <!-- Left Column - Home Details -->
+            <div class="details-left">
+                <!-- Host Info -->
+                <div class="host-section">
+                    <div class="host-info">
+                        <h2>Entire villa hosted by <span id="host-name">Raj Sharma</span></h2>
+                        <div class="host-details">
+                            <div class="host-stats">
+                                <span><i class="fas fa-user-friends"></i> 6 guests</span>
+                                <span><i class="fas fa-bed"></i> 3 bedrooms</span>
+                                <span><i class="fas fa-bath"></i> 2 bathrooms</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="host-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Raj Sharma">
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="features-section">
+                    <div class="feature">
+                        <i class="fas fa-home"></i>
+                        <div>
+                            <h3>Entire home</h3>
+                            <p>You'll have the villa to yourself</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-broom"></i>
+                        <div>
+                            <h3>Enhanced clean</h3>
+                            <p>This host committed to Airbnb's 5-step enhanced cleaning process</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Great location</h3>
+                            <p>100% of recent guests gave the location a 5-star rating</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-key"></i>
+                        <div>
+                            <h3>Self check-in</h3>
+                            <p>Check yourself in with the lockbox</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="description-section">
+                    <h2>About this place</h2>
+                    <p id="home-description">
+                        Experience luxury living in this modern villa nestled in the heart of Guwahati. 
+                        Perfect for families and groups looking for a comfortable stay with all modern amenities. 
+                        The villa features a private swimming pool, spacious living areas, and breathtaking views 
+                        of the surrounding hills.
+                    </p>
+                    <a href="#" class="show-more">Show more <i class="fas fa-chevron-down"></i></a>
+                </div>
+
+                <!-- Sleeping Arrangements -->
+                <div class="sleeping-section">
+                    <h2>Where you'll sleep</h2>
+                    <div class="bedrooms">
+                        <div class="bedroom">
+                            <i class="fas fa-bed"></i>
+                            <h3>Bedroom 1</h3>
+                            <p>1 king bed</p>
+                        </div>
+                        <div class="bedroom">
+                            <i class="fas fa-bed"></i>
+                            <h3>Bedroom 2</h3>
+                            <p>2 single beds</p>
+                        </div>
+                        <div class="bedroom">
+                            <i class="fas fa-bed"></i>
+                            <h3>Bedroom 3</h3>
+                            <p>1 queen bed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amenities -->
+                <div class="amenities-section">
+                    <h2>What this place offers</h2>
+                    <div class="amenities-grid">
+                        <div class="amenity">
+                            <i class="fas fa-wifi"></i>
+                            <span>High-speed WiFi</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-swimming-pool"></i>
+                            <span>Private swimming pool</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-utensils"></i>
+                            <span>Fully equipped kitchen</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-tv"></i>
+                            <span>Smart TV with Netflix</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-car"></i>
+                            <span>Free parking on premises</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-wind"></i>
+                            <span>Air conditioning</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-hot-tub"></i>
+                            <span>Hot tub</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Gym equipment</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-tshirt"></i>
+                            <span>Washing machine</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-smoking-ban"></i>
+                            <span>No smoking</span>
+                        </div>
+                    </div>
+                    <button class="show-all-amenities">
+                        Show all 25 amenities
+                    </button>
+                </div>
+
+                <!-- Calendar -->
+                <div class="calendar-section">
+                    <h2>Select check-in date</h2>
+                    <p>Add your travel dates for exact pricing</p>
+                    <div class="calendar-placeholder">
+                        <div class="calendar-month">
+                            <h3>February 2024</h3>
+                            <div class="calendar-grid">
+                                <!-- Calendar days would be generated by JavaScript -->
+                                <div class="calendar-week">
+                                    <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                                </div>
+                                <!-- Simplified calendar for demo -->
+                                <div class="calendar-days">
+                                    <span class="disabled">28</span><span class="disabled">29</span><span class="disabled">30</span><span class="disabled">31</span>
+                                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                                    <span>8</span><span>9</span><span class="selected">10</span><span class="selected">11</span><span>12</span><span>13</span><span>14</span>
+                                    <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+                                    <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+                                    <span>29</span><span class="disabled">1</span><span class="disabled">2</span><span class="disabled">3</span><span class="disabled">4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews -->
+                <div class="reviews-section">
+                    <h2>
+                        <i class="fas fa-star"></i>
+                        8.0 · 45 reviews
+                    </h2>
+                    <div class="review-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Cleanliness</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 90%"></div>
+                            </div>
+                            <span class="stat-value">9.0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Accuracy</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 85%"></div>
+                            </div>
+                            <span class="stat-value">8.5</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Communication</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 95%"></div>
+                            </div>
+                            <span class="stat-value">9.5</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Location</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 100%"></div>
+                            </div>
+                            <span class="stat-value">10</span>
+                        </div>
+                    </div>
+
+                    <div class="reviews-grid">
+                        <div class="review-card">
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Singh">
+                                <div>
+                                    <h4>Priya Singh</h4>
+                                    <span class="review-date">March 2024</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i> 5.0
+                                </div>
+                                <p>Beautiful place with amazing views! The villa was even better than the photos. Highly recommended!</p>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Amit Kumar">
+                                <div>
+                                    <h4>Amit Kumar</h4>
+                                    <span class="review-date">February 2024</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i> 4.0
+                                </div>
+                                <p>Great location and very clean. The pool was fantastic. Host was responsive and helpful.</p>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sneha Roy">
+                                <div>
+                                    <h4>Sneha Roy</h4>
+                                    <span class="review-date">January 2024</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i> 5.0
+                                </div>
+                                <p>Perfect for family vacation. Kids loved the pool and we enjoyed the peaceful surroundings.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="show-all-reviews">
+                        Show all 45 reviews
+                    </button>
+                </div>
+
+                <!-- Location -->
+                <div class="location-section">
+                    <h2>Where you'll be</h2>
+                    <div class="location-map">
+                        <!-- Map placeholder -->
+                        <div class="map-placeholder">
+                            <p>Guwahati, Assam, India</p>
+                            <div class="map-image">
+                                <img src="https://maps.googleapis.com/maps/api/staticmap?center=Guwahati,Assam&zoom=13&size=600x300&scale=2&key=AIzaSyC-EXAMPLE" 
+                                     alt="Location Map">
+                            </div>
+                            <p class="location-description">
+                                Located in a peaceful residential area, just 15 minutes from the city center. 
+                                Close to shopping malls, restaurants, and tourist attractions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Booking Card -->
+            <div class="booking-right">
+                <div class="booking-card">
+                    <div class="price-header">
+                        <div class="price">
+                            <span id="price-per-night">₹800</span>
+                            <span class="per-night">per night</span>
+                        </div>
+                        <div class="price-rating">
+                            <i class="fas fa-star"></i>
+                            <span>8.0</span>
+                            <span class="reviews">· 45 reviews</span>
+                        </div>
+                    </div>
+
+                    <form class="booking-form" id="bookingForm">
+                        <div class="date-inputs">
+                            <div class="input-group">
+                                <label for="checkin">CHECK-IN</label>
+                                <input type="date" id="checkin" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="checkout">CHECKOUT</label>
+                                <input type="date" id="checkout" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="guests">GUESTS</label>
+                            <select id="guests">
+                                <option value="1">1 guest</option>
+                                <option value="2">2 guests</option>
+                                <option value="3">3 guests</option>
+                                <option value="4">4 guests</option>
+                                <option value="5">5 guests</option>
+                                <option value="6" selected>6 guests</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="book-button" id="bookButton">
+                            Book Now
+                        </button>
+
+                        <p class="no-charges">You won't be charged yet</p>
+
+                        <div class="price-breakdown">
+                            <div class="price-item">
+                                <span>₹800 x 5 nights</span>
+                                <span>₹4,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Cleaning fee</span>
+                                <span>₹500</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Service fee</span>
+                                <span>₹800</span>
+                            </div>
+                            <div class="price-total">
+                                <span>Total (INR)</span>
+                                <span>₹5,300</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Host Contact -->
+                <div class="host-contact">
+                    <p>
+                        <i class="fas fa-shield-alt"></i>
+                        Your booking is protected by
+                        <a href="#">Airbnb's Guest Refund Policy</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-flag"></i>
+                        <a href="#">Report this listing</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">AirCover</a>
+                <a href="#">Safety information</a>
+                <a href="#">Cancellation options</a>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <a href="#">Airbnb.org: disaster relief</a>
+                <a href="#">Support Afghan refugees</a>
+                <a href="#">Combating discrimination</a>
+            </div>
+            <div class="footer-section">
+                <h3>Hosting</h3>
+                <a href="#">Try hosting</a>
+                <a href="#">AirCover for Hosts</a>
+                <a href="#">Explore hosting resources</a>
+            </div>
+            <div class="footer-section">
+                <h3>Airbnb</h3>
+                <a href="#">Newsroom</a>
+                <a href="#">New features</a>
+                <a href="#">Careers</a>
+                <a href="#">Investors</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Airbnb, Inc. · Privacy · Terms · Sitemap · Company details</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Booking Bar for Mobile -->
+    <div class="mobile-booking-bar">
+        <div class="mobile-price">
+            <span>₹800 <small>per night</small></span>
+            <button class="mobile-book-btn" id="mobileBookButton">
+                Book Now
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>

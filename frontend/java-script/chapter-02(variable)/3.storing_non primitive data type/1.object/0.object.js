@@ -1,6 +1,6 @@
 // what is object?
 
-//An object is a non primitive data type having method as well as store  a collection of  data in  key value format.
+//An object is a non primitive data type storing method as well as  collection of  data in  key value format.
 
 example:
 

@@ -1,0 +1,31 @@
+In this chapter we will be understand dynamic routes and path parammeter
+
+let's understand it  by implementing a homeDetails page
+
+//step-01:adding  a home deatils page(blank page) to show home details when user clicks on listed home.
+
+   //how we will do it 
+
+   -
+   -
+   -
+   -
+
+
+
+
+//step-02:showing real home data
+
+how we will do it 
+
+- add a static findById method in monogoose that take callback
+
+-Use this findById method in the controller to get home details and log them.
+
+-now change the controller 
+    -reditect to /home in case the home is not found,logging an error 
+    -rendring the /homeDetails Page width home data.   
+
+
+
+

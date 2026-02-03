@@ -1,6 +1,5 @@
 // function declartion vs function expresstion
 
-
 // 1)Function Declaration:when we defined the function with named function then it is called function declaration.
 // example:
 
@@ -12,6 +11,6 @@ function fun()
 
 fun()
 
-// some imp points about fucntion declaration
+//some imp points about fucntion declaration
 
-// it is hoisted  and intialized with it's corresponding  function object
+//it is hoisted  and intialized with it's corresponding  function object

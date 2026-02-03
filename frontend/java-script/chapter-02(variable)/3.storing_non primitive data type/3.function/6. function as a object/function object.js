@@ -10,7 +10,7 @@ greet(1,2)
 
 //Internally, JS creates a Function object — something like:
 
-greet = {
+greet ={
   name: "greet",
   length: 0,
   prototype: { constructor: greet },
