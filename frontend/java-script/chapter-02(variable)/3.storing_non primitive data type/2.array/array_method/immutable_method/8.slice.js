@@ -11,4 +11,5 @@
 
 
 let arr=[3,4,5,6]
-console.log(arr.slice())
+arr.slice(0,4)
+console.log(arr)
