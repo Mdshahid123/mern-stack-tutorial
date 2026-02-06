@@ -15,16 +15,18 @@ const person = {
 
 // accessing Object Methods
 myname = person.fullName();
+console.log(myname)
 
 // If you access the fullName property without (), it will return the function definition:
 //Example
 myname2 = person.fullName;
+console.log(myname2)
 
 
 
 // Adding a Method to an Object
 // Adding a new method to an object is easy:
-Example:
+//Example:
 person.name = function () {
-    return this.firstName + " " + this.lastName;
+     return this.firstName + " " + this.lastName;
 };

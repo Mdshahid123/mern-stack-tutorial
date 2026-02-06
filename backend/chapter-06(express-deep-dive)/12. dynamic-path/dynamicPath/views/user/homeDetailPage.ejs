@@ -48,14 +48,15 @@
         <div class="home-header">
             <h1 id="home-title">Modern Luxury Villa in Guwahati</h1>
             <div class="header-actions">
-                <div class="share-save">
+                <form class="share-save" action="/favourite" method="POST">
                     <button class="share-btn">
                         <i class="fas fa-share"></i> Share
                     </button>
-                    <button class="save-btn">
-                        <i class="far fa-heart"></i> Save
+                    <button type="submit" class="save-btn">
+                        <i class="far fa-heart"></i> Add to favourite
                     </button>
-                </div>
+                    <input type="hidden" name="id" value="<%=home.id%>">
+                </form>
             </div>
         </div>
 

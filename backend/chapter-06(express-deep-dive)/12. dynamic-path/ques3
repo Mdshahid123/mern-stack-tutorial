@@ -1,0 +1,16 @@
+adding favourites models
+
+1. create a new model to handle favourites:
+
+    a.static method get favourites that reads the favourit.json file and return the id's of allhomes marked favourite
+
+    b.A static method addFavurites that adds the home-id to favourit-id array if not there,then update the file.
+
+2. use this model in addFavurites controller.
+
+
+3.use this model in getfavourites  controller while also details of all homes from home model
+
+change the ui of favourite pages to show the new content 
+
+

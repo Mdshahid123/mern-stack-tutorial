@@ -11,5 +11,5 @@
 obj={
     arr: [1, 2, 3, 4],
     length: 3,
-    __proto__: Array.prototype
+    __proto__: Array.prototyp
 }

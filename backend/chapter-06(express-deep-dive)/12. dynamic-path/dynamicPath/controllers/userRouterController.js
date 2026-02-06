@@ -16,8 +16,10 @@ const bookingRoutesHandler=(req,res)=>{
     res.sendFile(path.join(__dirname,"../","views/user","bookingPage.html"))
 }
 const favouriteRoutesHandler=(req,res)=>{
-    res.sendFile(path.join(__dirname,"../","views/user","favouriteListPage.html"))
-}
+    console.log("here is your favourite details",req.body)
+    res.redirect("/favourite")
+};
+
 
 const homeDetailsRoutesHandler=(req,res)=>{
     const homeId=req.params.homeId

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Favourites · Airbnb Style</title>
+  <link rel="stylesheet" href="/favouriteListPage.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <h2>❤️ My Favourites</h2>
+  </header>
+
+  <!-- Favourite Homes -->
+  <section class="fav-container">
+
+    <% if(home && home.length !== 0){ %>
+
+      <!-- Favourite Card -->
+      <div class="fav-card">
+        <img src="<%= home.photourl || 'https://via.placeholder.com/400' %>" alt="Home Image">
+
+        <div class="fav-info">
+          <h3><%= home.homeName || "Beautiful Stay" %></h3>
+          <p class="location"><%= home.Location || "Unknown location" %></p>
+
+          <div class="details">
+            <span>⭐ <%= home.rating || "4.5" %></span>
+            <span>₹ <%= home.pricePerNight || "999" %> / night</span>
+          </div>
+
+          <button class="view-btn">View Details</button>
+        </div>
+      </div>
+
+    <% } else { %>
+      <p class="empty">No favourites added yet 🏠</p>
+    <% } %>
+
+  </section>
+
+</body>
+</html>

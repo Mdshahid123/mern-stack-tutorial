@@ -1,4 +1,4 @@
-// java script object can be createed using object lateral,using empty object or using new keword,
+// java script object can be createed using object lateral,using empty object
 
 
 // 1)Create an Object using  Object Literal
@@ -21,15 +21,9 @@ person.age = 50;
 person.eyeColor = "blue";
 
 
-//3)Create a new JavaScript object using new Object():
 
-// Create an Object
-const person3 = new Object({
-    firstName: "John",
-    lastName: "Doe",
-    age: 50,
-    eyeColor: "blue"
-});
-console.log(person)
+//3)creating object using constructor function:we will be discuss in fucntion chapter
+
+
 
 

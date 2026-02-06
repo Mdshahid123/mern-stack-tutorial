@@ -1,4 +1,4 @@
-//in JavaScript, when you define a function, it’s actually treated as a  object That means it has properties and methods just like other objects.
+//in JavaScript, when you define a function, it’s actually treated as a  object That means it has properties and methods(call, apply, and bind) just like other objects.
 
 //When you define a function:
 function greet(num1,num2) {
@@ -10,7 +10,7 @@ greet(1,2)
 
 //Internally, JS creates a Function object — something like:
 
-greet ={
+greet={
   name: "greet",
   length: 0,
   prototype: { constructor: greet },

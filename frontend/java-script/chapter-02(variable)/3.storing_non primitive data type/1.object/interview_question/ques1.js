@@ -1,5 +1,5 @@
 // pridict the ouput
-obj = {
+let obj = {
     a: "one",
     b: "two",
     a: "three",

@@ -1,8 +1,8 @@
 // Nested Objects
 // Property values in an object can be other objects:
 
-Example
-myObj = {
+//Example
+person={
     name: "John",
     age: 30,
     myCars: {
@@ -16,6 +16,7 @@ myObj = {
 //You can access nested objects using the dot notation or the bracket notation:
 
 //Examples
-myObj.myCars.car2;
-myObj.myCars["car2"];
-myObj["myCars"]["car2"];
+
+person.myCars.car2;
+person.myCars["car2"];
+pserson["myCars"]["car2"];

@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Navbar */
+.navbar {
+  background: white;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Container */
+.fav-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Card */
+.fav-card {
+  width: 360px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.fav-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Image */
+.fav-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Info */
+.fav-info {
+  padding: 15px;
+}
+
+.fav-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.location {
+  color: gray;
+  margin: 5px 0 10px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* Button */
+.view-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background: #ff385c;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #e61e4d;
+}
+
+/* Empty */
+.empty {
+  font-size: 18px;
+  color: gray;
+}

@@ -1,3 +1,3 @@
-// diffrence b/w array and object
+//diffrence b/w array and object
 
 // two diffrence  

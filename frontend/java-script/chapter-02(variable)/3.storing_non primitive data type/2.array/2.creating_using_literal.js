@@ -12,6 +12,8 @@ const arr4=[24,"shahid",true,[1,2,3],{name:"shahid",age:18}] //mix data type
 
 //Example
 const cars = [];
+console.log(cars)
 cars[0] = "Saab";
 cars[1] = "Volvo";
 cars[2] = "BMW";
+console.log(cars)

@@ -26,3 +26,6 @@ Person.call(obj, "Shahid");
 return obj;
 
 // So, this inside the constructor now points to the newly created object — not the global scope.
+
+
+//we will discuss later in fucntion

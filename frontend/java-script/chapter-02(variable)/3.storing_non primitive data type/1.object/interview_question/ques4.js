@@ -6,7 +6,7 @@ const c = { key: "c" };
 
 a[b]=456
 a[c]=123
-console.log(a[b])
+console.log(a)
 
 
 

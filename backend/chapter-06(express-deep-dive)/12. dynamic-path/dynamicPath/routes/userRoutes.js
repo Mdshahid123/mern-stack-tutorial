@@ -3,6 +3,6 @@ const {homeRoutesHandler,bookingRoutesHandler,favouriteRoutesHandler,homeDetails
 const userRoutes=express.Router()
 userRoutes.get("/",homeRoutesHandler)
 userRoutes.get("/booking",bookingRoutesHandler)
-userRoutes.get("/favourite",favouriteRoutesHandler)
+userRoutes.post("/favourite",favouriteRoutesHandler)
 userRoutes.get("/homesDetail/:homeId",homeDetailsRoutesHandler)
 module.exports=userRoutes
