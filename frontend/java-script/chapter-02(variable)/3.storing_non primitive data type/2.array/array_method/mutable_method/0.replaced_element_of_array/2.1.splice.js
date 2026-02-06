@@ -1,4 +1,4 @@
-//You can add, remove, or replace elements without direct assignment.
+//You can add, remove, or replace elements without direct assignment.and return the target element
 
 // replace
 splice(index, count, element)

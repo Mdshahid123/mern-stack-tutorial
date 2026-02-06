@@ -1,4 +1,4 @@
-//sort() – rearranges elements
+//sort()–rearranges elements
 let arr = [3, 1, 4, 2];
 arr.sort();
 
