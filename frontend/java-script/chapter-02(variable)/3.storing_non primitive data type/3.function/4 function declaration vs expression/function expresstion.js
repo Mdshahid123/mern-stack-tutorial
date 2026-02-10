@@ -4,7 +4,7 @@ const greet = function() {
   console.log("Hello, Shahid!");
 };
 
-// function call
+//function call
 greet(); 
 
 

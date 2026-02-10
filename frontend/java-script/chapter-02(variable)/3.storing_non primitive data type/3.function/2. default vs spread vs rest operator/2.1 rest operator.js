@@ -1,14 +1,16 @@
-// rest operator(...):we used rest operator as a paramter in function defination when we don't know how many argument function call passed.
+//rest operator(...) packs multiple arguments into a single array.
 
-// packs multiple arguments into a single array.
+//use case1:used in function parmater
+
+//we used rest operator as a paramter in function defination when we don't know how many argument caller  passed.
 
 
-//Example 1: Rest in Function Parameters
-function sum(...numbers) {
+function num(...numbers) {
   console.log(numbers);//it give array of parameter
+
 }
 
-sum(1, 2, 3, 4);
+num(1, 2, 3, 4);
 
 //output:
 [1,2,3,4,5,6]

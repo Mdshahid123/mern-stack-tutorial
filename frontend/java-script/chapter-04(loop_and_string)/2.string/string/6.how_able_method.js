@@ -5,7 +5,8 @@
 
 let str = "hello";
 
-// Step 1: JS converts the primitive to an object
+// Step 1: JS converts the primitive to an object.
+
 // internally like this:
 let temp = new String(str);
 

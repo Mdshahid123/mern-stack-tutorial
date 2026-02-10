@@ -3,6 +3,7 @@
 //1)modularization:function is a way to implememnt modularization that is we spllit  bigger task(like calculator) into the sevral smaller tasks(add,sub,mul,div) to reduce the complexity of a program 
 
 //2)Readability:Functions improve the readability of the code  
+
 ///Now anyone reading the code instantly understands what diffrent  fucntion does.
 //Easier to maintain, test, and reuse.
 

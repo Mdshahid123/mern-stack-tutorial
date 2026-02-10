@@ -1,0 +1,1 @@
+//eccess the element of string using loop

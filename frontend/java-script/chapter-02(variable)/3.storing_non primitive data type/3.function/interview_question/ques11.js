@@ -1,5 +1,5 @@
 // case 1:
-fun()
+fun1()
 const fun1 =()=>{
    console.log("hello")
 }
@@ -10,5 +10,5 @@ const fun1 =()=>{
 const fun2 =()=>{
   console.log("hello")
 }
-fun()
+fun2()
 

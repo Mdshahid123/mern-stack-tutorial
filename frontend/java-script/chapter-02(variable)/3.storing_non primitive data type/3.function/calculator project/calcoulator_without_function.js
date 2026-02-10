@@ -26,5 +26,6 @@ console.log("Result:", result);
 
 
 //Without functions:
-//All code sits in memory from start to end.
+// difficult to read
+// All code sits in memory from start to end.
 //Memory stays busy even when not used

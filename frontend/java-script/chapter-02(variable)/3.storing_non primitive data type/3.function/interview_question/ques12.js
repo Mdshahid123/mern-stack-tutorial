@@ -1,5 +1,4 @@
-// pridict the output
-
+//pridict the output
 functionname()
 function functionname()
 { console.log(x)

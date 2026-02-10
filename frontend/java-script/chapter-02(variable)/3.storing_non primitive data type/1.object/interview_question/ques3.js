@@ -1,4 +1,4 @@
-// what is  a JSON.strigifi and JSON.parse:
+//what is  a JSON.strigifi and JSON.parse:
 
 //JSON.stringify used to convert the js object to the json string
 

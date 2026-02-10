@@ -1,4 +1,5 @@
-//spread operator:it Expands / spreads elements of an array or object into individual items.
+//spread operator:it split the elements of an array or object into individual items.
+
 //Used to unpack values.
 
 
