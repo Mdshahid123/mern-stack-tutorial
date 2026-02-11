@@ -7,3 +7,6 @@
 const greet = function(name){
   return `Hello, ${name}!`;
  };
+
+ let result=greet("shahid")
+ console.log(result)

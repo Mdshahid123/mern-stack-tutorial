@@ -4,7 +4,7 @@
 
 // A function is defined with the function keyword, followed by the function name, followed by parentheses ( ), followed by brackets { }.
 
-// Functions are reusable block of code
+//Functions are reusable block of code
 
 //function cosume memory when only when it is invoked and released from ram as soon as it finised the job
 

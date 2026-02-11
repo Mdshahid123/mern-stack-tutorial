@@ -1,7 +1,11 @@
-//ii)Anonymous function using arrow function
+ii)Anonymous function using arrow function
 
 const greetArrow = (name) =>{
-  `Hello, ${name}!`
+  return `Hello, ${name}!`
 }
 
-greetArrow("md shahid")
+let result=greetArrow("md shahid")
+console.log(result)
+
+
+

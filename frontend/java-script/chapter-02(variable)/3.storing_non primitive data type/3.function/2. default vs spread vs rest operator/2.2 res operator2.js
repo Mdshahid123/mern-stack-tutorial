@@ -6,7 +6,4 @@ function introduce(first, ...hobbies) {
 
 introduce("Shahid", "Coding", "Cricket", "Music");
 
-//Output:
 
-Name: Shahid
-Hobbies: [ 'Coding', 'Cricket', 'Music' ]
