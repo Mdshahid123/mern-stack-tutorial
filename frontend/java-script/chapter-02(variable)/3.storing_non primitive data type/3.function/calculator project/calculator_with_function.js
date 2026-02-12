@@ -1,4 +1,4 @@
-// individual functions for each operation
+//individual functions for each operation
 function add(a, b) {
   return a + b;
 }
@@ -36,12 +36,12 @@ function calculator(num1, num2, operator) {
   }
 }
 
-// user input
+//user input
 let n1 = Number(prompt("Enter first number:"));
 let n2 = Number(prompt("Enter second number:"));
 let op = prompt("Enter operator (+, -, *, /, %):");
 
-// output
+//output
 console.log("Result:", calculator(n1, n2, op));
 
 

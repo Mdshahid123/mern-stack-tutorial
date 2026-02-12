@@ -1,1 +1,0 @@
-//excessing a element of a array using loop

@@ -1,0 +1,1 @@
+//eccess  the element of object using for loop

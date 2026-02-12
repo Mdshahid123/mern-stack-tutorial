@@ -1,0 +1,1 @@
+// make nested loop in which outer loop and inner loop should excute 10 times and print the current iteration count of both loop

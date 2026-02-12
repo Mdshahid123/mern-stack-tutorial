@@ -1,11 +1,11 @@
-var num1=20,
-num2=3,
-name="technoglobe coder"
+var num1=20
+num2=3
 
 function multiply()
 {
   return num1*num2
 }
 
-multiply()
+let result= multiply()
+console.log(result)
 
