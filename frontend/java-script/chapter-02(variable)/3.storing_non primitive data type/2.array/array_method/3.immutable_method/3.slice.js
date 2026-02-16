@@ -9,7 +9,14 @@
 
 let arr=[3,4,5,6,8,10]
 
-let newarr=arr.slice(1)
+let newarr=arr.slice()
 console.log(newarr)
+
+let newarr2=arr.slice(1)
+console.log(newarr2)
+
+
+let newarr3=arr.slice(1,5)
+console.log(newarr3)
 
 
