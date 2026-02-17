@@ -8,15 +8,11 @@
 
 //strings are immutable((you can’t directly change a character inside a string))
 
-
-
-// template literal in js:it used to embedded expression in a string 
+//template literal in js:it used to embedded expression in a string 
   `this is a template literal`
-
-
-//string interpolation:creating a strings by doing substituition of placeholder called string interpolation 
-
-  `stringtext${expresstion}stringtxt`
+  
+//string interpolation:creating a strings by doing substituition of placeholder called string interpolation. 
+`stringtext${expresstion}stringtxt`
 
 
 

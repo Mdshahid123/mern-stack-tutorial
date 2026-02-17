@@ -30,6 +30,7 @@ while(condn)
 } 
 
 3)do...while loop
+
 intilaze variable 
 do{
     //task
@@ -37,14 +38,16 @@ do{
 }while(cond)
 
 for of loop
+
 for(let variable of iterableObject)
 {
     //perform a task on each item
 }
 
 
-for in loop:used when 
-for(let variable in iterableObject)
+for in loop:for...in does NOT care about iterables object,It works on objects, not on iterables specifically.
+
+for(let variable in Object)
 {
     //perform a task on each key
 }

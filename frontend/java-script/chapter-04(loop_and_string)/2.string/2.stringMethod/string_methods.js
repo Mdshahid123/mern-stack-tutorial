@@ -1,14 +1,14 @@
 //there are build in method(function) to manipulate a string
 
 //toUpperCase():
-let str = "shahid"
-let newstr = str.toUpperCase(str)
-console.log(newstr)
-console.log(str)
+let str1 = "shahid"
+let newstr1 = str1.toUpperCase(str1)
+console.log(newstr1)
+console.log(str1)
 
 //toLowerCase():
 let str2 = "SHAHID"
-let newstr2 = str.toLowerCase(str2)
+let newstr2 = str2.toLowerCase(str2)
 console.log(newstr2)
 
 //trim():remove white space from start and end
@@ -18,8 +18,13 @@ console.log(newstr3)
 
 //str.slice(startidx,endindx):
 let str4 = "slice"
-let newstr4 = str4.slice(1, 3)
+let newstr4= str4.slice()
+let newstr5 = str4.slice(0,str4.length)
+let newstr6 = str4.slice(2,4)
 console.log(newstr4)
+console.log(newstr5)
+console.log(newstr6)
+console.log(str4)
 
 //str.concat():
 let str5 = "concat1"
