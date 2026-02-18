@@ -1,4 +1,6 @@
 //there are build in method(function) to manipulate a string
+//please note that string method doesn't modifi the orginal string bcz
+//string is immutable(primitive data type) so it return new string.
 
 //toUpperCase():
 let str1 = "shahid"
@@ -37,5 +39,7 @@ let str7 = "replacerther"
 let newstr7 = str7.replaceAll("er", "ba")
 console.log(newstr7)
 
-//str.charAt():
 
+//charAt(index-value)-it will return the index of index-value
+let str8="shahid"
+console.log("hi",str8.charAt(0))

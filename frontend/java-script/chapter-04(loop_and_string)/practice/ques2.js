@@ -7,5 +7,5 @@ let guessnumber = Number(prompt("guess a game number"))
 while (guessnumber != gamenumber) {
   guessnumber = prompt("you entered a wrong number,guess again !!")
 }
-prompt("conratulation you entered correct number")
+alert("conratulation you entered correct number")
 
