@@ -1,0 +1,6 @@
+innerHTML:return the html element with it content of the html element and  all it's children.
+
+Property         Returns	                    Includes Hidden Text?	       Includes HTML?
+innerText       textual content                    only	❌ No	                ✅ Yes
+
+

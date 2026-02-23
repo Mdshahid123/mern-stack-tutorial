@@ -1,4 +1,4 @@
-//1) getting element attributes value
+//1)getting element attributes value
 
 //syntax
 getAttribute(attr)//it return the attribute value
