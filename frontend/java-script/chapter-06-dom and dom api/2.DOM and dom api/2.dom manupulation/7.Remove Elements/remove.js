@@ -1,0 +1,2 @@
+// delete element
+document.remove()
