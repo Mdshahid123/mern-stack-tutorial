@@ -1,0 +1,28 @@
+Create a <div> element in an HTML file.Apply styles to it using the inline style attribute.Access the styles using JavaScript’s element.style property,Print the values in the console and observe the result.Explain why the observed output occurs.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+        <div class="box" style="width: 100px; height: 100px; background-color: red;">
+            box
+        </div> 
+        <script>
+              const box = document.querySelector(".box");
+              console.log(box)
+              console.log(box.style);
+              console.log(box.style.width);
+              console.log(box.style.height);
+              console.log(box.style.backgroundColor);
+        </script>
+</body>
+</html>
+
+<!-- conclustion -->
+<!--❓Why Is It Not Empty?-->
+<!--Because:element.style only reads inline styles,not styles from external CSS file.-->

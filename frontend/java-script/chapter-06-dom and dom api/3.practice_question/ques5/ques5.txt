@@ -1,5 +1,4 @@
-Task:
-Create a card dynamically when clicking a button:
+Task:Create a card dynamically when clicking a button:
 
 Structure to append:
 
@@ -9,7 +8,6 @@ Structure to append:
 </div>
 
 Requirements:
-
 Create all elements using JS.
 
 Use append() to structure them properly.

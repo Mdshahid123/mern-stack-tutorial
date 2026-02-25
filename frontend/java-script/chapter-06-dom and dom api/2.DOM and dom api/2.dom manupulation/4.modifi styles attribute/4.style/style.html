@@ -1,10 +1,11 @@
-<!--getting html elment(tag)name -->
+<!-- create a div and give style to it and modify it using JavaScript -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <title>Modify Styles</title>
 </head>
 <body>
       <div id="myDiv">
@@ -12,9 +13,9 @@
       </div> 
       <script>
             const myDiv = document.getElementById("myDiv");
-            console.log(myDiv.tagName); // DIV
-            myDiv.tagName = "p"; // tagName is read-only, this line will not change the tag name
-            console.log(myDiv.tagName); // still DIV
+            console.log(myDiv.style.width); // 100px
+            myDiv.style.width = "200px";
+            console.log(myDiv.style.width); // 200px
       </script>
 </body>
 </html>

@@ -1,2 +1,2 @@
-// delete element
+//delete element
 document.remove()

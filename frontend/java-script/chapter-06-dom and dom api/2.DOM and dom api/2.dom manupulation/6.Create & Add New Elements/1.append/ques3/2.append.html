@@ -14,10 +14,12 @@
      const box = document.getElementById("box");
 
     btn.addEventListener("click", function () {
+      console.log(box)
     const strongElement = document.createElement("strong");
     strongElement.innerText = "Welcome!";
 
     box.append("Hello Students ", strongElement);
+    
   });
 </script>
 </body>

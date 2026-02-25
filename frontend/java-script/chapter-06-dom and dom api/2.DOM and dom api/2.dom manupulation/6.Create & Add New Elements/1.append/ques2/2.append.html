@@ -6,21 +6,23 @@
   <title>Document</title>
 </head>
 <body>
-     <div id="container"></div>
+     <div id="container">
+
+     </div>
      <button id="btn">Add Paragraphs</button>
-     <script>
-  const btn = document.getElementById("btn");
-  const container = document.getElementById("container");
+  <script>
+    const btn = document.getElementById("btn");
+    const container = document.getElementById("container");
 
-  btn.addEventListener("click", function () {
-    const p1 = document.createElement("p");
-    p1.innerText = "This is first paragraph";
+    btn.addEventListener("click", function () {
+      const p1 = document.createElement("p");
+      p1.innerText = "This is first paragraph";
 
-    const p2 = document.createElement("p");
-    p2.innerText = "This is second paragraph";
+      const p2 = document.createElement("p");
+      p2.innerText = "This is second paragraph";
 
-    container.append(p1, p2); // Multiple elements
-  });
+      container.append(p1, p2);//Multiple elements
+    });
 </script>
 </body>
 </html>
