@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prepend</title>
+</head>
+<body>
+       <ul id="list">
+           <li>Item 1</li>
+       </ul>
+       <button id="btn">Add Item</button>
+
+       <script>
+          const btn = document.getElementById("btn");
+          const list = document.getElementById("list");
+          btn.addEventListener("click", function() {
+            const newItem = document.createElement("li");
+            newItem.textContent = "New Item";
+            list.prepend(newItem);
+          });
+       </script>
+</body>
+</html>

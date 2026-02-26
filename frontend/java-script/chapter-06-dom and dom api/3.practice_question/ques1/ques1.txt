@@ -1,1 +1,1 @@
-Qs. Create a H2 heading element with text - “Hello JavaScript”. Append “from technoglobe students” to this text using JS.
+Qs.Create a H2 heading element with text - “Hello JavaScript”. Append “from technoglobe students” to this text using JS.

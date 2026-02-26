@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+     <ul id="list">
+        <li>Item 1</li>
+      </ul>
+      <button id="btn">Add Item</button>
+  <script>
+    const btn = document.getElementById("btn");
+    const list = document.getElementById("list");
+
+    btn.addEventListener("click", function () {
+      const li1 = document.createElement("li");
+      li1.innerText = "This is first list item";
+
+      const li2 = document.createElement("li");
+      li2.innerText = "This is second list item";
+
+      list.append(li1, li2);//Multiple elements
+    });
+</script>
+</body>
+</html>

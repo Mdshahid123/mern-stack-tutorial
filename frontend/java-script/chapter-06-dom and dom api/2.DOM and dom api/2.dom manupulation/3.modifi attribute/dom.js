@@ -18,4 +18,4 @@ setAttribute(attr, value)
 
 // note: if we want to add a new attribute to the element using setAttribute() method and if the attribute is already exist then it will update the attribute value otherwise it will add a new attribute to the element.
 
-//note2:getting attribute using dot notaion not work if the attribute is custom attribute but getAttribute() method work for both standard and custom attribute.
+//note2:getting attribute using attribute name not work if the attribute is custom attribute but getAttribute() method work for both standard and custom attribute.

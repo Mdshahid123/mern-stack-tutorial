@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prepend multiple</title>
+</head>
+<body>
+      <ul id="list">
+        <li>Item 1</li>
+      </ul>
+      <button id="btn">Add Item</button>
+      <script>
+        const btn = document.getElementById('btn');
+        const list = document.getElementById('list');
+
+        btn.addEventListener('click', () => {
+          const p1 = document.createElement('p');
+          p1.textContent = 'Paragraph 1';
+
+          const p2 = document.createElement('p');
+          p2.textContent = 'Paragraph 2';
+
+          list.prepend(p1, p2);
+        });
+      </script>
+</body>
+</html>
