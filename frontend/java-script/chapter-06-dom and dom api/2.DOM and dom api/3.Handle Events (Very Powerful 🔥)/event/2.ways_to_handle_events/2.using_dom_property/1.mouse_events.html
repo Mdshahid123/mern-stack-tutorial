@@ -1,0 +1,44 @@
+<!-- handling mouse events using DOM properties -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Events</title>
+</head>
+<body>
+        <button id="myButton">Click Me</button>
+        <script>
+              const button = document.getElementById('myButton');
+              // on click event
+              button.onclick = function() {
+                  console.log('Button clicked!');
+              };
+              //on double click event
+              button.ondblclick = function() {
+                  console.log('Button double clicked!');
+              };
+              // on mouse down event
+              button.onmousedown = function() {
+                  console.log('Mouse button pressed!');
+              };
+              // on mouse up event
+              button.onmouseup = function() {
+                  console.log('Mouse button released!');
+              };
+              // on mouse over event
+              button.onmouseover = function() {
+                  console.log('Mouse is over the button!');
+              };
+              // on mouse out event
+              button.onmouseout = function() {
+                  console.log('Mouse is out of the button!');
+              };
+              // on mouse move event
+              button.onmousemove = function() {
+                  console.log('Mouse is moving over the button!');
+              };
+        </script>
+        
+</body>
+</html>

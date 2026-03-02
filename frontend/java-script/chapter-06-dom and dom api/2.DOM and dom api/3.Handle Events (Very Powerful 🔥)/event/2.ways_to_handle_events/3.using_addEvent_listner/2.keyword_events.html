@@ -1,0 +1,28 @@
+<!-- handling keyword events using addEventListener method -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyword Events with addEventListener</title>
+</head>
+<body>
+        <input type="text" id="myInput" placeholder="Enter something">
+        <script>
+              const input = document.getElementById('myInput');
+              //on key down event
+              input.addEventListener('keydown', function(event) {
+                  console.log('Key pressed:', event.key);
+              });
+              // on key up event
+              input.addEventListener('keyup', function(event) {
+                  console.log('Key released:', event.key);
+              });
+              // on key press event
+              input.addEventListener('keypress', function(event) {
+                  console.log('Key pressed and hold:', event.key);
+              });
+        </script>
+        
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- handling mouse events using addEventListener method -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Events with addEventListener</title>
+</head>
+<body>
+        <button id="myButton">Click Me</button>
+        <script>
+             const button = document.getElementById('myButton');
+              //on click event
+              button.addEventListener('click', function() {
+                  console.log("button was clicked!");
+              });
+              //on double click event
+              button.addEventListener('dblclick', function() {
+                  console.log('Button double clicked!');
+              });
+              //on mouse down event
+              button.addEventListener('mousedown', function() {
+                  console.log('Mouse button pressed!');
+              });
+              //on mouse up event
+              button.addEventListener('mouseup', function() {
+                  console.log('Mouse button released!');
+              });
+              //on mouse over event
+              button.addEventListener('mouseover', function() {
+                  console.log('Mouse is over the button!');
+              });
+              //on mouse out event
+              button.addEventListener('mouseout', function() {
+                  console.log('Mouse is out of the button!');
+              });
+        </script>
+        
+</body>
+</html>

@@ -1,2 +1,2 @@
 //delete element
-document.remove()
+node.remove()

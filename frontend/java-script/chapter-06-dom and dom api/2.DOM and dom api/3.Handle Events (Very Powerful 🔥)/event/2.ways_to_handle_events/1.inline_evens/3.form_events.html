@@ -1,0 +1,50 @@
+<!-- handling form events using inline events handler -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form events</title>
+</head>
+<body>
+        <!-- onsubmit event -->
+        <form onsubmit="alert('Form submitted!'); return false;">
+          <input type="text" placeholder="Enter something">
+          <button type="submit">Submit</button>
+        </form>
+        <!-- onreset event -->
+        <form onreset="alert('Form reset!'); return false;">
+          <input type="text" placeholder="Enter something">
+          <button type="reset">Reset</button>
+        </form>
+        <!-- oninput event -->
+        <form>
+          <input type="text" placeholder="Enter something" oninput="alert('Input changed!')">
+        </form>
+        <!-- onchange event -->
+        <form>
+          <input type="text" placeholder="Enter something" onchange="alert('Input value changed!')">
+        </form>
+        <!-- onfocus event -->
+        <form>
+          <input type="text" placeholder="Enter something" onfocus="alert('Input focused!')">
+        </form>
+        <!-- onblur event -->
+        <form>
+          <input type="text" placeholder="Enter something" onblur="alert('Input blurred!')">
+        </form>
+        
+        <!--4 window events -->
+
+        <!-- onload event -->
+        <body onload="alert('Page loaded!')">
+        <!-- onunload event -->
+        <body onunload="alert('Page unloaded!')">
+        <!-- onresize event -->
+        <body onresize="alert('Window resized!')">
+        <!-- onscroll event -->
+        <body onscroll="alert('Window scrolled!')">
+         
+
+</body>
+</html>

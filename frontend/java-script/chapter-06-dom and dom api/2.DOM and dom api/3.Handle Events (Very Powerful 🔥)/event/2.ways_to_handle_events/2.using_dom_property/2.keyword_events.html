@@ -1,0 +1,28 @@
+<!-- handling keyword events using DOM properties -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyword Events</title>
+</head>
+<body>
+        <input type="text" id="myInput" placeholder="Enter something">
+        <script>
+              const input = document.getElementById('myInput');
+              // on key down event
+              input.onkeydown = function(event) {
+                  console.log('Key pressed:', event.key);
+              };
+              // on key up event
+              input.onkeyup = function(event) {
+                  console.log('Key released:', event.key);
+              };
+              // on key press event
+              input.onkeypress = function(event) {
+                  console.log('Key pressed:', event.key);
+              };
+        </script>
+        
+</body>
+</html>
