@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CHAPTER-03 - HTML TAGS</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:40px;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.comment{
+   color: #6a9955;
+   font-style: italic;
+}
+
+.main-heading{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+h1{
+    font-size:32px;
+    color:#2c3e50;
+}
+
+h2{
+    font-size:26px;
+    color:#2c3e50;
+    margin-top:35px;
+}
+
+h3{
+    font-size:22px;
+    margin-top:25px;
+}
+
+.code{
+    background-color:#1e1e1e;
+    padding:15px;
+    border-radius:6px;
+    font-family:Consolas, monospace;
+    font-size:16px;
+    overflow-x:auto;
+    margin-top:10px;
+}
+
+.tag{ color:#569cd6; }
+.attr{ color:#9cdcfe; }
+.value{ color:#ce9178; }
+.text{ color:#d4d4d4; }
+
+.highlight{
+    background:#f4f6f8;
+    padding:18px;
+    border-left:6px solid #2c3e50;
+    font-weight:bold;
+    margin-top:20px;
+    border-radius:6px;
+}
+
+.section{
+    margin-bottom:50px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="main-heading">
+    <h1>CHAPTER-03</h1>
+    <h1>HTML TAGS</h1>
+</div>
+  <!-- INTRODUCTION + HTML ATTRIBUTES SECTION -->
+
+<div class="section">
+  <h2>In This Chapter We Will Learn</h2>
+
+  <ul>
+  <li>HTML Attributes</li>
+  <li>ID Property</li>
+  <li>Heading Tag</li>
+  <li>Paragraph Tag</li>
+  <li>br and hr Tag</li>
+  <li>Image Tag</li>
+  <li>Video Tag</li>
+  <li>Anchor Tag</li>
+  <li>Bold, Italic, Underline and Strike Tags</li>
+  <li>Pre Tag</li>
+  <li>Big and Small Tag</li>
+  <li>Superscript and Subscript Tag</li>
+  <li>Character Entity References</li>
+  </ul>
+</div>
+
+<!-- HTML ATTRIBUTES -->
+
+<div class="section">
+  <h2>HTML Attributes</h2>
+
+  <p><strong>Definition:</strong></p>
+
+  <p>
+    HTML attributes provide additional information about HTML elements.
+  </p>
+
+  <div class="highlight">
+  Attributes are always written in name="value" format.
+  </div>
+
+  <div class="code">
+  <span class="tag">&lt;p</span> 
+  <span class="attr">align</span>=<span class="value">"center"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">Hello World</span>
+  <span class="tag">&lt;/p&gt;</span>
+  </div>
+
+  <h3>ID Property</h3>
+
+  <p>
+  ID is used to give a unique name to an element.
+  </p>
+
+  <div class="code">
+  <span class="tag">&lt;h1</span> 
+  <span class="attr">id</span>=<span class="value">"mainHeading"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">Welcome</span>
+  <span class="tag">&lt;/h1&gt;</span>
+  </div>
+
+</div>
+
+<!-- Anchor Tag Section Updated -->
+<div class="section">
+  <h2>Anchor Tag</h2>
+
+  <p><strong>Definition:</strong></p>
+
+  <p>
+  The &lt;a&gt; tag in HTML is called the anchor tag.
+  It is used to create hyperlinks that let you jump to another external website,
+  webpage, section, email, or even download a file.
+  </p>
+
+  <div class="highlight">
+  Anchor tag is used to create links in HTML.
+  </div>
+
+  <h3>Basic Syntax</h3>
+
+  <div class="code">
+  <span class="tag">&lt;a</span> 
+  <span class="attr">href</span>=<span class="value">"https://www.example.com"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">Click Here</span>
+  <span class="tag">&lt;/a&gt;</span>
+  </div>
+
+  <h3>Attributes</h3>
+
+  <p><strong>href</strong> → Attribute that tells where the link should go.</p>
+  <p><strong>target="_blank"</strong> → Opens external link in new tab.</p>
+
+  <hr>
+
+  <h3>Practical Examples</h3>
+
+  <h4>1) Opening External Website in Same Tab</h4>
+
+  <div class="code">
+  <span class="tag">&lt;a</span> 
+  <span class="attr">id</span>=<span class="value">"section1"</span> 
+  <span class="attr">href</span>=<span class="value">"https://www.flipkart.com/"</span>
+  <span class="tag">&gt;</span>
+  <span class="tag">&lt;p&gt;</span>
+  <span class="text">go to flipkart</span>
+  <span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/a&gt;</span>
+  <br>
+  <span class="tag">&lt;br&gt;</span>
+  </div>
+
+  <h4>2) Link to External Website and Open in New Tab</h4>
+
+  <div class="code">
+  <span class="tag">&lt;a</span><br>
+  &nbsp;&nbsp;<span class="attr">href</span>=<span class="value">"https://www.google.com"</span><br>
+  &nbsp;&nbsp;<span class="attr">target</span>=<span class="value">"_blank"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">go to google</span>
+  <span class="tag">&lt;/a&gt;</span>
+  </div>
+
+  <h4>3) Download a File</h4>
+
+  <div class="code">
+  <span class="tag">&lt;a</span> 
+  <span class="attr">href</span>=<span class="value">"./assets/file.pdf"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">download notes</span>
+  <span class="tag">&lt;/a&gt;</span>
+  </div>
+
+  <h4>4) Send an Email</h4>
+
+  <div class="code">
+  <span class="tag">&lt;a</span> 
+  <span class="attr">href</span>=<span class="value">"mailto:shahiddelhi989@gmail.com"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">Send Email</span>
+  <span class="tag">&lt;/a&gt;</span>
+  </div>
+
+  <h4>5) Link to Section on Same Page</h4>
+
+  <div class="code">
+  <span class="tag">&lt;p</span> 
+  <span class="attr">id</span>=<span class="value">"section1"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">section 1</span>
+  <span class="tag">&lt;/p&gt;</span>
+  <br>
+  <span class="tag">&lt;a</span> 
+  <span class="attr">href</span>=<span class="value">"#section1"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">go to section1</span>
+  <span class="tag">&lt;/a&gt;</span>
+  </div>
+
+  <h4>6) Link to Another Page in Same Website</h4>
+
+  <div class="code">
+  <span class="tag">&lt;a</span> 
+  <span class="attr">href</span>=<span class="value">"./contact_page.html"</span>
+  <span class="tag">&gt;</span>
+  <span class="text">contact page</span>
+  <span class="tag">&lt;/a&gt;</span>
+
+</div>
+
+<!-- big and small section -->
+ <!-- BIG AND SMALL TAG section -->
+
+<div class="section">
+
+  <h2>Big and Small Tag</h2>
+
+  <p><strong>Definition:</strong></p>
+
+  <p>
+    The &lt;big&gt; tag is used to increase the text size 
+    and the &lt;small&gt; tag is used to decrease the text size.
+  </p>
+
+  <div class="code">
+  
+  <span class="tag">&lt;p&gt;</span>
+  <span class="text">This is normal text</span>
+  <span class="tag">&lt;/p&gt;</span>
+
+  <br><br>
+
+  <span class="tag">&lt;big&gt;</span>
+  <span class="text">This is big text</span>
+  <span class="tag">&lt;/big&gt;</span>
+
+  <br><br>
+
+  <span class="tag">&lt;small&gt;</span>
+  <span class="text">This is small text</span>
+  <span class="tag">&lt;/small&gt;</span>
+
+  </div>
+
+</div>
+
+<!-- bold/italic/undeline/strike section -->
+ <!-- BOLD, ITALIC, UNDERLINE AND STRIKE SECTION -->
+
+<!-- BOLD, ITALIC, UNDERLINE AND STRIKE SECTION -->
+
+<div class="section">
+
+  <h2>Bold, Italic, Underline and Strike Tags</h2>
+
+  <p><strong>Definition:</strong></p>
+
+  <p>
+    These tags are used to format text in different styles.
+  </p>
+
+  <div class="highlight">
+    &lt;b&gt; - Used to make text bold <br>
+    &lt;i&gt; - Used to make text italic <br>
+    &lt;u&gt; - Used to underline text <br>
+    &lt;s&gt; or &lt;strike&gt; - Used to apply strike-through on text
+  </div>
+
+  <h3>Example:</h3>
+
+  <div class="code">
+
+  <span class="comment">&lt;!-- This tag makes text italic --&gt;</span><br>
+  <span class="tag">&lt;i&gt;</span>
+  <span class="text">hello</span>
+  <span class="tag">&lt;/i&gt;</span>
+
+  <br><br>
+
+  <span class="tag">&lt;hr&gt;</span>
+
+  <br><br>
+
+  <span class="comment">&lt;!-- This tag makes text bold --&gt;</span><br>
+  <span class="tag">&lt;b&gt;</span>
+  <span class="text">hello</span>
+  <span class="tag">&lt;/b&gt;</span>
+
+  <br><br>
+
+  <span class="tag">&lt;hr&gt;</span>
+
+  <br><br>
+
+  <span class="comment">&lt;!-- This tag underlines the text --&gt;</span><br>
+  <span class="tag">&lt;u&gt;</span>
+  <span class="text">hello</span>
+  <span class="tag">&lt;/u&gt;</span>
+
+  <br><br>
+
+  <span class="tag">&lt;hr&gt;</span>
+
+  <br><br>
+
+  <span class="comment">&lt;!-- This tag applies strike-through effect --&gt;</span><br>
+  <span class="tag">&lt;s&gt;</span>
+  <span class="text">hello</span>
+  <span class="tag">&lt;/s&gt;</span>
+
+  </div>
+
+</div>
+
+
+<!-- character and entity refrence -->
+
+<!-- CHARACTER ENTITY REFERENCE SECTION -->
+
+<div class="section">
+
+  <h2>Character Entity References</h2>
+
+  <p><strong>Definition:</strong></p>
+
+  <p>
+    Character entity references are used to display special and reserved characters in HTML.
+  </p>
+
+  <div class="highlight">
+    Syntax starts with &amp; and ends with a semicolon ;
+  </div>
+
+  <h3>Examples:</h3>
+
+  <div class="code">
+
+  <span class="comment">&lt;!-- Displays copyright symbol --&gt;</span><br>
+  <span class="tag">&lt;p&gt;</span>
+  <span class="text">&amp;copy;</span>
+  <span class="tag">&lt;/p&gt;</span>
+
+  <br><br>
+
+  <span class="comment">&lt;!-- Displays infinity symbol --&gt;</span><br>
+  <span class="tag">&lt;p&gt;</span>
+  <span class="text">&amp;infin;</span>
+  <span class="tag">&lt;/p&gt;</span>
+
+  <br><br>
+
+  <span class="comment">&lt;!-- Displays greater than symbol --&gt;</span><br>
+  <span class="tag">&lt;p&gt;</span>
+  <span class="text">&amp;gt;</span>
+  <span class="tag">&lt;/p&gt;</span>
+
+  <br><br>
+
+  <span class="comment">&lt;!-- Displays less than symbol --&gt;</span><br>
+  <span class="tag">&lt;p&gt;</span>
+  <span class="text">&amp;lt;</span>
+  <span class="tag">&lt;/p&gt;</span>
+
+  <br><br>
+
+  <span class="comment">&lt;!-- Displays number/hash symbol --&gt;</span><br>
+  <span class="tag">&lt;p&gt;</span>
+  <span class="text">&amp;num;</span>
+  <span class="tag">&lt;/p&gt;</span>
+
+  </div>
+
+</div>
+
+<!-- pre tag section -->
+
+<!-- PRE TAG (PRESERVED TEXT) SECTION -->
+
+<div class="section">
+
+  <h2>Pre Tag</h2>
+
+  <p><strong>Definition:</strong></p>
+
+  <p>
+    The &lt;pre&gt; tag is used to display preformatted text.
+    It preserves spaces and line breaks exactly as written in the HTML code.
+  </p>
+
+  <div class="highlight">
+    Text inside &lt;pre&gt; tag keeps original spacing and formatting.
+  </div>
+
+  <h3>Example:</h3>
+
+  <div class="code">
+
+  <span class="comment">&lt;!-- Pre tag preserves spaces and line breaks --&gt;</span><br>
+
+  <span class="tag">&lt;pre&gt;</span><br>
+  <span class="text">
+To,  
+The Principal  
+ABC School  
+
+Respected Sir,  
+I beg to say that...
+  </span><br>
+  <span class="tag">&lt;/pre&gt;</span>
+
+  </div>
+
+</div>
+
+
+<!-- video tag section -->
+ <!-- VIDEO TAG SECTION -->
+
+<div class="section">
+
+  <h2>Video Tag</h2>
+
+  <p><strong>Definition:</strong></p>
+
+  <p>
+    The &lt;video&gt; tag is used to add a video on a webpage.
+  </p>
+
+  <h3>Attributes Used in Video Tag:</h3>
+
+  <div class="highlight">
+
+    1) <b>src</b> → Used to specify the video URL or file path. <br><br>
+
+    2) <b>controls</b> → Adds built-in video controls.  
+    Without controls, the video is visible but you cannot play, pause, or adjust volume.  
+    With controls, the browser shows toolbar (play, pause, volume, fullscreen, etc.). <br><br>
+
+    3) <b>autoplay</b> → Plays the video automatically (usually muted by default). <br><br>
+
+    4) <b>loop</b> → Repeats the video automatically. <br><br>
+
+    5) <b>width</b> → Sets the width of the video. <br><br>
+
+    6) <b>height</b> → Sets the height of the video.
+
+  </div>
+
+  <h3>Example:</h3>
+
+  <div class="code">
+
+  <span class="comment">&lt;!-- Video tag with common attributes --&gt;</span><br>
+
+  <span class="tag">&lt;video</span>
+  &nbsp;&nbsp;<span class="attr">src</span>=<span class="value">"video.mp4"</span>
+  &nbsp;&nbsp;<span class="attr">controls</span>
+  &nbsp;&nbsp;<span class="attr">width</span>=<span class="value">"400"</span>
+  &nbsp;&nbsp;<span class="attr">height</span>=<span class="value">"300"</span><
+  <span class="tag">&gt;</span><br>
+
+  <span class="comment">&lt;!-- Fallback message if browser does not support video tag --&gt;</span><br>
+  <span class="text">Your browser does not support the video tag.</span><br>
+
+  <span class="tag">&lt;/video&gt;</span>
+
+  </div>
+
+</div>
+
+</body>
+</html>

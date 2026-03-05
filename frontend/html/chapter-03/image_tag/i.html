@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CHAPTER-03 - HTML TAGS</title>
+
+<style>
+    *{
+        font-size: larger;
+    }
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+h1,h2,h3,hr{
+    color: #1C2951;
+    font-size: larger;
+}
+
+.code{
+    background:#1e1e1e;
+    color:#d4d4d4;
+    padding:15px;
+    border-radius:6px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+}
+
+.tag{ color:#569cd6; }
+.attr{ color:#9cdcfe; }
+.value{ color:#ce9178; }
+.comment{ color:#6a9955; }
+
+.note{
+    border-left:8px solid #1C2951;
+    padding:8px 12px;
+    margin:10px 0;
+    background:#f5f5f5;
+    font-family:  Consolas, monospace;
+    font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<h1 style="text-align:center">CHAPTER-03</h1>
+<h1 style="text-align:center">HTML TAGS</h1>
+
+<h2>In This Chapter We Will Learn</h2>
+
+<p>HTML Attributes</p>
+<p>ID Property</p>
+<p>Heading Tag</p>
+<p>Paragraph Tag</p>
+<p>br and hr Tag</p>
+<p>Image Tag</p>
+<p>Video Tag</p>
+<p>Anchor Tag</p>
+<p>Bold, Italic, Underline and Strike Tags</p>
+<p>Pre Tag</p>
+<p>Big and Small Tag</p>
+<p>Superscript and Subscript Tag</p>
+<p>Character Entity References</p>
+
+<h2>HTML Attributes</h2>
+
+<h3>Definition:</h3>
+<div class="note">
+HTML attributes provide additional information about HTML elements.
+Attributes are always written in name="value" format.
+</div>
+
+<pre class="code">
+<span class="tag">&lt;p</span> <span class="attr">align</span>=<span class="value">"center"</span> <span class="tag">&gt;</span> Hello World <span class="tag">&lt;/p&gt;</span>
+</pre>
+
+<hr>
+
+<h2>ID Property</h2>
+
+<div class="note">
+ID is used to give a unique name to an element.
+</div>
+
+<pre class="code">
+<span class="tag">&lt;h1</span> <span class="attr">id</span>=<span class="value">"mainHeading"</span> <span class="tag">&gt;</span> Welcome <span class="tag">&lt;/h1&gt;</span>
+</pre>
+
+
+<h2>Anchor Tag</h2>
+
+<h3>Definition:</h3>
+
+<div class="note">
+The &lt;a&gt; tag in HTML is called the anchor tag. It is used to create hyperlinks that let you
+jump to another external website, webpage, section, email, or even download a file.
+Anchor tag is used to create links in HTML.
+</div>
+
+<h3>Basic Syntax</h3>
+
+<pre class="code">
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"https://www.example.com"</span> <span class="tag">&gt;</span> Click Here <span class="tag">&lt;/a&gt;</span>
+</pre>
+
+<h3>Attributes</h3>
+
+<p>href → Attribute that tells where the link should go.</p>
+<p>target="_blank" → Opens external link in new tab.</p>
+
+<h3>Practical Examples</h3>
+
+<p>1) Opening External Website in Same Tab</p>
+
+<pre class="code">
+<span class="tag">&lt;a</span> <span class="attr">id</span>=<span class="value">"section1"</span> <span class="attr">href</span>=<span class="value">"https://www.flipkart.com/"</span> <span class="tag">&gt;</span><span class="tag"></span> go to flipkart<span class="tag"></span><span class="tag">&lt;/a&gt;</span>
+</pre>
+
+<p>2) Link to External Website and Open in New Tab</p>
+
+<pre class="code">
+<span class="tag">&lt;a</span><span class="attr">href</span>=<span class="value">"https://www.google.com"</span><span class="attr">target</span>=<span class="value">"_blank"</span> <span class="tag">&gt;</span> go to google<span class="tag">&lt;/a&gt;</span>
+</pre>
+
+<p>3) Download a File</p>
+
+<pre class="code">
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"./assets/file.pdf"</span> <span class="tag">&gt;</span> download notes <span class="tag">&lt;/a&gt;</span>
+</pre>
+
+<p>4) Send an Email</p>
+
+<pre class="code">
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"mailto:shahiddelhi989@gmail.com"</span> <span class="tag">&gt;</span> Send Email <span class="tag">&lt;/a&gt;</span>
+</pre>
+
+<p>5) Link to Section on Same Page</p>
+
+<pre class="code">
+<span class="tag">&lt;p</span> <span class="attr">id</span>=<span class="value">"section1"</span> <span class="tag">&gt;</span> section 1 <span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"#section1"</span> <span class="tag">&gt;</span> go to section1 <span class="tag">&lt;/a&gt;</span>
+</pre>
+
+<p>6) Link to Another Page in Same Website</p>
+
+<pre class="code">
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"./contact_page.html"</span> <span class="tag">&gt;</span> contact page <span class="tag">&lt;/a&gt;</span>
+</pre>
+
+<hr>
+
+<h2>Big and Small Tag</h2>
+
+<h3>Definition:</h3>
+
+<pre class="note">
+The &lt;big&gt; tag is used to increase the text size and the &lt;small&gt; tag is used to decrease the text size.
+</pre>
+
+<pre class="code">
+<span class="tag">&lt;p&gt;</span> This is normal text <span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;big&gt;</span> This is big text <span class="tag">&lt;/big&gt;</span>
+<span class="tag">&lt;small&gt;</span> This is small text <span class="tag">&lt;/small&gt;</span>
+</pre>
+
+<hr>
+
+<h2>Pre Tag</h2>
+
+<h3>Definition:</h3>
+
+<div class="note">
+The &lt;pre&gt; tag is used to display preformatted text. It preserves spaces and line breaks exactly as written in the HTML code.
+Text inside &lt;pre&gt; tag keeps original spacing and formatting.
+</div>
+
+<h3>Example:</h3>
+
+<pre class="code">
+<span class="comment">&lt;!-- Pre tag preserves spaces and line breaks --&gt;</span>
+<span class="tag">&lt;pre&gt;</span>
+To,
+The Principal ABC School
+Respected Sir, 
+I beg to say that...
+<span class="tag">&lt;/pre&gt;</span>
+</pre>
+
+<hr>
+
+<h2>Video Tag</h2>
+
+<h3>Definition:</h3>
+
+<div class="note">
+The &lt;video&gt; tag is used to add a video on a webpage.
+</div>
+
+<h3>Attributes Used in Video Tag:</h3>
+
+<pre class="note">
+1) src → Used to specify the video URL or file path.  
+2) controls → Adds built-in video controls. Without controls, the video is visible but you cannot play, pause, or adjust volume. With controls, the browser shows toolbar (play, pause, volume, fullscreen, etc.).  
+3) autoplay → Plays the video automatically (usually muted by default).  
+4) loop → Repeats the video automatically.  
+5) width → Sets the width of the video.  
+6) height → Sets the height of the video.
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="code">
+<span class="comment">&lt;!-- Video tag with common attributes --&gt;</span>
+<span class="tag">&lt;video</span> <span class="attr">src</span>=<span class="value">"video.mp4"</span> <span class="attr">controls</span> <span class="attr">autoplay</span> <span class="attr">loop</span> <span class="attr">width</span>=<span class="value">"400"</span> <span class="attr">height</span>=<span class="value">"300"</span> <span class="tag">&gt;</span><span class="tag">&lt;/video&gt;</span>
+</pre>
+
+<!-- image tag section -->
+
+<hr>
+
+<h2>Image Tag</h2>
+
+<h3>Definition:</h3>
+
+<div class="note">
+The &lt;img&gt; tag is used to add an image to our webpage.  
+It is a self closing tag.
+</div>
+
+<h3>Attributes Used in Image Tag:</h3>
+<h3>Attributes Used in Video Tag:</h3>
+<pre class="note">
+1) src:Used to specify the URL or path of the image file.
+   &bull; URL can be relative or absolute.
+   &bull; Relative:A relative path means the location of the image with  respect to the 
+   current HTML file location.
+   &bull; Absolute:When we give the internet image path or drive image path.
+
+2) alt:The alt attribute (alternative text) provides text that appears   with a broken image icon if the image 
+   cannot be displayed.
+
+3) width:Used to set the width of the image.
+
+4) height:Used to set the height of the image.
+</pre>
+
+<hr>
+<h2>Let's First Understand the File Path</h2>
+<div class="note">
+Before using images, videos, or links, it is important to understand file paths.
+
+A file path tells the browser where a file (image, video, HTML page, etc.) 
+is located inside your project folder structure.
+</div>
+
+
+<h3>Folder Structure:</h3>
+
+<pre class="code">
+    <span class="comment">Project Folder Structure</span>
+    
+    📁 root 
+    │
+    ├── 📄 root.html
+    ├── 📄 dog.png
+    │
+    ├── 📁 alpha
+    │   │
+    │   ├── 📄 alpha.html
+    │   ├── 📄 cat.png
+    │   │
+    │   ├── 📁 beta
+    │   │   ├── 📄 beta.html
+    │   │   └── 📄 elephant.png
+    │   │
+    │   └── 📁 gama
+    │       ├── 📄 gama.html
+    │       └── 📄 lion.png
+</pre>
+<h2>Practice Questions – Find the Correct File Path</h2>
+
+<h3>Questions:</h3>
+
+<pre class="note">
+1)If you are inside root.html,
+  what will be the relative path of dog.png ?
+
+2) If you are inside root.html,
+   what will be the relative path of elephent.png ?
+
+3) If you are inside gama.html,
+   what will be the relative path of cat.png?
+
+4) If you are inside gama.html
+   what will be the relative path of dog.png ?
+
+5) If you are inside gamma.html,
+   what will be the relative path of image on desktop  ?
+   use this relative path in image and see it work? if no than explain why not work.
+
+6) If you are inside gamma.html,
+   what will be the absolute path of cat.png ?
+
+   use this absolute path in image and see it work? if no than explain why not work
+7)If you are inside gamma.html,
+   what will be the absolute path of image on desktop  ?
+   use this absolute path in image and see it work? if no than explain why not work.
+</pre>
+
+<!-- heading tag section -->
+<h2>Heading Tag</h2>
+
+<h3>Definition:</h3>
+
+<div class="note">
+HTML heading tags are used to define headings or titles on a webpage. 
+Headings help organize content and make the webpage easier to read.
+</div>
+
+<h3>Types of Heading Tags:</h3>
+
+<pre class="note">
+HTML provides six levels of headings.
+
+&lt; h1 &gt;: Largest heading
+&lt; h2 &gt;: Second largest heading
+&lt; h3 &gt;: Medium heading
+&lt; h4 &gt;: Smaller heading
+&lt; h5 &gt;: Very small heading
+&lt; h6 &gt;: Smallest heading
+</pre>
+
+<h3>Example:</h3>
+
+<pre class="code">
+<span class="comment">&lt;!-- Example of heading tags --&gt;</span>
+
+<span class="tag">&lt;h1&gt;</span> This is Heading 1 <span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span> This is Heading 2 <span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span> This is Heading 3 <span class="tag">&lt;/h3&gt;</span>
+<span class="tag">&lt;h4&gt;</span> This is Heading 4 <span class="tag">&lt;/h4&gt;</span>
+<span class="tag">&lt;h5&gt;</span> This is Heading 5 <span class="tag">&lt;/h5&gt;</span>
+<span class="tag">&lt;h6&gt;</span> This is Heading 6 <span class="tag">&lt;/h6&gt;</span>
+</pre>
+
+</body>
+</html>

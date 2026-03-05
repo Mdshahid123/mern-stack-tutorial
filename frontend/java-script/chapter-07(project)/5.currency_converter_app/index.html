@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=sync_alt" />
+</head>
+<body>
+    <div class="container">
+         <h1>Currency Converter</h1>
+         <div class="container_child">
+
+           <div class="input_box">
+             <label for="amount_input">Enter Amout</label>
+             <input id="amount_input" type="number">
+  
+           </div>
+  
+           <div class="collective_select">
+             <!-- left flag box -->
+             <label for="left_select">From</label>
+              <div class="left_select_box">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_India.png/1280px-Flag_of_India.png" width="20px" height="20px" alt="">
+                  <select name="" id="left_select">
+                      <option value="USD">USD</option>
+                      <option value="INR">INR</option>
+                      <option value="QTR">QTR</option>
+                  </select>
+              </div>
+    
+              <span class="material-symbols-outlined">
+                sync_alt
+             </span>
+    
+              <!-- right flag box -->
+                <label for="right_select_box">From</label>
+              <div>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png" width="20px" height="20px" alt="">
+                  <select name="" id="left_select">
+                      <option value="USD">USD</option>
+                      <option value="INR">INR</option>
+                      <option value="QTR">QTR</option>
+                  </select>
+              </div>
+           </div>
+  
+  
+            <!-- output -->
+             <p>500 TRY = 388.93 HNL</p>
+             <button>Get Exchange Rate</button>
+         </div>
+    </div> 
+</body>
+</html>

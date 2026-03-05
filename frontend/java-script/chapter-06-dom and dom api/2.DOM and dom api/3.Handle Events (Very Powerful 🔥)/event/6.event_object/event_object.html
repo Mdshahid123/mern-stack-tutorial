@@ -9,13 +9,15 @@
     <title>event object</title>
   </head>
   <body>
-    <button onclick="showEvent(event)">Click Me</button>
+    <button>Click Me</button>
     <script>
-          function showEvent(e) {
-            console.log(e)
-            console.log("Event Type:", e.type);
-            console.log("Clicked Element:", e.target);
-          }
+      let button = document.querySelector("button");
+      button.addEventListener("click", (e)=>{
+        console.log(e)
+        console.log("Event Type:", e.type);
+        console.log("Clicked Element:", e.target);
+
+      });
       </script>
   </body>
 </html>

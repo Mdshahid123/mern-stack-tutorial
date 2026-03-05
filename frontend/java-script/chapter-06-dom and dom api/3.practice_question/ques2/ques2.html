@@ -1,0 +1,28 @@
+<!-- Qs2.Create 3 divs with common class name - “box”. Access them & add some unique text to each of them. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <script>
+    let boxes = document.querySelectorAll(".box");
+    boxes[0].textContent = "Box 1";
+    boxes[1].textContent = "Box 2";
+    boxes[2].textContent = "Box 3";
+  </script>
