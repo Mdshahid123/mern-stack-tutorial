@@ -17,40 +17,39 @@
              <input id="amount_input" type="number">
   
            </div>
-  
            <div class="collective_select">
              <!-- left flag box -->
-             <label for="left_select">From</label>
-              <div class="left_select_box">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_India.png/1280px-Flag_of_India.png" width="20px" height="20px" alt="">
-                  <select name="" id="left_select">
-                      <option value="USD">USD</option>
-                      <option value="INR">INR</option>
-                      <option value="QTR">QTR</option>
-                  </select>
+              <div class="left_select_box_container">
+                <label for="left_select">From</label>
+                 <div class="left_select_box">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_India.png/1280px-Flag_of_India.png" width="20px" height="20px" alt="">
+                     <select name="" id="left_select">
+                        
+                     </select>
+                 </div>
               </div>
     
-              <span class="material-symbols-outlined">
+              <span class="arrow_icon material-symbols-outlined">
                 sync_alt
              </span>
-    
-              <!-- right flag box -->
-                <label for="right_select_box">From</label>
-              <div>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png" width="20px" height="20px" alt="">
-                  <select name="" id="left_select">
-                      <option value="USD">USD</option>
-                      <option value="INR">INR</option>
-                      <option value="QTR">QTR</option>
-                  </select>
+              <div class="right_select_box_container">
+                  <!-- right flag box -->
+                  <label for="right_select_box">To</label>
+                  <div class="right_select_box">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/archive/a/a4/20151118161037%21Flag_of_the_United_States.svg" width="20px" height="20px" alt="">
+                    <select name="" id="right_select">
+                     
+                    </select>
+                </div>
               </div>
            </div>
-  
   
             <!-- output -->
              <p>500 TRY = 388.93 HNL</p>
              <button>Get Exchange Rate</button>
          </div>
-    </div> 
+    </div>
+    
+    <script type="module" src="./first.js"></script>
 </body>
 </html>
