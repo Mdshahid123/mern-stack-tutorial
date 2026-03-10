@@ -1,0 +1,36 @@
+Step 1: Download Node.js 📥
+
+Open your browser search download nodej
+
+Go to the official website: https://nodejs.org
+
+choose version(LTS (recommended))
+
+Click Download LTS (Recommended version).
+
+A .msi installer file will start downloading to your computer.
+
+
+
+Step 2: Install Node.js ⚙️
+
+Open the downloaded .msi file.
+
+Click Next.
+
+Accept the license agreement.
+
+Keep the default settings.
+
+Click Install.
+
+After installation, click Finish.
+
+
+
+Step 3: Verify Installation ✅
+
+Open PowerShell / Command Prompt and run:
+
+node -v
+npm -v

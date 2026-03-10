@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height:1.8;
+    margin:40px;
+    background:#ffffff;
+    color:#131E3A;
+    font-size:18px;   /* increased main font size */
+}
+
+
+/* main headings */
+h2{
+    border-bottom:3px solid #444;
+    padding-bottom:6px;
+    margin-top:50px;
+    color:#1C2951;
+    font-size:32px;   /* bigger chapter headings */
+}
+
+/* sub headings */
+h3{
+    margin-top:30px;
+    color:#1C2951;
+    font-size:24px;
+}
+h1{
+    text-align:center;
+    font-size:40px;
+    color:#1C2951;
+}
+
+/* note box with vertical bar */
+.note{
+    background:#f8f8f8;
+    border-left:6px solid #1C2951;
+    padding:18px;
+    margin:20px 0;
+    font-size:18px;
+    white-space:pre-wrap;
+}
+
+.code{
+    background:#1e1e1e;
+    color:#d4d4d4;
+    padding:18px;
+    border-radius:8px;
+    margin:20px 0;
+    overflow-x:auto;
+    font-family: Consolas, monospace;
+    font-size:17px;
+    line-height:1.6;
+    white-space:pre;
+}
+
+/* syntax highlighting */
+
+.keyword{ color:#569CD6; }   /* function, let, return */
+.func{ color:#DCDCAA; }      /* function name */
+.string{ color:#CE9178; }    /* strings */
+.var{ color:#9CDCFE; }       /* variables */
+.comment{ color:#6A9955; }   /* comments */
+.cmd{
+    color:#9CDCFE;
+}
+</style>
+</head>
+<body>
+<h1 style="text-align:center; margin-bottom:10px;">CHAPTER-01</h1>
+
+<h1 style="text-align:center; margin-top:0;">Intoduction to Backend</h1>
+
+<h3>What We Will Learn in This Chapter</h3>
+
+<div class="note">
+In this chapter we will learn the basic concepts of backend development using Node.js.
+
+Topics covered in this chapter:
+
+• Introduction to Backend  
+• Installing Node.js and IDE  
+• Tools we get with Node.js (npm, npx, REPL)  
+• Understanding Node REPL  
+• Executing first JavaScript program in Node.js  
+• Creating a server using HTTP module  
+• Understanding Request Object (req)  
+• Sending response to the browser  
+• Routing requests based on URL  
+• Practice questions
+</div>
+
+<h3>What is Node.js?</h3>
+
+<div class="note">
+Node.js is a JavaScript runtime environment that allows us to run JavaScript outside the browser. 
+It is commonly used for backend development and building server-side applications.
+</div>
+
+
+<h3>Steps to Install Node.js</h3>
+
+<pre class="note">
+1) Open your browser and go to the official Node.js website.
+
+2) Download the LTS (Long Term Support) version.
+
+3) Run the installer.
+
+4) Click "Next" and follow the installation steps.
+
+5) After installation, Node.js and npm (Node Package Manager)
+   will be installed automatically.
+</pre>
+
+
+<h3>Check Installation</h3>
+
+<pre class="code">
+<span class="comment"># check node version</span>
+node -v
+<span class="comment"># check npm version</span>
+npm -v
+</pre>
+
+
+<h2>Installing IDE (Code Editor)</h2>
+
+<h3>What is an IDE?</h3>
+
+<div class="note">
+An IDE (Integrated Development Environment) is a software tool used by developers to write, edit, and manage code easily. 
+IDEs provide features like syntax highlighting, debugging tools, extensions, and auto-completion.
+</div>
+
+
+<h3>Recommended IDE</h3>
+
+<pre class="note">
+Visual Studio Code (VS Code) is one of the most popular code editors.
+
+Features:
+• Lightweight and fast
+• Supports many programming languages
+• Large extension marketplace
+• Built-in Git support
+</pre>
+
+
+<h3>Steps to Install VS Code</h3>
+
+<pre class="note">
+1) Go to the official Visual Studio Code website.
+
+2) Download the version for your operating system.
+
+3) Run the installer.
+
+4) Follow the installation steps and finish setup.
+
+5) Open VS Code and start coding.
+</pre>
+
+
+<h3>Useful VS Code Extensions</h3>
+
+<pre class="note">
+1) Live Server
+2) Prettier - Code Formatter
+3) Auto Rename Tag
+4) Path Intellisense
+</pre>
+
+  <!-- what we get with nodejs -->
+  <h2>What We Get with Node.js</h2>
+
+<h3>Definition:</h3>
+
+<div class="note">
+When we install Node.js on our system, several important tools are installed automatically.
+These tools allow developers to run JavaScript outside the browser and manage packages
+required for building applications.
+</div>
+
+<h3>Tools Installed with Node.js:</h3>
+
+<pre class="note">
+
+1) Node.js Runtime
+   • Allows us to run JavaScript outside the browser.
+
+2) npm (Node Package Manager)
+   • Used to install external libraries and packages.
+
+3) npx
+   • Used to run Node packages without installing them globally.
+
+4) Node REPL
+   • Interactive environment where we can run JavaScript program in chunks
+     directly in the terminal (similar to browser console).
+
+</pre>
+
+<h3>Example Commands:</h3>
+
+<pre class="code">
+<span class="comment"># start Node REPL</span>
+node
+</pre>
+
+<!-- first program in node js -->
+ <h2>Executing First JavaScript Program in Node.js</h2>
+
+<h3>Definition:</h3>
+
+<div class="note">
+After installing Node.js, we can run JavaScript programs directly from the terminal.
+To execute a JavaScript file, we use the <b>node</b> command followed by the file name.
+</div>
+
+
+<h3>Example 1: Returning Greeting Message</h3>
+<pre class="code"><span class="comment">// greet1.js</span>
+<span class="keyword">function</span> <span class="func">greet</span>(name)
+{
+    <span class="keyword">let</span> <span class="var">greet_msg</span> = <span class="string">`hello ${name}`</span>
+    <span class="keyword">return</span> <span class="var">greet_msg</span>
+}
+<span class="keyword">let</span> <span class="var">greeting</span> = greet(<span class="string">"md shahid"</span>)
+console.log(<span class="var">greeting</span>)
+</pre>
+<pre class="code"><span class="comment">// command to run</span>
+<span class="cmd">$</span> node greet1.js
+</pre>
+
+
+
+<h3>Example 2: Printing Greeting Inside Function</h3>
+<pre class="code">
+<span class="comment">// greet2.js</span>
+<span class="keyword">function</span> <span class="func">greet</span>(name)
+{
+    <span class="keyword">let</span> <span class="var">greet_msg</span> = <span class="string">`hello ${name}`</span>
+    console.log(<span class="var">greet_msg</span>)
+}
+greet(<span class="string">"md shahid"</span>)
+</pre>
+
+<pre class="code">
+<span class="comment">// command to run</span>
+$ node greet2.js
+</pre>
+
+
+
+<h3>Example 3: Using Callback Function</h3>
+
+<pre class="code"><span class="comment">// greet3.js</span>
+
+<span class="keyword">function</span> <span class="func">create_greet</span>(name, callback)
+{
+    <span class="keyword">let</span> <span class="var">greet_msg</span> = <span class="string">`hello ${name}`</span>
+    callback(<span class="var">greet_msg</span>)
+}
+
+create_greet(<span class="string">"md shahid"</span>, (msg) => {
+    console.log(msg)
+})
+</pre>
+
+<pre class="code"><span class="comment">// command to run</span>
+$ node greet3.js
+</pre>
+<!-- creating a server -->
+ <h2>Creating a Server Using HTTP Module</h2>
+
+<h3>What is HTTP Module?</h3>
+
+<div class="note">
+The HTTP module is a built-in module in Node.js(core module) that allows us to create web servers.
+It helps the server communicate with clients (like browsers) using the HTTP protocol.
+
+Using the HTTP module we can:
+• Create a server
+• Handle client requests
+• Send responses back to the browser
+</div>
+
+<h3>Example: Creating a Server and Understanding Request Object</h3>
+
+<pre class="code"><span class="comment">// example: creating a server and understanding request object</span>
+
+<span class="comment">// importing http module</span>
+<span class="keyword">const</span> <span class="var">http</span> = require(<span class="string">'http'</span>)
+
+<span class="comment">// creating a server</span>
+<span class="keyword">const</span> <span class="var">server</span> = http.createServer((req, res) => {
+
+  console.log(<span class="string">"req:"</span>, req)
+  console.log(req.url)
+  console.log(req.method)
+
+})
+
+<span class="keyword">const</span> <span class="var">Port</span> = 3000
+
+<span class="comment">// listening a request</span>
+server.listen(Port, () => {
+  console.log(<span class="string">`server is running at http://localhost:${Port}`</span>)
+})
+
+<span class="comment">// by default browser sends a GET request and url "/"</span>
+</pre>
+
+<pre class="code"><span class="comment">// command to run</span>
+$ node server.js
+</pre>
+
+<!-- sending a response -->
+ <h3>Example: Sending a Response to the Browser</h3>
+
+<pre class="code"><span class="comment">// sending response</span>
+
+<span class="keyword">const</span> <span class="var">http</span> = require(<span class="string">"http"</span>)
+
+<span class="keyword">const</span> <span class="var">server</span> = http.createServer((req, res) => {
+
+  console.log(<span class="string">"new request"</span>)
+
+  res.setHeader(<span class="string">'content-type'</span>, <span class="string">"text/html"</span>)
+
+  res.write(`
+      &lt;html&gt;
+         &lt;header&gt;
+           &lt;title&gt;response&lt;/title&gt;
+         &lt;/header&gt;
+         &lt;body&gt;
+            hello subscribe me
+         &lt;/body&gt; 
+      &lt;/html&gt;
+  `)
+
+  res.end()
+
+})
+
+<span class="keyword">const</span> <span class="var">port</span> = 3001
+
+server.listen(port, () => {
+  console.log(<span class="string">`server is running at http://localhost:${port}`</span>)
+})
+
+<span class="comment">// problem here</span>
+<span class="comment">// whatever the url of request we always send the same response</span>
+<span class="comment">// this is not a good design</span>
+<span class="comment">// we should create different endpoints for different request URLs</span>
+</pre>
+
+<pre class="code"><span class="comment">// command to run</span>
+$ node server.js
+</pre>
+
+<h3>Example: Sending Response Based on Requested URL (Routing Requests)</h3>
+
+<div class="note">
+Routing means sending different responses based on the requested URL.
+In Node.js we can check <b>req.url</b> and return different HTML pages for different endpoints.
+</div>
+
+<pre class="code"><span class="comment">// sending a response based on requested URL (routing requests)</span>
+
+<span class="keyword">const</span> <span class="var">http</span> = require(<span class="string">"http"</span>)
+
+<span class="keyword">const</span> <span class="var">server</span> = http.createServer((req, res) => {
+
+  <span class="keyword">if</span>(req.url == <span class="string">"/"</span>)
+  {
+    res.setHeader(<span class="string">'content-type'</span>, <span class="string">"text/html"</span>)
+
+    res.write(`
+      &lt;html&gt;
+        &lt;header&gt;
+          &lt;title&gt;response&lt;/title&gt;
+        &lt;/header&gt;
+        &lt;body&gt;
+          this is a home page
+        &lt;/body&gt;
+      &lt;/html&gt;
+    `)
+
+    <span class="keyword">return</span> res.end()
+  }
+
+  <span class="keyword">else if</span>(req.url == <span class="string">"/product"</span>)
+  {
+    res.setHeader(<span class="string">'content-type'</span>, <span class="string">"text/html"</span>)
+
+    res.write(`
+      &lt;html&gt;
+        &lt;header&gt;
+          &lt;title&gt;response&lt;/title&gt;
+        &lt;/header&gt;
+        &lt;body&gt;
+          here is your product
+        &lt;/body&gt;
+      &lt;/html&gt;
+    `)
+
+    <span class="keyword">return</span> res.end()
+  }
+
+  res.setHeader(<span class="string">'content-type'</span>, <span class="string">"text/html"</span>)
+
+  res.write(`
+      &lt;html&gt;
+        &lt;header&gt;
+          &lt;title&gt;response&lt;/title&gt;
+        &lt;/header&gt;
+        &lt;body&gt;
+          for any request other than / and /product
+        &lt;/body&gt;
+      &lt;/html&gt;
+  `)
+
+  <span class="keyword">return</span> res.end()
+
+})
+
+<span class="keyword">const</span> <span class="var">port</span> = 3000
+
+server.listen(port, () => {
+  console.log(<span class="string">`server is running at http://localhost:${port}`</span>)
+})
+</pre>
+
+<pre class="code"><span class="comment">// command to run</span>
+$ node server.js
+</pre>
+<!-- repel -->
+ <h2>Node REPL (Read–Eval–Print Loop)</h2>
+
+<h3>Definition</h3>
+
+<div class="note">
+Node REPL stands for <b>Read – Eval – Print – Loop</b>.  
+It is an interactive shell provided by Node.js where we can execute JavaScript code line by line.
+
+It works similar to the browser console. Developers can quickly test JavaScript code
+without creating a separate JavaScript file.
+</div>
+
+<h3>How to Start Node REPL</h3>
+
+<pre class="code"><span class="comment">// start Node REPL</span>
+$ node
+</pre>
+
+<h3>Example: Executing JavaScript Code in REPL</h3>
+
+<pre class="code"><span class="comment">// simple calculation</span>
+> 5 + 10
+15
+
+<span class="comment">// declaring variable</span>
+> let name = "shahid"
+
+<span class="comment">// printing variable</span>
+> name
+"shahid"
+
+<span class="comment">// defining a function</span>
+> function greet(name){
+... return `hello ${name}`
+... }
+
+<span class="comment">// calling the function</span>
+> greet("shahid")
+'hello shahid'
+</pre>
+
+<div class="note">
+The REPL reads the JavaScript command, evaluates it, prints the result,
+and then waits for the next command. This cycle continues until we exit the REPL.
+</div>
+
+<!-- practice question -->
+ <h2>Practice Questions</h2>
+
+<h3>Question 1: Myntra Navigation Bar</h3>
+
+<div class="note">
+Create a page that shows a navigation bar similar to Myntra with the following links:
+
+A. Home  
+B. Men  
+C. Women  
+D. Kids  
+E. Cart  
+
+When the user clicks on any link, the page should navigate to that section
+and display a message like:
+
+"Welcome to Home Section"  
+"Welcome to Men Section"  
+"Welcome to Women Section"  
+"Welcome to Kids Section"  
+"Welcome to Cart Section"
+</div>
+
+
+<h3>Question 2: Custom HTTP Module</h3>
+
+<div class="note">
+Create a custom HTTP module to understand how the Node.js HTTP module works
+behind the scenes.
+
+The module should simulate how a server receives a request and handles it.
+Use concepts like modules and events to mimic the basic behavior of the
+HTTP module.
+</div>
+</body>
+</html>

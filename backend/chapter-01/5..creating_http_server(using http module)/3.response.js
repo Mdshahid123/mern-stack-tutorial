@@ -1,4 +1,4 @@
-// sending a respose based on reuqested url 
+//sending a respose based on reuqested url(routing rquests)
 const http=require("http")
 const server=http.createServer((req,res)=>{
   if(req.url=="/")
@@ -14,7 +14,6 @@ const server=http.createServer((req,res)=>{
         </body>
       </html>`)
    return res.end()
-
   }else if(req.url=="/product"){
      res.setHeader('content-type',"text/html")
     res.write(`

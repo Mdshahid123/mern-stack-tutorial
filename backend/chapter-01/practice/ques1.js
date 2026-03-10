@@ -1,4 +1,4 @@
-// create a page that shows a navigaion bar Myntra with the follwing links
+//create a page that shows a navigaion bar Myntra with the follwing links
 // A.Home 
 // B.Men 
 // C.women 
@@ -7,10 +7,7 @@
 
 //clicking on each link,page should naviagate to that page and a welcome to section text is shown there 
 
-
-
 const http=require("http")
-
 const server=http.createServer((req,res)=>{
     console.log("request is comming")
     console.log(req.url,req.method)
