@@ -1,6 +1,6 @@
 // When Nodejs receives incoming data, it stores it in a Buffer
 
-// A Buffer in Node.js is a special object used to store binary data (raw bytes)(because network data (HTTP requests) arrives as raw binary, not as plain text)
+//A Buffer in Node.js is a special object used to store binary data (raw bytes)(because network data (HTTP requests) arrives as raw binary, not as plain text)
 
 
 // if you print it

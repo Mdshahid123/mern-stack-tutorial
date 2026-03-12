@@ -39,10 +39,12 @@ const server=http.createServer((req,res)=>{
        console.log("successfuly submitted")
        let body=[]
       // data is not comming in one pack it is comming in chunk so jase hi data ka pahla chunk aa jaye is call back ko run kar dena 
+      let i=1;
        req.on("data",(chunk)=>{
-          console.log(chunk)
+          console.log(`${i}:`,chunk)
         // jitne bhi chunk hai un sb ko array mai store karenge
           body.push(chunk)
+          i++
        })
 
        req.on("end",()=>{
@@ -53,8 +55,6 @@ const server=http.createServer((req,res)=>{
        return 
   }
 })
-
-
 server.listen(3000,()=>{
   console.log("server is lsitening")
 })
