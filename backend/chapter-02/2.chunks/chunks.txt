@@ -23,7 +23,7 @@ chunk N
 { <Buffer 6e 61 6d 65 3d 73 68 61 68 69 64> }
 
 
-2️⃣ Why you are seeing only one chunk??
+2️⃣ when you are seeing only one chunk??
 If the request body is very small, maybe Node.js receives only one chunk
 Client
    ↓
@@ -31,7 +31,7 @@ Request Body
    ↓         
 Chunk 1  <Buffer 6e 61 6d 65>
 
-3️⃣ If the request body is big, nodejs might get multiple chunks:
+3️⃣If the request body is big, nodejs might get multiple chunks:
 Client
    ↓
 Request Body

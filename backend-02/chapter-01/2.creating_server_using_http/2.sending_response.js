@@ -1,4 +1,4 @@
-////create a server using http module and send a html form as response to the client
+// create a server using http module and send a html form as a response to the client
 const http=require("http")
 const server=http.createServer((req,res)=>{
   console.log("new request")
@@ -18,8 +18,6 @@ const port=3001
 server.listen(port,()=>{
   console.log(`server is running at http://localhost:${port}`)
 })
-
-
 //problem here
 //whatever the url of request we always sending a same response so it is not good design 
 //so we have to make a diffrent diffrent end point for reuqestd url
