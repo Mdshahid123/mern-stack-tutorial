@@ -1,5 +1,6 @@
 const express=require("express")
-const userRoutes=express.Router();
+const userRoutes=express.Router();//returns a Router object (middleware handler) that helps you organize routes in a modular way.
+
 userRoutes.get("/",(req,res)=>{
      res.send(`
        <!DOCTYPE html>
@@ -14,9 +15,8 @@ userRoutes.get("/",(req,res)=>{
     <a href="/host/add-home">Add Home</a>
 </body>
 </html>
-    `)
+`)
 })
-
 module.exports=userRoutes
 
 

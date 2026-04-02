@@ -7,20 +7,20 @@ const app=express()
 
 //middle ware registration
 
-//middleware1:getting url amd methd
+//middleware1:getting url and method
 app.use((req,res,next)=>{
     console.log(req.url,req.method)
     next()
 })
 
-//middleware2:parsing body
+//middleware function2:parsing body
 app.use(express.urlencoded({ extended: true }));
 
 
-//middleware3:
+//middleware function3:~
 app.use(userRoutes)
 
-//middleware4:
+//middleware function4:
 app.use(hostRoutes)
 
 
