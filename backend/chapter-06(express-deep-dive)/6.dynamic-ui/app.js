@@ -1,18 +1,14 @@
-// core module
+//core module
 const express=require("express")
 const path=require("path")
-
 //local module
 const userRoutes=require('./routes/userRoutes')
 const {hostRoutes}=require("./routes/hostRoutes")
 const app=express()
-
-// setting ejs as a view-engine(we have to mention it bcz express supoort many viw engine)
+//setting ejs as a view-engine(we have to mention it bcz express supoort many view engine)
 app.set('view engine','ejs')
 app.set('views','views')
-
 //middle ware registration
-
 //middleware1:getting url amd methd
 app.use((req,res,next)=>{
     console.log(req.url,req.method)

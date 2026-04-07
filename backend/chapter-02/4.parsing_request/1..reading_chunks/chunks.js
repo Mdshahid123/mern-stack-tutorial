@@ -35,14 +35,14 @@ const server=http.createServer((req,res)=>{
 
   else if(req.url==="/submit-details" && req.method==="POST")
   {
-       res.write("<h1>data is successfully submitted</h1>") 
-       console.log("successfuly submitted")
-      // data is not comming in one pack it is comming in chunk so jase hi data ka pahla chunk aa jaye is call back ko run kar dena. 
-       req.on("data",(chunk)=>{
-          console.log(chunk)
-       })
-       res.end()
-       return 
+    //data is not comming in one pack it is comming in chunk so jase hi data ka pahla chunk aa jaye is call back ko run kar dena. 
+    let body = [];
+     req.on("data",(chunk)=>{
+        console.log(chunk)
+        body.push(chunk)
+        res.end()
+     })
+      
   }
 })
 server.listen(3000,()=>{

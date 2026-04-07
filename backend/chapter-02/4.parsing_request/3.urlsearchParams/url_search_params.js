@@ -1,6 +1,4 @@
-// url search params
 
-// reading the chunks of client submitted data 
 const http=require("http")
 const { json } = require("stream/consumers")
 
@@ -44,30 +42,32 @@ const server=http.createServer((req,res)=>{
       // data is not comming in one pack it is comming in chunk so jase hi data ka pahla chunk aa jaye is call back ko run kar dena 
        req.on("data",(chunk)=>{
           console.log(chunk)
-        // jitne bhi chunk hai un sb ko array mai store karenge
+        //jitne bhi chunk hai un sb ko array mai store karenge
           body.push(chunk)
        })
 
        req.on("end",()=>{
-         const parseBody=Buffer.concat(body).toString();
-         console.log(parseBody)
-         //converting string into javascript object so we can acces the individual data
-        const params= new URLSearchParams(parseBody)
-        const jsonobj={}
-        for(const item of params.entries())
-        {  
-          const [key,value]=item
-           jsonobj[key]=value
+         const concatChunks=Buffer.concat(body)
+         console.log("concatchunks:",concatChunks)
+        //converting into the string 
+        const string_form=concatChunks.toString()
+        console.log("string_form:",string_form)
+        //converting into the key value format
+        const params= new URLSearchParams(string_form)
+        console.log(params)
+        //converting into the java script object so that we can access the individual data
+        const jsobj={}
+        for(const [key,value] of params.entries())
+        {
+            jsobj[key]=value
+            console.log("jsobj:",jsobj)
         }
-        console.log(jsonobj)
 
        })
        res.end()
        return 
   }
 })
-
-
 server.listen(3000,()=>{
   console.log("server is lsitening")
 })

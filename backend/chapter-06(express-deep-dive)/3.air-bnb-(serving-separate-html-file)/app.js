@@ -1,4 +1,4 @@
-// make a project to server a diffrent html file separately and style it using vanila css
+//make a project to creae a  server and serve  diffrent html file separately and style it using vanila css
 // core module
 const express=require("express")
 const path=require("path")
@@ -13,13 +13,12 @@ const app=express()
 app.use((req,res,next)=>{
     console.log(req.url,req.method)
     next()
-})
 
+})
 //middleware2:parsing body
 app.use(express.urlencoded({ extended: true }));
 //setting path of public folder
 app.use(express.static(path.join(__dirname,"./","public")))
-
 
 //middleware3:
 app.use(userRoutes)
@@ -31,7 +30,6 @@ app.use(hostRoutes)
 app.use((req,res)=>{
     res.sendFile(path.join(__dirname,"./","views","404.html"))
 })
-
 
 const port=3000
 app.listen(port,(req,res)=>{

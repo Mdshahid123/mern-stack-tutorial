@@ -12,11 +12,9 @@ let server=http.createServer((res,req)=>{
        res.write("<h1>succfully subbmitedd reuqest</h1>")
        res.end()
        return 
-  }
+ }
       
 })
-
-
 
 const port=3000
 server.listen(port,()=>{

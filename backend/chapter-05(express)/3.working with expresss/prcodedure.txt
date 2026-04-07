@@ -4,8 +4,6 @@
 
 3)what is app.use()
 
-
-
 4)Handling request on the basis of type of request  and reqested url or routes
 
 function that handle the request on the basis of type of request and reuqested url is called routes handler function

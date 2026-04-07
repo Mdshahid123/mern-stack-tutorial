@@ -38,37 +38,46 @@ const server=http.createServer((req,res)=>{
 
   else if(req.url==="/submit-details" && req.method==="POST")
   {
-       res.write("<h1>data is successfully submitted</h1>") 
-       console.log("successfuly submitted")
-       let body=[]
-      // data is not comming in one pack it is comming in chunk so jase hi data ka pahla chunk aa jaye is call back ko run kar dena 
+      let body=[]
+      //data is not comming in one pack it is comming in chunk so jase hi data ka pahla chunk aa jaye is call back ko run kar dena 
        req.on("data",(chunk)=>{
           console.log(chunk)
         // jitne bhi chunk hai un sb ko array mai store karenge
           body.push(chunk)
        })
-
-       req.on("end",()=>{
-         const parseBody=Buffer.concat(body).toString();
-         console.log(parseBody)
-         const params= new URLSearchParams(parseBody)
-         const jsonobj={}
+         req.on("end",()=>{
+        //joining a chunks
+        const joinChunks=Buffer.concat(body)
+        console.log("joinChunks:",joinChunks)
+        // conveting a join chunks into the string
+        const string_form=joinChunks.toString() 
+        // 
+        const params= new URLSearchParams(string_form)
+        // converting into the jsform
+        const jsobj={}
         for(const [key,value] of params.entries())
         {
-           jsonobj[key]=value
+            jsobj[key]=value
+            console.log("jsobj:",jsobj)
         }
+        // strong a data into the file
+        const filePath=""
+        const jsonData=JSON.stringify(jsobj)
+        fs.writeFile(filePath,jsonData,(error)=>{
+            if(error)
+             {
+                  res.write("<h1>Error while saving a data</h1>");
+                  console.log("error while saving a data")
+             }
+             else{
+              res.write("<h1>data is submitted succesffully</h1>")
+             }
+        })
+         res.end()
 
-        console.log(jsonobj)
-        fs.writeFileSync("client-data.txt", JSON.stringify(jsonobj))
-         
-
-       })
-       res.end()
-       return 
+       })   
   }
 })
-
-
 server.listen(3000,()=>{
   console.log("server is lsitening")
 })

@@ -5,7 +5,7 @@
 
 //3) on the "/calculator" page,display a form with two input filed and a "sum" button.
 
-// 4) when the user clicks the "sum" button,they should be taken to the "/calculator-result" page,which shows the sum of the two number.
+//4)when the user clicks the "sum" button,they should be taken to the "/calculator-result" page,which shows the sum of the two number.
 
 // note:
 //create saparate module for the addition function 

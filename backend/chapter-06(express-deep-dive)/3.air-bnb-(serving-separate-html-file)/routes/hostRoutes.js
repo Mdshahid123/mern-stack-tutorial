@@ -7,7 +7,7 @@ hostRoutes.get("/host/add-home",(req,res)=>{
      res.sendFile(path.join(__dirname,"../","views",'addHome.html'))
 })
 hostRoutes.post('/host/added',(req,res)=>{
-      console.log(req.body)
+       console.log(req.body)
        res.sendFile(path.join(__dirname,"../","views","home-added.html"))
 })
 
