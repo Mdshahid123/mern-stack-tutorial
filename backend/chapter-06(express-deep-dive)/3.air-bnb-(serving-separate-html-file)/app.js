@@ -1,5 +1,4 @@
-//make a project to creae a  server and serve  diffrent html file separately and style it using vanila css
-// core module
+//core module
 const express=require("express")
 const path=require("path")
 //local module
@@ -9,7 +8,7 @@ const app=express()
 
 //middle ware registration
 
-//middleware1:getting url amd methd
+//middleware1:getting url and method
 app.use((req,res,next)=>{
     console.log(req.url,req.method)
     next()
@@ -26,11 +25,10 @@ app.use(userRoutes)
 //middleware4:
 app.use(hostRoutes)
 
-// middleware4:
+//middleware5:
 app.use((req,res)=>{
     res.sendFile(path.join(__dirname,"./","views","404.html"))
 })
-
 const port=3000
 app.listen(port,(req,res)=>{
       console.log(`server is listning at ${port}`)

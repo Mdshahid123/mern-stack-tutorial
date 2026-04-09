@@ -9,24 +9,14 @@ const app=express()
 app.set('view engine','ejs')
 app.set('views','views')
 //middle ware registration
-//middleware1:getting url amd methd
-app.use((req,res,next)=>{
-    console.log(req.url,req.method)
-    next()
-})
-
 //middleware2:parsing body
 app.use(express.urlencoded({ extended: true }));
 //setting path of public folder
 app.use(express.static(path.join(__dirname,"./","public")))
-
-
 //middleware3:
 app.use(userRoutes)
-
 //middleware4:
 app.use(hostRoutes)
-
 // middleware4:
 app.use((req,res)=>{
     res.sendFile(path.join(__dirname,"./","views","404.html"))

@@ -6,6 +6,7 @@ userRoutes.get("/",(req,res)=>{
      console.log(registerHomes)
      // res.sendFile(path.join(__dirname,"../","views","home.html"))
      res.render('home',{registerHomes})
+     
 })
 
 module.exports=userRoutes

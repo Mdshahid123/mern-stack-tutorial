@@ -14,5 +14,5 @@ const port=3000;
 app.listen(port,()=>{
     console.log(`server is listining at https://locahost:${port}`)
 })
-// __dirname gives the absolute path of the directory where the current file is located.
+//__dirname gives the absolute path of the directory where the current file is located.
 

@@ -3,12 +3,13 @@ const fs=require("fs")
 const app=express()
 // "/" routes handling
 app.get("/",(req,res)=>{
-    fs.readFile("./pages/index.html","utf8",(err,data)=>{
+    fs.readFile("./pages/index.html","utf-8",(err,data)=>{
         if(err){
           console.log(error)
             res.send("Error reading the file")
         } else {
             res.send(data)
+            console.log("index page is loaded",data)
         }
     })
 })
