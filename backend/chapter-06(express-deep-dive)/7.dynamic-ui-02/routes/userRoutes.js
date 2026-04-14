@@ -1,7 +1,6 @@
 const express=require("express")
 const {registeredHomes}=require("./hostRoutes")
 const path=require("path")
-const { registerHomes } = require("../../6.dynamic-ui/routes/hostRoutes")
 const userRoutes= express.Router()
 
 userRoutes.get("/",(req,res)=>{

@@ -1,7 +1,5 @@
 //fake data base 
-
 const fakeDatabase=[]
-
 class Home{
      constructor(homeName,pricePerNight,Location,rating,photourl){
          this.homeName=homeName
