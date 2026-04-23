@@ -54,5 +54,4 @@ class registerHome
  }
 
 }
-
 module.exports=registerHome

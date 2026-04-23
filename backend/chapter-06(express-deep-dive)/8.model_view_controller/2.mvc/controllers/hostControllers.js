@@ -4,13 +4,12 @@ const Home=require("../models/databaseModel")
 const getRegisterPage=(req,res)=>{
     res.sendFile(path.join(__dirname,"../","views","registerHomePage.html"))}
 
-const  saveRegisterDetails=(req,res)=>{
-     console.log(req.body)
+const saveRegisterDetails=(req,res)=>{
+     console.log("register data:",req.body)
      const home=new Home(req.body.homeName,req.body.pricePerNight,req.body.Location,req.body.rating,req.body.photourl)
      home.save()
      res.sendFile(path.join(__dirname,"../","views","successPage.html"))
 }
-
 module.exports={
     getRegisterPage,
     saveRegisterDetails

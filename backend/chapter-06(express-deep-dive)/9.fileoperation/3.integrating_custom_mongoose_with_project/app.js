@@ -2,11 +2,8 @@ const express=require("express")
 const homeRoutes=require('./routes/homeRoutes')
 const registerHomeRoutes=require("./routes/registerHomeRoutes")
 const successfullRoutes=require("./routes/successfullRoutes")
-
-
 const app=express()
 const port=4000
-
 //adding middle ware
 app.set('view engine','ejs')
 app.set('views','views')

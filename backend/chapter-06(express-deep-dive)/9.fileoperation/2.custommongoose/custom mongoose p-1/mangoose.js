@@ -14,7 +14,6 @@ class registerHome
       }
 
       //fucntion 
-
       save()
       {
            const  filepath=path.join(__dirname,"./","database","homeRegistraion.json")
@@ -22,13 +21,15 @@ class registerHome
             fs.writeFile(filepath,data,(error)=>{
                  if(error)
                   {
-                      return error
+                        console.log(error)
                   } 
-                
+                  else{
+                    console.log("successfull") 
+                  } 
             }) 
+            console.log("you are right")
       }
-
-
 }
-
-module.exports=registerHome
+let object=new registerHome("4bhk",5,"delhi")
+object.save()
+console.log("you are right2")

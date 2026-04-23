@@ -12,7 +12,7 @@ app.set('view engine','ejs')
 app.set('views','views/user')
 
 //middleware:serving a static file
-//app.use(express.static("public"))
+app.use(express.static("public"))
 //middleware2:
 app.use(express.urlencoded())
 app.use(hostRoutes)

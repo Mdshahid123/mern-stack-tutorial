@@ -1,8 +1,6 @@
 
 const fs=require("fs")
 const path=require("path")
-
-
 class registerHome
 {
       //constructor fucntion
@@ -14,7 +12,6 @@ class registerHome
       }
 
       //fucntion 
-
       save()
       {
            const  filepath=path.join(__dirname,"./","database","homeRegistraion.json")
@@ -22,19 +19,13 @@ class registerHome
             fs.writeFile(filepath,data,(error)=>{
                  if(error)
                   {
-                        console.log(error)
+                      return error
                   } 
-                  else{
-                    console.log("successfull") 
-                  } 
+                
             }) 
-            
-            console.log("you are right")
       }
 
 
 }
 
-let object=new registerHome("4bhk",5,"delhi")
-object.save()
-console.log("you are right2")
+module.exports=registerHome
