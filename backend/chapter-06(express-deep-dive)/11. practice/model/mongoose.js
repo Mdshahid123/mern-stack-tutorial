@@ -19,15 +19,14 @@ class registerHome
 
       save(callback)
       {
-
-         //first of all we have to fetch previus data and then previus data and current data we should save
-
+        //first of all we have to fetch previus data and then previus data and current data we should save
+        const  filepath=path.join(__dirname,"../","dataBase","homeRegistraion.json")
          let  allData=[] 
-         registerHome.fetchAll((error,savedData)=>{
+         registerHome.fetchAll(filepath,(error,savedData)=>{
               if(!error && savedData)
                allData=savedData
             
-             allData.push(this)
+                allData.push(this)
 
              const  filepath=path.join(__dirname,"../","dataBase","homeRegistraion.json")
               fs.writeFile(filepath,JSON.stringify(allData),(error)=>{
@@ -43,13 +42,12 @@ class registerHome
           })
       }
 
-      static fetchAll(callback)
-      {
-             const  filepath=path.join(__dirname,"../","dataBase","homeRegistraion.json")
-             fs.readFile(filepath,"utf-8",(error,data)=>{
+      static fetchAll(filePath,callback)
+      {      
+             fs.readFile(filePath,"utf-8",(error,data)=>{
                   if(error)
                   callback(null,[])
-            else if (!data.trim()) {   // ✅ THIS IS THE FIX
+            else if (!data.trim()) { //✅THIS IS THE FIX
             callback(null, [])
           }
             else{
@@ -58,8 +56,6 @@ class registerHome
             }
              }) 
       }
-
-
 }
 
 module.exports=registerHome

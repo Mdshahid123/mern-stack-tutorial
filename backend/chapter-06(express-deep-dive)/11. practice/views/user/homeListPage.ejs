@@ -6,51 +6,67 @@
   <link rel="stylesheet" href="/homePage.css">
   <title>Document</title>
 </head>
-<body>
-    
-    <header class="header">
-        <nav class="header_navbar">
-            <ul class="header_nav_items">
-              <li class="header_nav_items_item1 item"><a href="/">Home</a></li>
-               <li class="header_nav_items_item2 item"><a href="/registerHome">Add Home</a></li>
-               <li class="header_nav_items_item2 item"><a href="/booking">Booking</a></li>
-               <li class="header_nav_items_item2 item"><a href="/favourite">Favourites List</a></li>
-               <li class="header_nav_items_item2 item"><a href="/hostHomeList">Host Home List</a></li>
+<body> 
+</body>
+<header class="header">
+  <nav class="header_navbar">
 
-            </ul>
-        </nav>
-    </header>
+    <!-- Logo -->
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="logo">
+      <span>airbnb</span>
+    </div>
+
+    <ul class="header_nav_items">
+      <li class="item"><a href="/">Home</a></li>
+      <li class="item"><a href="/registerHome">Add Home</a></li>
+      <li class="item"><a href="/booking">Booking</a></li>
+      <li class="item"><a href="/favourite">Favourites</a></li>
+      <li class="item"><a href="/hostHomeList">Host Homes</a></li>
+    </ul>
+
+  </nav>
+</header>
 
 
-     <!-- main content -->
-     <main class="main">
+<main class="main">
 
   <h1 class="main_heading">Here Are our registered homes:</h1>
-
   <div class="cards">
-    <% registeredHome.forEach(home => { %>
+
+  <% registeredHome.forEach(home => { %>
+
+    <a href="/home/details/<%= home._id %>" class="card_link">
+
       <div class="card">
-        <img src="<%= home.photourl %>" alt="home image" class="card_img">
+
+        <!-- Image Wrapper -->
+        <div class="card_img_wrapper">
+          <img src="<%= home.photourl %>" alt="home image" class="card_img">
+          <div class="heart">❤️</div>
+        </div>
 
         <div class="card_body">
+
+          <div class="card_top">
+            <span class="card_location">📍 <%= home.Location %></span>
+            <span class="card_rating">⭐ <%= home.rating %></span>
+          </div>
+
           <h2 class="card_title"><%= home.homeName %></h2>
 
-          <p class="card_location">📍 <%= home.Location %></p>
-
           <p class="card_price">
-            ₹<%= home.pricePerNight %> / night
+            ₹<%= home.pricePerNight %> <span>/ night</span>
           </p>
-
-          <p class="card_rating">
-            ⭐ <%= home.rating %> / 10
-          </p>
-          <button>Book</button>
         </div>
       </div>
-    <% }) %>
-  </div>
+
+    </a>
+
+  <% }) %>
+
+</div>
+ </a>
 
 </main>
-
-</body>
 </html>
