@@ -1,0 +1,7 @@
+go to mysql website
+go to the download tab,and select MySQL Community Edition
+
+here you have to dwo things 
+
+1)mysql community server 
+2)my sql work bench

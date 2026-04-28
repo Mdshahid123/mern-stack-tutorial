@@ -1,0 +1,6 @@
+//Instead of creating a custom middleware, use Express’s predefined middleware.
+
+//for form data, you can use express.urlencoded() and for JSON data, you can use express.json().
+
+
+//Verify that the submitted data is correctly parsed and displayed in the console.

@@ -1,11 +1,13 @@
-//Middleware is a function that runs for every incoming request(get,post etc) before the routes handler send a reponse for which reuest came 
+//Middleware is a function that runs for every incoming request(get,post etc) before the routes handler function is executed. 
 
-// middle ware function can has routes or without routes 
+
+
+//These functions act as an intermediary layer between a client's incoming request and the server's final response
 
 
 //Since it is a function, whatever code we write inside it will get executed.
 
-//But generally, we write a middleware to perform a tasks (like logging, authentication, validation, etc.). that must be done for any request(get,post etc) before the actual route handler send a reponse  for which request is came
+//But generally, we write a middleware to perform a tasks (like parsing,logging, authentication, validation, etc.) that must be done for any request(get,post etc) before the actual route handler send a reponse  for which request is came
 
 //After executing its work,it calls next() to pass control to the next middleware or route handler.
 
@@ -19,7 +21,7 @@
 
 // common middleware function:
 
-.methodOveride 
+.methodOverride 
 .bodyParser
 .express.static
 express.urlEncoded
