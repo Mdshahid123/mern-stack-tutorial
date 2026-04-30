@@ -6,17 +6,18 @@ const registerHomeRoutesHandler=(req,res)=>{
 }
 
 const submitRoutesHandler=(req,res)=>{
-     let object=new mymongoose(req.body.homeName,req.body.pricePerNight,req.body.Location,req.body.rating,req.body.photourl)
-     object.save((error)=>{
-      if(error)
-      {
+  console.log("register data:",req.body)
+  let object=new mymongoose(req.body)
+  object.save((error)=>{
+       if(error)
+       {
 
         console.log("error while saving adata:",error)
-        return 
+       return 
       
       }
-        console.log("data is successfully saved")
-        res.sendFile(path.join(__dirname,"../","views/host","submissionSuccessPage.html"))
+         console.log("data is successfully saved")
+       res.sendFile(path.join(__dirname,"../","views/host","submissionSuccessPage.html"))
 
     })
 }

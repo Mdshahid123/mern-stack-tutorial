@@ -6,13 +6,21 @@ const path=require("path")
 class registerHome
 {
       //constructor fucntion
-      constructor(homeName,pricePerNight,Location,rating,photourl)
+      constructor(data)
       {
-         this.homeName=homeName
-         this.pricePerNight=pricePerNight
-         this.Location=Location
-         this.rating=rating
-         this.photourl=photourl
+            this.homeName = data.homeName;
+            this.pricePerNight = data.pricePerNight;
+            this.location = data.location;
+            this.rating = data.rating;
+            this.photourl = data.photourl;
+            this.images = data.images;
+            this.amenities = data.amenities;
+            this.description = data.description;
+            this.host = {
+            name: data.host.name,
+            joined: data.host.joined,
+            superhost: data.host.superhost
+            };
       }
 
       //fucntion 
