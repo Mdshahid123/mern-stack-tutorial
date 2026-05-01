@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Homes</title>
+
+<style>
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f7f7f7;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: white;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+}
+
+.header_navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff385c;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 28px;
+}
+
+.header_nav_items {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.header_nav_items .item a:hover {
+  background: #f2f2f2;
+  color: #ff385c;
+}
+
+.header_nav_items a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* ===== MAIN ===== */
+.main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+.card_img_wrapper {
+  position: relative;
+}
+
+.card_img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* HEART */
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border-radius: 50%;
+  padding: 6px 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+}
+
+.heart.active {
+  color: red;
+  transform: scale(1.2);
+}
+
+/* BODY */
+.card_body {
+  padding: 12px;
+}
+
+.card_top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_body a {
+  display: inline-block;
+  margin-top: 8px;
+  background: #ff385c;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* ===== SUCCESS TOAST ===== */
+.success-msg {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+
+  background: rgba(76, 175, 80, 0.95);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  animation: slideIn 0.4s ease forwards;
+}
+
+/* ANIMATION IN */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ANIMATION OUT */
+.success-msg.hide {
+  animation: slideOut 0.4s ease forwards;
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="header_navbar">
+
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg">
+      airbnb
+    </div>
+
+    <ul class="header_nav_items">
+      <li><a href="/">Home</a></li>
+      <li><a href="/registerHome">Add Home</a></li>
+      <li><a href="/showfavourites">Favourites</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+<main class="main">
+
+<div class="cards">
+
+<!-- Example Card (EJS will loop here) -->
+<% registeredHome.forEach(home => { %>
+
+<div class="card">
+
+  <div class="card_img_wrapper">
+    <img src="<%= home.photourl %>" class="card_img">
+
+    <a href="/favourite/<%= home._id %>" 
+       class="heart" 
+       data-id="<%= home._id %>">❤️</a>
+  </div>
+
+  <div class="card_body">
+    <div class="card_top">
+      <span>📍 <%= home.Location %></span>
+      <span>⭐ <%= home.rating %></span>
+    </div>
+
+    <h3><%= home.homeName %></h3>
+
+    <p>₹<%= home.pricePerNight %> / night</p>
+
+    <a href="/home/details/<%= home._id %>">Book Now</a>
+  </div>
+
+</div>
+
+<% }) %>
+
+</div>
+</main>
+
+<script>
+
+// HANDLE HEART CLICK
+document.querySelectorAll(".heart").forEach(btn => {
+
+  btn.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const id = this.dataset.id;
+
+    fetch("/favourite/" + id)
+      .then(res => res.json())
+      .then(data => {
+
+        if (data.success) {
+          this.classList.add("active");
+          showMessage("✔ Added to Favourite", "success");
+        } else {
+          showMessage("⚠ Already in Favourite", "error");
+        }
+
+      })
+      .catch(err => {
+        console.log(err);
+        showMessage("Something went wrong", "error");
+      });
+
+  });
+
+});
+
+// ✅ OUTSIDE loop
+function showMessage(text, type) {
+  const msg = document.createElement("div");
+
+  msg.innerText = text;
+  msg.className = "success-msg";
+
+  // RED for error
+  if (type === "error") {
+    msg.style.background = "rgba(244, 67, 54, 0.95)";
+  }
+
+  document.body.appendChild(msg);
+
+  setTimeout(() => {
+    msg.classList.add("hide");
+  }, 1500);
+
+  setTimeout(() => {
+    msg.remove();
+  }, 2000);
+}
+
+</script>
+</body>
+</html>

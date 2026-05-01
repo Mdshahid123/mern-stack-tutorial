@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>List Your Home</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f7f7f7;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #ff385c;
+  color: white;
+  cursor: pointer;
+}
+
+.prev {
+  background: gray;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏡 List Your Home</h1>
+
+<!-- STEP 1 -->
+<div class="step active">
+  <h3>Basic Info</h3>
+  <input id="homeName" placeholder="Home Name">
+  <div class="row">
+    <input id="price" type="number" placeholder="Price">
+    <input id="rating" type="number" placeholder="Rating">
+  </div>
+  <button class="next">Next</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+  <h3>Location & Images</h3>
+  <input id="location" placeholder="Location">
+  <input id="photo" placeholder="Main Photo URL">
+  <input class="img" placeholder="Image 1">
+  <input class="img" placeholder="Image 2">
+  <input class="img" placeholder="Image 3">
+
+  <button class="prev">Back</button>
+  <button class="next">Next</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+  <h3>Amenities</h3>
+
+  <label><input type="checkbox" value="WiFi"> WiFi</label>
+  <label><input type="checkbox" value="AC"> AC</label>
+  <label><input type="checkbox" value="Kitchen"> Kitchen</label>
+
+  <button class="prev">Back</button>
+  <button class="next">Next</button>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+  <h3>Host</h3>
+
+  <input id="hostName" placeholder="Host Name">
+  <input id="joined" placeholder="Joined Year">
+
+  <select id="superhost">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+  </select>
+
+  <button class="prev">Back</button>
+  <button id="submitBtn">Submit</button>
+</div>
+
+</div>
+
+<script>
+
+const steps = document.querySelectorAll(".step");
+let current = 0;
+
+function showStep(i) {
+  steps.forEach(s => s.classList.remove("active"));
+  steps[i].classList.add("active");
+}
+
+document.querySelectorAll(".next").forEach(btn => {
+  btn.onclick = () => {
+    current++;
+    showStep(current);
+  }
+});
+
+document.querySelectorAll(".prev").forEach(btn => {
+  btn.onclick = () => {
+    current--;
+    showStep(current);
+  }
+});
+
+// SUBMIT (IMPORTANT)
+document.getElementById("submitBtn").onclick = async () => {
+
+  const data = {
+    homeName: document.getElementById("homeName").value,
+    pricePerNight: document.getElementById("price").value,
+    rating: document.getElementById("rating").value,
+    location: document.getElementById("location").value,
+    photourl: document.getElementById("photo").value,
+    images: [...document.querySelectorAll(".img")].map(i => i.value),
+    amenities: [...document.querySelectorAll("input[type=checkbox]:checked")].map(c => c.value),
+    host: {
+      name: document.getElementById("hostName").value,
+      joined: document.getElementById("joined").value,
+      superhost: document.getElementById("superhost").value
+    }
+  };
+
+  try {
+    const res = await fetch("/host/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.text();
+    alert(result);
+
+  } catch (err) {
+    console.log(err);
+    alert("Error submitting form");
+  }
+};
+
+</script>
+
+</body>
+</html>
