@@ -1,0 +1,171 @@
+console.log(res.body);
+
+//You’ll see:
+//ReadableStream { locked: false }
+
+
+// This means:
+
+// The response data is not fully loaded as one big chunk,
+// it is coming piece by piece (streaming).
+
+
+const data = await res.json();
+
+// Reads all chunks from ReadableStream
+// Combines them
+// Converts to string
+// Runs JSON.parse()
+
+
+// Visual flow
+// Server → sends chunks
+//           ↓
+// ReadableStream (res.body)
+//           ↓
+// res.json()
+//           ↓
+// JS Object
+
+
+
+
+
+// ❓ Why fetch takes time even if data not received?
+
+// 👉 because fetch() is not waiting for data, it is waiting for::
+
+//network connection
+//request sent
+//server response headers
+
+//NOT the full data
+
+
+
+
+
+
+
+
+//Let’s break it step by step (real flow)
+
+When you call:
+
+await fetch("/favourite/123")
+⏳ Time is spent in these steps:
+1. DNS Lookup
+
+Browser finds IP of your server
+➡️ Takes time
+
+2. TCP Connection
+
+Client ↔ Server connection established
+➡️ Takes time
+
+3. Request Sent
+
+Browser sends HTTP request:
+
+GET /favourite/123
+4. Server Processing
+
+Server:
+
+hits route
+checks DB
+prepares response
+
+➡️ This is usually the biggest delay
+
+5. Response Headers Arrive ✅
+
+Server sends:
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+👉 At THIS moment fetch() resolves
+
+❗ Important
+
+Even if:
+
+body is 1MB
+or server is still sending chunks
+
+👉 fetch() already finished
+
+🧠 So why delay happens?
+
+Because fetch() waits until:
+
+🚫 NOT full data
+✅ BUT at least headers come back
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//what is headers 
+
+
+
+2. What are “headers”?
+
+After connection is ready:
+
+Browser sends request:
+
+GET /favourite/123 HTTP/1.1
+Host: localhost:3000
+
+Server responds:
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 51
+
+👉 THIS is called:
+
+📄 Response Headers
+
+🔥 Key Point
+
+Headers are:
+
+❗ Metadata about the response (NOT actual data)
+
+Example:
+Header	Meaning
+200 OK	request successful
+Content-Type	data type
+Content-Length	size of data
+🚨 Important Difference
+Part	Contains
+Headers	info about data
+Body	actual data
+
+

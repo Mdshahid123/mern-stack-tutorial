@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Homes</title>
+
+<!-- ✅ FONT AWESOME CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f7f7f7;
+}
+
+/* HEADER */
+.header {
+  background: white;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.header_navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ff385c;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 28px;
+}
+
+/* SEARCH */
+.search_box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 40px;
+  padding: 6px 10px;
+  gap: 10px;
+  border: 1px solid #ddd;
+}
+
+.search_box input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  padding: 6px;
+  border-right: 1px solid #eee;
+}
+
+.search_box input:last-child {
+  border-right: none;
+}
+
+.search_btn {
+  color: #ff385c;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+}
+
+/* NAV */
+.header_nav_items {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.header_nav_items a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* MAIN */
+.main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+.card_img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* HEART */
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: white;
+  -webkit-text-stroke: 1.5px #555;
+  text-decoration: none;
+}
+
+.heart.active {
+  color: #ff385c;
+  -webkit-text-stroke: 0;
+}
+
+/* BODY */
+.card_body {
+  padding: 10px;
+}
+
+/* TITLE */
+.card_title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 2px;
+  color: #222;
+}
+
+/* DESCRIPTION */
+.card_desc {
+  font-size: 13px;
+  color: #717171;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* DOT */
+.dot {
+  margin: 0 2px;
+}
+
+/* RATING */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #222;
+  font-weight: 500;
+}
+
+/* ICON STYLE */
+.rating i {
+  font-size: 12px;
+}
+
+/* SUCCESS MESSAGE */
+.success-msg {
+  position: fixed;
+  top:100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: rgba(76, 175, 80, 0.95);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: 0;
+  animation: slideIn 0.4s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.success-msg.hide {
+  animation: slideOut 0.4s ease forwards;
+}
+
+@keyframes slideOut {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100px);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="header_navbar">
+
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg">
+      airbnb
+    </div>
+
+    <div class="search_box">
+      <input type="text" placeholder="Where">
+      <input type="date">
+      <input type="date">
+      <input type="number" placeholder="Guests">
+      <button class="search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <ul class="header_nav_items">
+      <li><a href="/">Home</a></li>
+      <li><a href="/registerHome">Add Home</a></li>
+      <li><a href="/showfavourites">Favourites</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+<main class="main">
+
+<div class="cards">
+
+<% registeredHome.forEach(home => { %>
+
+<div class="card" >
+
+  <div style="position:relative;">
+    <img src="<%= home.photourl %>" class="card_img">
+
+    <a href="/favourite/<%= home._id %>" 
+       class="heart" 
+       data-id="<%= home._id %>">♥</a>
+  </div>
+
+  <div class="card_body">
+
+    <div class="card_title"><%= home.homeName %></div>
+
+    <div class="card_desc">
+      <span><%= home.Location %></span>
+      <span class="dot">·</span>
+      <span>₹<%= home.pricePerNight %> / night</span>
+      <span class="dot">·</span>
+
+      <span class="rating">
+        <i class="fa-solid fa-star"></i>
+        <%= home.rating %>
+      </span>
+    </div>
+
+  </div>
+
+</div>
+
+<% }) %>
+
+</div>
+</main>
+
+<script>
+             
+             
+             const hearts=document.querySelectorAll(".heart")
+              hearts.forEach((heart)=>{
+              heart.addEventListener("click",(e)=>{
+                       e.preventDefault()
+                       const homeId=e.target.dataset.id
+                       async function myfetch(){
+                       try {
+                            const promise=await fetch(`/favourite/${homeId}`)//waiting for the coonection to establiseh(fullfiledd ,painding or rejected)
+
+                            //collecting chunks from the server 
+                            let fullData=""
+                            const decoder=new TextDecoder()
+                            while(true){
+                              const {done,value}=await promise.body.getReader().read()
+                              if(done)
+                              break
+                              chunk=decoder.decode(value)
+                              fullData+=chunk
+
+                            }
+                          console.log(JSON.parse(fullData))
+                          }catch (error) {
+                            console.error("Error:", error);
+                          }
+                          
+                        }
+                        myfetch()
+                        
+
+              })
+
+              })
+</script>
+</body>
+</html>
