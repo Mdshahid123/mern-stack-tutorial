@@ -6,20 +6,21 @@ const registerHomeRoutesHandler=(req,res)=>{
 }
 
 const submitRoutesHandler=(req,res)=>{
-  let object=new mymongoose(req.body)
-  const filePath=path.join(__dirname,"../","dataBase","homeRegistraion.json")
-  object.save(filePath,(error)=>{
-       if(error)
-       {
+  console.log(req.body)
+  // let object=new mymongoose(req.body)
+  // const filePath=path.join(__dirname,"../","dataBase","homeRegistraion.json")
+  // object.save(filePath,(error)=>{
+  //      if(error)
+  //      {
 
-        console.log("error while saving adata:",error)
-         return 
+  //       console.log("error while saving adata:",error)
+  //        return 
       
-      }
-         console.log("data is successfully saved")
-         res.sendFile(path.join(__dirname,"../","views/host","submissionSuccessPage.html"))
+  //     }
+  //        console.log("data is successfully saved")
+  //        res.sendFile(path.join(__dirname,"../","views/host","submissionSuccessPage.html"))
 
-    })
+  //   })
 }
 
 const hostHomeListRoutesHandler=(req,res)=>{

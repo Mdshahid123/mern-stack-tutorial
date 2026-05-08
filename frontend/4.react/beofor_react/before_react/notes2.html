@@ -1,0 +1,50 @@
+<!-- there is a need of library like react which should have React + local server(vite)+compiler(bable) -->
+
+
+<!-- What you want in your library -->
+
+If you were to make your own React-like library, it would need to do at least three main things:
+
+
+<!-- 1. Convert JSX to JavaScript -->
+
+JSX is not valid JS, browsers don’t understand it.
+
+You need a compiler (like Babel) to convert JSX into something like:
+
+<h1>Hello</h1>
+
+into 
+
+React.createElement("h1", null, "Hello")
+
+This allows your library to create DOM elements dynamically.
+
+
+
+<!-- 2. Provide a Virtual DOM / Runtime -->
+
+To avoid manually manipulating the DOM for every change, your library should:
+
+Maintain a virtual DOM (a JS representation of the real DOM).
+
+Compare old and new virtual DOM (diffing).
+
+Efficiently update only the parts of the real DOM that changed.
+
+This is exactly what React does behind the scenes.
+
+
+
+
+<!-- 3. Serve a Local Dev Server -->
+
+To make development fast and smooth, you need a local server:
+
+Serves your initial empty HTML (index.html).
+
+Serves JS/CSS files.
+
+Supports Hot Module Replacement (HMR) — updates the page instantly when you change code.
+
+Tools like Vite already handle this part.

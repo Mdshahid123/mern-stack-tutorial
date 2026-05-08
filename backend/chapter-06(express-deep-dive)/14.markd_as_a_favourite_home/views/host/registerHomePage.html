@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Become a Host</title>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';}
 body{background:#fff;}
@@ -58,21 +56,6 @@ button{
 .next{background:#ff385c;color:white;}
 .prev{background:#eee;}
 
-#map{
-  height:250px;
-  border-radius:10px;
-  margin-top:10px;
-}
-
-.preview{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-top:10px;
-  display:none;
-}
-
 /* Amenities */
 .amenities{
   display:flex;
@@ -122,21 +105,15 @@ button{
   <input id="homeName" placeholder="Home Name">
   <input id="price" type="number" placeholder="Price">
   <input id="rating" type="number" placeholder="Rating">
-  <button class="next">Next</button>
+  <button type="button" class="next">Next</button>
 </div>
 
 <!-- STEP 2 -->
 <div class="step">
-  <input id="location" placeholder="Auto filled location">
-  
-  <input id="photo" type="file" accept="image/*">
-  <img id="preview" class="preview">
-
-  <div id="map"></div>
-
+  <input id="location" placeholder="Enter location">
   <div class="buttons">
-    <button class="prev">Back</button>
-    <button class="next">Next</button>
+    <button type="button" class="prev">Back</button>
+    <button type="button" class="next">Next</button>
   </div>
 </div>
 
@@ -151,8 +128,24 @@ button{
   </div>
 
   <div class="buttons">
-    <button class="prev">Back</button>
-    <button class="next">Next</button>
+    <button type="button" class="prev">Back</button>
+    <button type="button" class="next">Next</button>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+
+  <div class="amenities">
+    <label><input type="checkbox" value="WiFi"><span>WiFi</span></label>
+    <label><input type="checkbox" value="AC"><span>AC</span></label>
+    <label><input type="checkbox" value="Parking"><span>Parking</span></label>
+    <label><input type="checkbox" value="TV"><span>TV</span></label>
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="prev">Back</button>
+    <button type="button" class="next">Next</button>
   </div>
 </div>
 
@@ -162,119 +155,101 @@ button{
   <input id="joined" placeholder="Joined Year">
 
   <div class="buttons">
-    <button class="prev">Back</button>
-    <button id="submit">Submit</button>
+    <button type="button" class="prev">Back</button>
+    <button type="button" id="submit">Submit</button>
   </div>
 </div>
 
 </div>
 </div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
 <script>
-
+// STEP NAVIGATION
 const steps = document.querySelectorAll(".step");
+const nextBtns = document.querySelectorAll(".next");
+const prevBtns = document.querySelectorAll(".prev");
 const progress = document.querySelectorAll(".progress span");
+
 let current = 0;
 
-/* INPUTS */
-const homeName = document.getElementById("homeName");
-const price = document.getElementById("price");
-const rating = document.getElementById("rating");
-const locationInput = document.getElementById("location");
-const photoInput = document.getElementById("photo");
-const preview = document.getElementById("preview");
-const hostName = document.getElementById("hostName");
-const joined = document.getElementById("joined");
-
-/* STEP SWITCH */
-function showStep(i){
-  steps.forEach(s=>s.classList.remove("active"));
-  steps[i].classList.add("active");
-
-  progress.forEach(p=>p.classList.remove("active"));
-  progress[i].classList.add("active");
-
-  current = i;
-
-  if(i===1) initMap();
-}
-
-/* NAV */
-document.querySelectorAll(".next").forEach(btn=>{
-  btn.onclick=()=>showStep(current+1);
-});
-
-document.querySelectorAll(".prev").forEach(btn=>{
-  btn.onclick=()=>showStep(current-1);
-});
-
-/* IMAGE PREVIEW */
-photoInput.addEventListener("change",()=>{
-  const file = photoInput.files[0];
-  if(file){
-    preview.src = URL.createObjectURL(file);
-    preview.style.display = "block";
-  }
-});
-
-/* MAP + AUTO ADDRESS */
-let map, marker;
-
-function initMap(){
-  if(map) return;
-
-  map = L.map('map').setView([28.6139,77.2090],10);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-  map.on('click', async function(e){
-
-    if(marker) map.removeLayer(marker);
-    marker = L.marker(e.latlng).addTo(map);
-
-    const lat = e.latlng.lat;
-    const lon = e.latlng.lng;
-
-    /* REVERSE GEOCODING */
-    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
-    const data = await res.json();
-
-    locationInput.value = data.display_name || `${lat}, ${lon}`;
+function showStep(index) {
+  steps.forEach((step, i) => {
+    step.classList.remove("active");
+    progress[i].classList.remove("active");
   });
+
+  steps[index].classList.add("active");
+  progress[index].classList.add("active");
 }
 
-/* SUBMIT */
-document.getElementById("submit").onclick = async ()=>{
+nextBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (current < steps.length - 1) {
+      current++;
+      showStep(current);
+    }
+  });
+});
+
+prevBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (current > 0) {
+      current--;
+      showStep(current);
+    }
+  });
+});
+
+// SUBMIT
+document.getElementById("submit").onclick = async () => {
 
   const amenities = [];
-  document.querySelectorAll(".amenities input:checked").forEach(a=>{
+  document.querySelectorAll(".amenities input:checked").forEach(a => {
     amenities.push(a.value);
   });
 
-  const formData = new FormData();
-  formData.append("homeName", homeName.value);
-  formData.append("price", price.value);
-  formData.append("rating", rating.value);
-  formData.append("location", locationInput.value);
-  formData.append("photo", photoInput.files[0]);
-  formData.append("amenities", JSON.stringify(amenities));
-  formData.append("hostName", hostName.value);
-  formData.append("joined", joined.value);
+  const data = {
+    _id: Date.now().toString(),
 
-  const res = await fetch("/host/submit",{
-    method:"POST",
-    body:formData
+    homeName: document.getElementById("homeName").value,
+    pricePerNight: document.getElementById("price").value,
+    Location: document.getElementById("location").value,
+    rating: document.getElementById("rating").value,
+
+    photourl: "https://source.unsplash.com/featured/?house",
+
+    images: [
+      "https://source.unsplash.com/featured/?room",
+      "https://source.unsplash.com/featured/?bedroom",
+      "https://source.unsplash.com/featured/?interior"
+    ],
+
+    reviews: Math.floor(Math.random() * 200),
+
+    description: "Beautiful property added by host.",
+
+    amenities: amenities,
+
+    host: {
+      name: document.getElementById("hostName").value,
+      joined: document.getElementById("joined").value,
+      superhost: true
+    }
+  };
+
+  console.log("FINAL DATA:", data);
+
+  const res = await fetch("/host/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
   });
 
-  const data = await res.json();
-
-  alert(data.message || "Submitted!");
+  const result = await res.json();
+  alert(result.message);
 };
-
-showStep(0);
-
 </script>
 
 </body>
