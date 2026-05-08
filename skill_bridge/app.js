@@ -1,42 +1,15 @@
+// importing a module
 const express=require("express")
-const path=require("path")
+const studentRoutes=require("./routes/studentsRoutes")
 const app=express()
 
-// serve static files from "public" folder
-app.use(express.static("public"))
-app.get("/",(req,res)=>{
-     const filePath=path.join(__dirname,"./view/","home.html")
-     res.sendFile(filePath,(error)=>{
-        if(error)
-        {
-          res.send("something wen wrong please try later")
-        }
-     }) 
-})
+// adding middlware 
 
-app.get("/courses",(req,res)=>{
-         const filePath=path.join(__dirname,"./view/","courses.html")
-     res.sendFile(filePath,(error)=>{
-        if(error)
-        {
-          res.send("something wen wrong please try later")
-        }
-     })  
-})
+// middleware 1:serving a static files(css,js,images) from the public folder
+app.use(express.static("public"))//it also validate the requested file path 
 
-
-app.get("/viewCourse",(req,res)=>{
-
-          const filePath=path.join(__dirname,"./view/","viewCourse.html")
-          res.sendFile(filePath,(error)=>{
-          if(error)
-          {
-               res.send("something wen wrong please try later")
-          }
-          }) 
-
-        
-})
+// middleware 2:matching the reuqested routes in studentroutes otherwise call the next
+app.use(studentRoutes)
 
 const port=3000
 app.listen(port,()=>{
