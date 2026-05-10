@@ -1,4 +1,4 @@
-mexport-it enables the use of component in other file
+export-it enables the use of component in other file
 
 default export:it allow a exporting a single component from the module 
 

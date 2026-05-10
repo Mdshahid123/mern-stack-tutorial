@@ -1,0 +1,17 @@
+<!-- problem in this current  project -->
+
+Run the project first to observe the current issue.
+
+Select any home and mark it as favourite.
+
+Again try to mark the same home as favourite.
+
+The same home gets stored multiple times in favouriteData.json.
+
+Duplicate favourite entries are being created.
+
+A home should be added only once to favourites.
+
+Before saving, the application should check whether the home already exists in favourites.
+
+If the home already exists, duplicate data should not be stored.insted we shoud give message that allready in favourite

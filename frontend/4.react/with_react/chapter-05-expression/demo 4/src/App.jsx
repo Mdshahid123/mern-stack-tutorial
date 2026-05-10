@@ -10,7 +10,7 @@ function App()
 
                {
                   fooditems.map((item)=>{
-                        return <li>{item}</li>
+                        return <li key={item}>{item}</li>
                   })
                }
                   
@@ -19,3 +19,7 @@ function App()
      )
 }
 export default App
+
+
+// note :assign unique key for optimized rerender
+

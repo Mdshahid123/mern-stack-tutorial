@@ -1,0 +1,26 @@
+Problem in Current Project
+Everything is working correctly:
+If the user marks a home as favourite and it does not already exist in the database, the message "Successfully marked as favourite" is shown.
+If the home already exists in favourites, the message "Already in favourite" is shown.
+However, the message is currently displayed on a separate plain white page, which does not provide a good user experience.
+
+Possible Solutions
+Option 1
+Design and decorate the message page with proper UI styling, colors, icons, and animations.
+
+Option 2 (Recommended)
+Instead of redirecting to a new page, show an animated toast notification on the same page.
+
+Example:
+✅ “Successfully marked as favourite”
+⚠️ “Already in favourite”
+
+
+
+Why Toast Message is Better
+Better user experience
+No unnecessary page reload
+Modern and professional UI
+Faster interaction
+Keeps user on the same page
+Looks more interactive and attractive
