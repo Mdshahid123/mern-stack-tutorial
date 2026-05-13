@@ -1,0 +1,26 @@
+Agar hum large webpage ka sara code ek hi file me likhen, toh bahut problems hoti hain:
+
+Code bahut bada aur confusing ho jata hai.
+Bugs dhundhna difficult ho jata hai.
+Reusability nahi hoti, same code baar-baar likhna padta hai.
+Team me kaam karna hard ho jata hai because sab ek hi file edit karte hain.
+Maintenance aur updates difficult ho jate hain.
+Readability kam ho jati hai.
+Project scalable nahi rehta for large applications.
+
+Isliye React me webpage ko small reusable components me divide kiya jata hai jaise:
+
+Header
+Navbar
+Hero Section
+Card
+Footer
+
+Is approach se code:
+
+clean
+reusable
+manageable
+scalable
+
+ban jata hai.

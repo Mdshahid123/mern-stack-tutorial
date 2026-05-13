@@ -2,7 +2,7 @@
 
 // what is  java script expressions
 
-//An expression is something that produces/returns a value.
+//An expression is something that produces  single value after evaluating 
 
 
 exampe:1
@@ -23,11 +23,12 @@ returns a new array , so it is a expresstion
 example:4
 
 true ? <h1>Hello</h1> : null
+
 it give either h1 or null,so ternary operator is a expression
 
 
 
-Since expressions return values, React can render them inside {}.
+Since expressions produce values, React can render them inside {}.
 
 
 note:we can't write a statment inside a {}
