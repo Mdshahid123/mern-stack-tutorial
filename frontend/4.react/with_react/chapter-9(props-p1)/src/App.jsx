@@ -2,6 +2,8 @@ import "./App.css";
 
 function App() {
 
+  // data 
+
   const mentors = [
     {
       id: 1,

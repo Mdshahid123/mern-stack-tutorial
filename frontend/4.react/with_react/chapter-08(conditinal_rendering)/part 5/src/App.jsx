@@ -1,5 +1,4 @@
-// if we have to implement a multiple condition inside a html element 
-
+//if we have to implement a multiple condition inside a html element 
 function App() {
 
   let marks = 80;
