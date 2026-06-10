@@ -1,0 +1,11 @@
+Task1: Create a new project to understand middleware in Node.js (Express)
+
+Create a server and handle a route /form that sends an HTML form to the user.
+
+When the user submits the form, handle the /submit route:
+Capture the submitted data using req.body
+
+Print the data in the console using console.log(req.body)
+If req.body is undefined, implement a user-defined middleware to parse the request body.
+
+After adding the middleware, verify that the submitted data is correctly logged in the console.

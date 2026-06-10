@@ -1,0 +1,89 @@
+body{
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+}
+.container{
+  background-color: white;
+  width: 336px;
+  border-radius: 10px;
+  padding:30px;
+  height:370px;
+}
+
+.input_box{
+  display: flex;
+  flex-direction: column;
+}
+
+.collective_select{
+  display: flex;
+  gap:60px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#amount_input{
+  outline: none;
+  border: 1px solid gray;
+  height: 40px;
+  border-radius: 10px;
+  padding-left:10px;
+}
+
+.left_select_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:1px solid gray;
+  border-radius: 7px;
+  gap: 10px;
+  padding: 5px;
+}
+
+.arrow_icon{
+  margin-top: 10px;
+  font-size:larger;
+}
+#left_select{
+  border: none;
+}
+.right_select_box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border:1px solid gray;
+  padding:3px;
+  border-radius: 7px;
+}
+#right_select{
+  border: none;
+}
+
+.container_child{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+button{
+  padding: 15px;
+  font-weight: bold;
+  border-radius:10px;
+  background-color:purple;
+  border: none;
+  color: white;
+  font-size: larger;
+}
+.left_select_box_container{
+  display: flex;
+  flex-direction: column;
+}
+.right_select_box_container{
+  display:flex ;
+  flex-direction:column ;
+}

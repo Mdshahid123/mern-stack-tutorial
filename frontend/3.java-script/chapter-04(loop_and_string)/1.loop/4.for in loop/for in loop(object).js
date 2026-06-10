@@ -1,0 +1,1 @@
+//create a object and iterate them using for loop ,while loop,do while loop and for in loop

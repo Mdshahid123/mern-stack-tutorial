@@ -1,0 +1,1 @@
+//create array and iterate them using for ,while,do while and for in loop

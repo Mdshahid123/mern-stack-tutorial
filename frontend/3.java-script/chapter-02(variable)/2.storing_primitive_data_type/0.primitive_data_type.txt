@@ -1,0 +1,20 @@
+1)Primitive data type
+
+Definition:primitive data type is a data that stored directly in a variable
+
+//there are 7 types of primitive data type
+
+string
+number
+bigint
+boolean
+undefined
+symbol
+null
+
+//features of primitve data type
+
+-it is immutable
+-Stored direcly in a varible
+-create a new copy
+

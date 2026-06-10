@@ -1,0 +1,36 @@
+
+<div class="cards">
+
+    <% registeredHome.forEach(home => { %>
+
+
+        <div class="card"  data-id="<%= home._id %>">
+    
+          <div style="position:relative;">
+            <img src="<%= home.photourl %>" class="card_img">
+    
+            <a href="/storeFavourite/<%= home._id %>" 
+              class="heart" 
+              data-id="<%= home._id %>">♥</a>
+          </div>
+    
+          <div class="card_body">
+    
+            <div class="card_title"><%= home.homeName %></div>
+    
+            <div class="card_desc">
+              <span><%= home.Location %></span>
+              <span class="dot">·</span>
+              <span>₹<%= home.pricePerNight %> / night</span>
+              <span class="dot">·</span>
+    
+              <span class="rating">
+                <i class="fa-solid fa-star"></i>
+                <%= home.rating %>
+              </span>
+            </div>
+          </div>
+        </div>
+
+   <% }) %>
+</div>

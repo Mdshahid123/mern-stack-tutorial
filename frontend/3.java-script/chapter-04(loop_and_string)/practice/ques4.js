@@ -1,0 +1,1 @@
+//Define a sum function which should handle an unlimited number of arguments that caller passed and return their total sum.

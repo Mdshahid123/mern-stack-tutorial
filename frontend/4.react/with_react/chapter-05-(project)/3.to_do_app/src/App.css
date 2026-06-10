@@ -1,0 +1,52 @@
+.appContainer{
+     background-color:white;
+     width: 45vw;
+     padding: 20px;
+     margin-top: 50px;
+     border-radius: 10px;
+     
+}
+body{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 255, 255, 0.189);
+}
+
+.inputContainer .text{
+  height:30px;
+  border-radius: 10px;
+  border: none;
+  width:45%;
+  margin-right: 20px;
+  outline: none;
+  padding:6px;
+  border: 1px solid rgba(128, 128, 128, 0.224);
+   
+}
+.inputContainer .date{
+  height:30px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 20px;
+  outline: none;
+  padding: 6px;
+   border: 1px solid rgba(128, 128, 128, 0.324);
+   
+   
+}
+.inputContainer .date:focus, .inputContainer .text:focus{
+  border: 1px solid rgba(0, 0, 255, 0.359);
+}
+.inputContainer button{
+  height:40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width:25%;
+  font-weight: bold;
+  background-color: blue;
+  color: white;
+
+   
+}

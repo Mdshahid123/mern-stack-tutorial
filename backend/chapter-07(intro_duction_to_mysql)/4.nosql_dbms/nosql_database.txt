@@ -1,0 +1,1 @@
+it can store the data in the form of graph,key-value,document,wide column

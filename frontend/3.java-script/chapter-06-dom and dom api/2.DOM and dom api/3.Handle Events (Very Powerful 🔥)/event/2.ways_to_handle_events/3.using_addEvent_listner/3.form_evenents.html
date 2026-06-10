@@ -1,0 +1,62 @@
+<!-- handling form events using addEventListener method -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Events with addEventListener</title>
+</head>
+<body>
+    <!-- creating a simple form -->
+     <h1>form events</h1>
+    <form id="myForm" action="/events" method="post">
+        <input id="nameInput" type="text" placeholder="name">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+    <script>
+        const myform = document.getElementById('myForm');
+        const nameInput = document.getElementById('nameInput');
+            
+            //onsubmit event
+            myform.addEventListener('submit', function(event) {
+            event.preventDefault();//prevent default form submission
+            let confirmSubmit = confirm('Are you sure you want to submit the form?');
+            if(confirmSubmit) {
+               myform.submit(); // submit the form programmatically after validation
+              }
+            })
+
+            //onreset event
+            myform.addEventListener('reset', function(event) {
+                 event.preventDefault(); //prevent form reset
+                 let confirmReset = confirm('Are you sure you want to reset the form?');
+                 if (confirmReset) {
+                    myform.reset(); // reset the form if user confirms
+                 }
+
+              });
+
+            //oninput event(bubble)
+              myform.addEventListener('input', function() {
+                  console.log("Typing...");
+              });
+
+            // onchange event(bubbles)
+              myform.addEventListener('change', function() {
+                  console.log("Value changed!");
+              });
+
+            //onfocus event(does not bubble)
+              nameInput.addEventListener('focus', function() {
+                 console.log("Input focused!");
+              });
+
+            //onblur event(does not bubble)
+              nameInput.addEventListener('blur', function() {
+                  console.log('Input blurred!');
+              });
+    </script>
+        
+</body>
+</html>

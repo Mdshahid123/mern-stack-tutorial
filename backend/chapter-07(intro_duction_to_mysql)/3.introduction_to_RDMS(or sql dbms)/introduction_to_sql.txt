@@ -1,0 +1,12 @@
+.RDBMS or sql dbms:is a relational data base management system,that is,it store the data in tabular form in row coloumn format
+
+.fixed schema:it has predefnied schema that is strutrue of table must be known in advance
+
+.vertical scalibility:typically scaled by increasing the resources(ram,storage,processing power,) of a single server (scaling up)
+
+.relationship:there can be mutiple table and hving multiple kind of relationship
+
+.it support transaction that are atomic,consistent,isolated,and durable
+.it uses sql programming languae to run query
+
+.example:mysql,oracle,postgreSQL,sql server

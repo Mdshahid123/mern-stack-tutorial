@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form event</title>
+</head>
+<body>
+      <!-- basic form -->
+       <form>
+         <input id="mytext" type="text" placeholder="Enter your name">
+         <input type="number" placeholder="Enter your age">
+         <input type="email" placeholder="enter your email">
+         <button type="submit">submit</button>
+         <button id="myreset" type="reset">reset</button>
+       </form>
+         <script>
+          // eccessing the form element
+          let form=document.querySelector("form")
+          // handling on submit event of form(bubbling event)
+          form.addEventListener("submit",(event)=>{
+            let isconfirm=confirm("are you sure you want to submit the form?")
+            console.log(isconfirm)
+            if(isconfirm==true){
+              form.submit()
+            }
+            event.preventDefault() // prevent default form submission
+
+
+            
+            
+          })
+          
+          //handling on reset event of form(bubbling event)
+        form.addEventListener("reset",(event)=>{
+          let isConfirm=confirm("are you sure want to reset the form")
+          console.log(isConfirm)
+          if(isConfirm==true){
+              form.reset()//reset the form manually
+          }
+          event.preventDefault()//prevent default form reset
+        })
+
+
+        //oninput event(bubbling event)
+    let mytext=document.getElementById("mytext")
+    mytext.addEventListener("input",()=>{
+       console.log("you are typing....")
+    })
+
+    //focus event(does not bubble)
+    mytext.addEventListener("focus",()=>{
+       console.log("you are focusing on the input field")
+    })
+
+   //onblur event(does not bubble)
+   mytext.addEventListener("blur",()=>{
+      console.log("you are leaving the input field")
+   })
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Added Successfully</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+    }
+
+    /* Navbar */
+    header {
+      background: white;
+      padding: 15px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* Center Container */
+    .container {
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    /* Success Icon */
+    .checkmark {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #ff385c;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      margin: 10px 0;
+      font-size: 22px;
+      color: #222;
+    }
+
+    p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .primary {
+      background: #ff385c;
+      color: white;
+    }
+
+    .secondary {
+      background: #f1f1f1;
+      color: #333;
+    }
+
+    .primary:hover {
+      background: #e03150;
+    }
+
+    .secondary:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="/">🏠 Home</a></li>
+      <li><a href="/host/add-home">➕ Add Home</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="card">
+
+    <div class="checkmark">✓</div>
+
+    <h1>Home Added Successfully</h1>
+    <p>Your property is now live and ready for guests to explore.</p>
+
+    <a href="/" class="btn primary">Go to Homepage</a>
+    <a href="/host/add-home" class="btn secondary">Add Another Home</a>
+
+  </div>
+</div>
+
+</body>
+</html>

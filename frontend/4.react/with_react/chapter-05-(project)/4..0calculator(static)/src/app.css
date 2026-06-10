@@ -1,0 +1,11 @@
+.appContainer{
+  width:25vw;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: white;
+
+}

@@ -1,0 +1,1 @@
+//write a program to find wheather the age of a person lies b/w 10 and 20?

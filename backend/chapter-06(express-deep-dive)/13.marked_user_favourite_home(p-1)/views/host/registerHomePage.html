@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List Your Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .row .form-group {
+      flex: 1;
+    }
+
+    .amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .amenities label {
+      background: #f1f1f1;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #ff385c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background: #e03150;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>List Your Home</h1>
+
+  <form action="/host/submit" method="POST">
+
+    <!-- Home Info -->
+    <div class="form-group">
+      <label>Home Name</label>
+      <input type="text" name="homeName" required>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label>Price Per Night</label>
+        <input type="number" name="pricePerNight">
+      </div>
+
+      <div class="form-group">
+        <label>Rating</label>
+        <input type="number" name="rating" min="1" max="10">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Location</label>
+      <input type="text" name="location">
+    </div>
+
+    <!-- Images -->
+    <div class="form-group">
+      <label>Main Photo URL</label>
+      <input type="text" name="photourl">
+    </div>
+    <div class="form-group">
+      <input type="text" name="images" placeholder="Image URL 1">
+      <input type="text" name="images" placeholder="Image URL 2">
+      <input type="text" name="images" placeholder="Image URL 3">
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description"></textarea>
+    </div>
+
+    <!-- Amenities -->
+    <div class="form-group">
+      <label>Amenities</label>
+      <div class="amenities">
+        <label><input type="checkbox" name="amenities" value="WiFi"> WiFi</label>
+        <label><input type="checkbox" name="amenities" value="Ac"> AC</label>
+        <label><input type="checkbox" name="amenities" value="Kitchen"> Kitchen</label>
+        <label><input type="checkbox" name="amenities" value="Washing Machine"> Washing Machine</label>
+        <label><input type="checkbox" name="amenities" value="Free Parking"> Parking</label>
+      </div>
+    </div>
+
+    <!-- Host Info -->
+    <h3>Host Details</h3>
+
+    <div class="form-group">
+      <label>Host Name</label>
+      <input type="text" name="host[name]">
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label>Joined Year</label>
+        <input type="text" name="host[joined]">
+      </div>
+
+      <div class="form-group">
+        <label>Superhost</label>
+        <select name="host[superhost]">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn">Submit Listing</button>
+  </form>
+</div>
+</body>
+</html>

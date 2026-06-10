@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .scene{
+       perspective:800px ;
+    }
+
+    .cube{
+      position: relative;
+      width: 150px;
+      height: 150px;
+      transform-style: preserve-3d;
+      background-color: red;
+      animation-name: rotate;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes rotate{
+      from{
+        transform: rotateY(0deg);
+      }
+      to{
+        transform: rotatey(360deg);
+      }
+    }
+     .face{
+      width: 150px;
+      height: 150px;
+      background-color: blue;
+      border: 1px solid black;
+      position: absolute;
+     }
+
+     .front{
+      transform: translateZ(125px);
+     }
+     .back{
+      transform:rotateY(180) translateZ(125px);
+     }
+     .left{
+       transform: rotateY(-90deg) translateZ(125px);
+       width: 50px; 
+     }
+     .right{
+        transform:rotateY(90deg) translateZ(125px) ;
+        width: 50px;
+     }
+     .top{
+       transform:rotateX(90deg) translateZ(50px); 
+       height: 50px;
+
+     }
+     .bottom{
+       transform:rotateX(-90deg) translateZ(125px);
+        height: 50px;
+     }
+    
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="scene">
+    <div class="cube">
+       <div lass="face  front">face 1</div>
+       <div class="face  back">face 2</div>
+       <div class="face  left">face 3</div>
+       <div class="face  right">face 4</div>
+       <div class="face  top">face 5</div>
+       <div class="face  bottom">face 6</div>
+    </div>
+
+  </div>
+</body>
+</html>

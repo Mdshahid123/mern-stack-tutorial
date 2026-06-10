@@ -1,0 +1,22 @@
+what is children props
+
+children props is  a special prop,Ye parent component ke andar likhe gaye content ko child component me access karne ke liye use hota hai
+
+accessed with props.children
+
+
+
+
+Need of props.children
+
+Agar hume reusable wrapper components banana ho jaise:
+
+Card
+Modal
+Button Wrapper
+Layout
+Container
+
+toh har baar alag content pass karna padta hai.
+
+Us situation me props.children use hota hai.

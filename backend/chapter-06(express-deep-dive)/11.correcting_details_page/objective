@@ -1,0 +1,12 @@
+here what we will be do 
+->instead of fetching the data from the homeDetails.json  file we can fetch the data from the homeregisteration.json page bcz actuald data of each listed home is stored in the homeregistration,json file
+
+->from the  homeRegistration.json file we user it's data in two place 
+
+1)we use parital data in home page
+2)we use full data in details page
+
+
+
+steps:
+

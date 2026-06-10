@@ -1,0 +1,26 @@
+body{
+  background-color: black;
+  height: 100vh;
+  color: white;
+  cursor:none;
+}
+
+h1{
+  position: absolute;
+  top: 40%;
+  left:40%;
+}
+
+.cursor{
+   width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: yellow;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  transition-property:background-color;
+  transition-duration:0.5s;
+  transition-timing-function: ease;
+}

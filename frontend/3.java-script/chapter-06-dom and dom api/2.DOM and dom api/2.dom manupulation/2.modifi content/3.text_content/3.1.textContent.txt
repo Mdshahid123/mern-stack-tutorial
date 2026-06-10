@@ -1,0 +1,6 @@
+textConent:same as innerText but it can return the teactual content even for the hidden element.
+
+Property         Returns	                    Includes Hidden Text?	       Includes HTML?
+innerText       textual content                    only	❌ No	                ✅ Yes
+
+

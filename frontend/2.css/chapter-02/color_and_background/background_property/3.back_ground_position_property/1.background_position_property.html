@@ -1,0 +1,61 @@
+<!-- background postion property -->
+
+<!-- it is used to set a starting postion of an background image -->
+
+<!-- by default it's starting postion is top-left  corner-->
+
+<!-- 1) You can use predefined keywords to set a starting postion of an image: -->
+
+left top
+
+left center
+
+left bottom
+
+center top
+
+center center (default: equivalent to 50% 50%)
+
+center bottom
+
+right top
+
+right center
+
+right bottom 
+
+
+<!-- Example: -->
+.box {
+  background-image: url("image.jpg");
+  background-position: right bottom;
+}
+
+
+<!-- 2. Length values to set a starting postion of an image (px, em, etc.)-->
+
+ <!-- examples: -->
+.box {
+  background-position: 50px 100px;
+}
+
+<!-- 3. Percentage values (%) -->
+<!-- examples: -->
+.box {
+  background-position: 25% 75%;
+}
+
+Places the image 25% across the width and 75% down the height of the element. 
+
+<!-- 4. One-value syntax
+if you provide only one value, the second one defaults to center. -->
+
+ <!-- Examples: -->
+background-position: top;    /* same as top center */
+background-position: 20px;   /* same as 20px top */
+background-position: right;  /* same as right center */ 
+ 
+
+
+
+

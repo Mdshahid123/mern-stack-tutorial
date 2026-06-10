@@ -1,0 +1,45 @@
+<!-- handling form events using DOM properties -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Events</title>
+</head>
+<body>
+        <!-- onsubmit event -->
+        <form id="myForm">
+          <input type="text" placeholder="Enter something">
+          <button type="submit">Submit</button>
+        </form>
+        <script>
+              const form = document.getElementById('myForm');
+              form.onsubmit = function(event) {
+                  alert('Form submitted!');
+                  event.preventDefault(); // Prevent default form submission
+              };
+              // onreset event
+              form.onreset = function(event) {
+                  alert('Form reset!');
+                  event.preventDefault(); // Prevent default form reset
+              };
+              // oninput event
+              form.oninput = function() {
+                  alert('Input changed!');
+              };
+              // onchange event
+              form.onchange = function() {
+                  alert('Input value changed!');
+              };
+              // onfocus event
+              form.onfocus = function() {
+                  alert('Input focused!');
+              };
+              // onblur event
+              form.onblur = function() {
+                  alert('Input blurred!');
+              };
+       </script>
+        
+</body>
+</html>

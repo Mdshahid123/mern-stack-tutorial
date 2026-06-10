@@ -1,0 +1,1 @@
+//Q26. When not to use ternary?

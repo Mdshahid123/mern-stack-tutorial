@@ -1,0 +1,1 @@
+//splice method can add,remove and replce the element of an given array

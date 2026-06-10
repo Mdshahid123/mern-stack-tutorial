@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Attachment Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .box {
+      width: 250px;
+      height: 250px;
+      border: 2px solid #333;
+      overflow: auto;
+      padding: 10px;
+      color: white;
+      background-image: url("https://picsum.photos/400/400");
+      background-repeat: no-repeat;
+      background-position:bottom right;
+    }
+
+    /* Different background-attachment values */
+    .scroll {
+      background-attachment: scroll;
+    }
+
+   
+
+   
+    .container{
+      visibility: visible;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>background-attachment: scroll vs local vs fixed</h1>
+
+  <div class="container">
+    <div class="box scroll">
+      <h3 style="color: red;">Scroll (default)</h3>
+      <p>
+        Background is attached to the element. 
+        When you scroll inside, only the text moves — background stays still.
+      </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales.</p>
+    </div>
+  </div>
+
+  <p style="margin: 50px; text-align:center;">
+    Scroll the page down to see how <b>fixed</b> behaves compared to scroll and local.
+    
+  </p>
+
+
+  
+
+</body>
+</html>

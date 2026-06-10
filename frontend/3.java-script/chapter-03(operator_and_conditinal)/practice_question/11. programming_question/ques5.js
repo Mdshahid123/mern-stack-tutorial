@@ -1,0 +1,1 @@
+//write a program to find wheather a number is divisible by 3 and 2 or not?

@@ -1,0 +1,1 @@
+Node REPL (Read-Eval-Print Loop):An interactive shell to run JavaScript code in chunks. Open it by typing a command:node

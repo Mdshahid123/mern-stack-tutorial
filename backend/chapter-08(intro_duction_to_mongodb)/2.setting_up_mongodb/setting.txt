@@ -1,0 +1,4 @@
+we can use mongodb in two ways 
+
+1) use mongodb cloud(mongodb atlas)
+2) mongodb communitiy server download 

@@ -1,0 +1,17 @@
+Browser Form Submit
+        │
+        ▼
+HTTP Request
+        │
+        ▼
+Node.js receives stream
+        │
+   ┌────┴────┐
+   ▼         ▼
+chunk1    chunk2    chunk3
+   │         │        │
+   └──────┬──┴───┬────┘
+          ▼
+     Buffer.concat()
+          ▼
+     Final Data

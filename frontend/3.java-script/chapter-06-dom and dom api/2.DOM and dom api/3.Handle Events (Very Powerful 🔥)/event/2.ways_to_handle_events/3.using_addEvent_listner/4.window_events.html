@@ -1,0 +1,27 @@
+<!-- handling events on window object -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window Events with addEventListener</title>
+</head>
+<body>
+        <script>
+              // on load event
+              window.addEventListener('load', function() {
+                  console.log('Page loaded!');
+              });
+              // on unload event
+              window.addEventListener('unload', function() {
+                  alert('Page unloading....');
+              });
+              // on resize event
+              window.addEventListener('resize', function() {
+                   console.log("Window resized:", window.innerWidth, window.innerWidth);
+              });
+              // on scroll event
+              window.addEventListener('scroll', function() {
+                  console.log('Window scrolled!');
+              });
+        </script>

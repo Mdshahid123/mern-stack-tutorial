@@ -1,0 +1,74 @@
+1️⃣ Normal websites (multi-page apps)
+
+Each time the user goes to a new page, the browser sends a request to the server.
+
+Server responds with a full HTML page, which the browser renders.
+
+Example: click on “About” → server sends about.html → page reloads.
+
+✅ Problem: slow, state is lost, lots of requests.
+
+2️⃣ Single Page Application (SPA) approach
+
+You send one single HTML page (index.html) to the browser at the first visit.
+
+This page is mostly empty, e.g.,
+
+<div id="root"></div>
+<script src="app.js"></script>
+
+
+After that, all content is created dynamically using JavaScript.
+
+Example using plain DOM:
+
+const root = document.getElementById("root");
+
+// Home Page
+function renderHome() {
+  root.innerHTML = "<h1>Home Page</h1>";
+}
+
+// About Page
+function renderAbout() {
+  root.innerHTML = "<h1>About Page</h1>";
+}
+
+// Navigation
+document.addEventListener("click", (e) => {
+  if (e.target.id === "homeBtn") renderHome();
+  if (e.target.id === "aboutBtn") renderAbout();
+});
+
+
+Notice: no new request to the server is sent, because the page is already loaded.
+
+Only JavaScript changes the DOM, making it feel like you are navigating to new pages.
+
+3️⃣ Why this is the only way to avoid page reloads
+
+Browser cannot display a page that doesn’t exist yet without sending a request.
+
+By sending one empty page and letting JS insert content:
+
+The page never reloads.
+
+Navigation feels instant.
+
+State (variables, UI info) is preserved.
+
+⚡ Summary
+
+Traditional websites → page reloads for every new page → requests go to server.
+
+SPA (empty index.html + JS DOM) → load once → all other content is created dynamically → no page reloads → no extra server requests.
+
+Basically, React, Vue, or Angular just automate this approach:
+
+Dynamically render content
+
+Efficiently update DOM
+
+Manage routing and state
+
+…so you don’t have to manually write all DOM manipulation code.

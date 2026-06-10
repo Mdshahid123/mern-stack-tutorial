@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      background-color: grey;
+      padding: 10px;
+    }
+      .app_container{
+        background-color: black;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 500px;
+        
+      }
+
+      .app_container_child1{
+        flex: 1;
+        background-color: brown;
+      }
+
+      .app_container_child2{
+        flex:4;
+        background-color: blue;
+        display: flex;
+        gap: 10px;
+    
+      }
+
+      .app_container_child3{
+        flex:2;
+        background-color: yellow;
+      }
+      .app_container_child4{
+        flex:1;
+        background-color: green;
+      }
+
+      .app_container_child2_left{
+        flex:1;
+        background-color: red;
+      }
+      .app_container_child2_right{
+        flex:1;
+        display: flex;
+        background-color: purple;
+        flex-direction: column;
+        gap: 10px;
+
+      }
+
+      .app_container_child2_right_top{
+        flex:1;
+        background-color: pink;
+      }
+      .app_container_child2_right_bottom{
+        flex:1;
+        background-color: orange;
+      }
+  </style>
+  <title>using flex-box</title>
+</head>
+<body>
+     <div class="app_container">
+          <div class="app_container_child1">
+                
+          </div>
+          <div class="app_container_child2">
+                 <div class="app_container_child2_left">
+                      
+                 </div>
+                  <div class="app_container_child2_right">
+                       <div class="app_container_child2_right_top">
+                          
+                       </div>
+                        <div class="app_container_child2_right_bottom">
+                        </div>
+                  </div>
+          </div>
+          <div class="app_container_child3">
+                
+          </div>
+          <div class="app_container_child4">
+                
+          </div>
+
+     </div>
+</body>
+</html>

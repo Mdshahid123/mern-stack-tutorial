@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Host</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';}
+body{background:#fff;}
+
+.container{
+  max-width:850px;
+  margin:40px auto;
+  border:1px solid #eee;
+  border-radius:16px;
+}
+
+.header{padding:25px;border-bottom:1px solid #eee;}
+
+.progress{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 30px;
+  border-bottom:1px solid #eee;
+}
+
+.progress span{color:#aaa;font-size:13px;}
+.progress .active{color:#ff385c;font-weight:600;}
+
+.form{padding:30px;}
+.step{display:none;}
+.step.active{display:block;}
+
+input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-bottom:10px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+}
+
+button{
+  padding:10px 18px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+}
+
+.next{background:#ff385c;color:white;}
+.prev{background:#eee;}
+
+/* Amenities */
+.amenities{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.amenities label{
+  border:1px solid #ddd;
+  padding:8px 12px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.amenities input{
+  display:none;
+}
+
+.amenities input:checked + span{
+  background:#ff385c;
+  color:white;
+  border-radius:20px;
+  padding:8px 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+  <h2>Become a Host</h2>
+</div>
+
+<div class="progress">
+  <span class="active">Details</span>
+  <span>Location</span>
+  <span>Amenities</span>
+  <span>Host</span>
+</div>
+
+<div class="form">
+
+<!-- STEP 1 -->
+<div class="step active">
+  <input id="homeName" placeholder="Home Name">
+  <input id="price" type="number" placeholder="Price">
+  <input id="rating" type="number" placeholder="Rating">
+  <button type="button" class="next">Next</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+  <input id="location" placeholder="Enter location">
+  <div class="buttons">
+    <button type="button" class="prev">Back</button>
+    <button type="button" class="next">Next</button>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+
+  <div class="amenities">
+    <label><input type="checkbox" value="WiFi"><span>WiFi</span></label>
+    <label><input type="checkbox" value="AC"><span>AC</span></label>
+    <label><input type="checkbox" value="Parking"><span>Parking</span></label>
+    <label><input type="checkbox" value="TV"><span>TV</span></label>
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="prev">Back</button>
+    <button type="button" class="next">Next</button>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+
+  <div class="amenities">
+    <label><input type="checkbox" value="WiFi"><span>WiFi</span></label>
+    <label><input type="checkbox" value="AC"><span>AC</span></label>
+    <label><input type="checkbox" value="Parking"><span>Parking</span></label>
+    <label><input type="checkbox" value="TV"><span>TV</span></label>
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="prev">Back</button>
+    <button type="button" class="next">Next</button>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+  <input id="hostName" placeholder="Host Name">
+  <input id="joined" placeholder="Joined Year">
+
+  <div class="buttons">
+    <button type="button" class="prev">Back</button>
+    <button type="button" id="submit">Submit</button>
+  </div>
+</div>
+
+</div>
+</div>
+
+<script>
+// STEP NAVIGATION
+const steps = document.querySelectorAll(".step");
+const nextBtns = document.querySelectorAll(".next");
+const prevBtns = document.querySelectorAll(".prev");
+const progress = document.querySelectorAll(".progress span");
+
+let current = 0;
+
+function showStep(index) {
+  steps.forEach((step, i) => {
+    step.classList.remove("active");
+    progress[i].classList.remove("active");
+  });
+
+  steps[index].classList.add("active");
+  progress[index].classList.add("active");
+}
+
+nextBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (current < steps.length - 1) {
+      current++;
+      showStep(current);
+    }
+  });
+});
+
+prevBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (current > 0) {
+      current--;
+      showStep(current);
+    }
+  });
+});
+
+// SUBMIT
+document.getElementById("submit").onclick = async () => {
+
+  const amenities = [];
+  document.querySelectorAll(".amenities input:checked").forEach(a => {
+    amenities.push(a.value);
+  });
+
+  const data = {
+    _id: Date.now().toString(),
+
+    homeName: document.getElementById("homeName").value,
+    pricePerNight: document.getElementById("price").value,
+    Location: document.getElementById("location").value,
+    rating: document.getElementById("rating").value,
+
+    photourl: "https://source.unsplash.com/featured/?house",
+
+    images: [
+      "https://source.unsplash.com/featured/?room",
+      "https://source.unsplash.com/featured/?bedroom",
+      "https://source.unsplash.com/featured/?interior"
+    ],
+
+    reviews: Math.floor(Math.random() * 200),
+
+    description: "Beautiful property added by host.",
+
+    amenities: amenities,
+
+    host: {
+      name: document.getElementById("hostName").value,
+      joined: document.getElementById("joined").value,
+      superhost: true
+    }
+  };
+
+  console.log("FINAL DATA:", data);
+
+  const res = await fetch("/host/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  alert(result.message);
+};
+</script>
+
+</body>
+</html>

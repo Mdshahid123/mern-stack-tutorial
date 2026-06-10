@@ -1,0 +1,1 @@
+//Write a program where you have an array of numbers. Use the spread operator to pass the array elements as arguments to the  sum function call, and return the total sum.

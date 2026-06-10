@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Grid Notes</title>
+
+  <!-- Prism.js for syntax highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #2b6cb0;
+    }
+    pre {
+      border-radius: 6px;
+    }
+    .note {
+      background: #fff;
+      border-left: 4px solid #2b6cb0;
+      padding: 10px 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    img {
+      max-width: 500px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter-07 – CSS Grid</h1>
+
+  <h2>What is CSS Grid?</h2>
+  <p>
+    CSS Grid is a <b>two-dimensional layout system</b> used to design
+    complex layouts using <b>rows and columns</b>.
+  </p>
+
+  <ul>
+    <li>Controls layout in rows <b>and</b> columns</li>
+    <li>Best for full-page layouts</li>
+    <li>More powerful than Flexbox for structure</li>
+  </ul>
+
+  <h2>Two-Dimensional Layout (Grid)</h2>
+  <div class="note">
+    CSS Grid works in <b>two directions at the same time</b>:
+    rows (horizontal) and columns (vertical).
+  </div>
+
+  <div style="background:#fff; padding:15px; border-radius:6px; text-align:center; margin:20px 0;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROShrVXkPrK3q1tQfKlnmgVjS0r38RXLDuSw&s" alt="CSS Grid Layout">
+    <p><b>Figure:</b> Two-Dimensional Layout in CSS Grid</p>
+  </div>
+
+  <h2>Grid Container & Grid Items</h2>
+  <p>
+    When <code>display: grid</code> is applied to an element:
+  </p>
+
+  <ul>
+    <li>The element becomes a <b>grid container</b></li>
+    <li>Its direct children become <b>grid items</b></li>
+  </ul>
+
+  <pre><code class="language-css">.container {
+  display: grid;
+}</code></pre>
+
+  <div class="note">
+    <b>Note:</b> Only direct children become grid items.
+  </div>
+
+  <h2>Grid Rows & Columns</h2>
+  <p>
+    Grid layout is created using rows and columns.
+  </p>
+
+  <pre><code class="language-css">.container {
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 100px 100px;
+}</code></pre>
+
+  <div class="note">
+    This creates <b>3 columns</b> and <b>2 rows</b>.
+  </div>
+
+  <!-- ================= GRID CONTAINER PROPERTIES ================= -->
+
+  <h2>Grid Container Properties</h2>
+
+  <p>
+    Grid container properties are applied to the <b>parent element</b>.
+    They define the grid structure and alignment.
+  </p>
+
+  <div class="note">
+    <b>Grid container properties:</b>
+    <ol>
+      <li>grid-template-columns</li>
+      <li>grid-template-rows</li>
+      <li>gap</li>
+      <li>justify-items</li>
+      <li>align-items</li>
+    </ol>
+  </div>
+
+  <h2>grid-template-columns</h2>
+  <p>Defines the number and size of columns.</p>
+
+  <pre><code class="language-css">.container {
+  grid-template-columns: 1fr 2fr 1fr;
+}</code></pre>
+
+  <div class="note">
+    <code>fr</code> means <b>fraction of available space</b>.
+  </div>
+
+  <h2>grid-template-rows</h2>
+  <p>Defines the height of rows.</p>
+
+  <pre><code class="language-css">.container {
+  grid-template-rows: 100px auto;
+}</code></pre>
+
+  <h2>gap Property</h2>
+  <p>Controls spacing between rows and columns.</p>
+
+  <pre><code class="language-css">.container {
+  gap: 20px;
+}</code></pre>
+
+  <ul>
+    <li>row-gap</li>
+    <li>column-gap</li>
+    <li>gap (shorthand)</li>
+  </ul>
+
+  <h2>justify-items</h2>
+  <p>Aligns grid items horizontally inside cells.</p>
+
+  <pre><code class="language-css">.container {
+  justify-items: center;
+}</code></pre>
+
+  <ul>
+    <li>start</li>
+    <li>center</li>
+    <li>end</li>
+    <li>stretch (default)</li>
+  </ul>
+
+  <h2>align-items</h2>
+  <p>Aligns grid items vertically inside cells.</p>
+
+  <pre><code class="language-css">.container {
+  align-items: center;
+}</code></pre>
+
+  <!-- ================= GRID ITEM PROPERTIES ================= -->
+
+  <h2>Grid Item Properties</h2>
+
+  <p>
+    Grid item properties are applied to <b>individual grid items</b>.
+    They control position and alignment.
+  </p>
+
+  <div class="note">
+    <b>Grid item properties:</b>
+    <ol>
+      <li>grid-column</li>
+      <li>grid-row</li>
+      <li>justify-self</li>
+      <li>align-self</li>
+    </ol>
+  </div>
+
+  <h2>grid-column</h2>
+  <p>Defines how many columns an item spans.</p>
+
+  <pre><code class="language-css">.item {
+  grid-column: 1 / 3;
+}</code></pre>
+
+  <div class="note">
+    Item spans from column 1 to column 3.
+  </div>
+
+  <h2>grid-row</h2>
+  <p>Defines how many rows an item spans.</p>
+
+  <pre><code class="language-css">.item {
+  grid-row: 1 / 3;
+}</code></pre>
+
+  <h2>justify-self</h2>
+  <p>Aligns a single grid item horizontally.</p>
+
+  <pre><code class="language-css">.item {
+  justify-self: center;
+}</code></pre>
+
+  <h2>align-self</h2>
+  <p>Aligns a single grid item vertically.</p>
+
+  <pre><code class="language-css">.item {
+  align-self: end;
+}</code></pre>
+
+  <!-- ================= GRID vs FLEXBOX ================= -->
+
+  <h2>CSS Grid vs Flexbox</h2>
+
+  <ul>
+    <li><b>Grid</b> → Two-dimensional layout (rows + columns)</li>
+    <li><b>Flexbox</b> → One-dimensional layout</li>
+    <li>Grid is best for page layout</li>
+    <li>Flexbox is best for components</li>
+  </ul>
+
+  <h2>Short Exam Definition</h2>
+  <div class="note">
+    CSS Grid is a two-dimensional layout system used to create
+    complex and responsive layouts using rows and columns.
+  </div>
+
+  <!-- Prism.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+
+</body>
+</html>
