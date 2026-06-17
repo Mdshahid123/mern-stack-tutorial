@@ -5,15 +5,46 @@
 
 .container{
   height: 100vh;
-  background-color: black;
+  background-color:#212121;
   display: flex;
 }
+
+
+/* cleft bar */
 
 
 .leftbar{
   width: 250px;
   height: 100%;
-  background-color: #171717
+  background-color: #171717;
+}
+
+
+
+.header{
+  display: flex;
+  justify-content: center;
+  gap:20px;
+  align-items: center;
+  padding: 5px;
+  background-color: #2f2f2f69;
+  color: white;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.header button{
+    padding:5px;
+    background-color: #2f2f2f69;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    
 }
 
 
@@ -21,6 +52,9 @@
   flex: 1;
   background-color:#212121;
   align-items: center;
+  overflow-y:auto;
+  max-height:87vh;
+
 }
 
 .inputArea{
@@ -29,9 +63,9 @@
     width:50%;
     background-color: #2f2f2f;
     border-radius: 20px;
-    position:relative;
-    top: 85vh;
-    left:250px;
+    position:fixed;
+    top:55vh;
+    left:450px
     
   }
   
@@ -51,4 +85,79 @@
   cursor: pointer;
   font-size: larger;
   padding: 5px;
+  border:none
+}
+
+.userMessage{
+      display: flex;
+      max-width: 500px;
+       padding:10px;
+       border-radius: 20px;
+       color: white;
+       float: inline-end;
+       align-self: flex-end;
+       margin-top: 50px;
+       margin-right:180px;
+    }
+    
+    
+.userMessage span{
+  background-color:#2f2f2f ;
+  margin-right: 20px;
+  border-radius: 100%;
+  width:50px;
+  height:50px;
+  padding:5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.userMessage p{
+   background-color: #2f2f2f;
+   padding: 10px;
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.AIMessage{
+      display: flex;
+       max-width: 500px;
+       padding:10px;
+       border-radius: 20px;
+       color: white;
+       margin-top:150px;
+       margin-left:180px;
+    }
+    
+    
+.AIMessage span{
+  background-color:#2f2f2f69 ;
+  margin-right: 20px;
+  border-radius: 100%;
+  width:50px;
+  height:50px;
+  padding:5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.AIMessage p{
+   background-color: #444654;
+   padding: 10px;
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.welcome-screen{
+  position: absolute;
+   top:40vh;
+   left: 50vw;
+  color: white;
 }
