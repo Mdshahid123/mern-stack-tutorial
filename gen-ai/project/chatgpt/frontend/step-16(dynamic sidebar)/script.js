@@ -3,9 +3,10 @@ const sendBtn = document.getElementById("send-btn");
 const messages = document.getElementById("messages");
 const welcomeScreen = document.getElementById("welcome-screen");
 const newChatBtn = document.getElementById("new-chat-btn");
+const chatList = document.getElementById("chat-list");
 
-// Load chats from localStorage
 let chats = JSON.parse(localStorage.getItem("chats")) || [];
+let chatCount = Number(localStorage.getItem("chatCount")) || 0;
 
 // Events
 sendBtn.addEventListener("click", sendMessage);
@@ -18,8 +19,9 @@ input.addEventListener("keydown", (e) => {
 
 newChatBtn.addEventListener("click", newChat);
 
-// Load old chats when page opens
+// Load previous chats
 loadChats();
+loadSidebar();
 
 function sendMessage() {
 
@@ -58,16 +60,12 @@ function addMessage(text, role, save = true) {
         </div>
     `;
 
-    // Hide welcome screen
     welcomeScreen.style.display = "none";
 
-    // Add message to UI
     messages.appendChild(message);
 
-    // Auto scroll
     messages.scrollTop = messages.scrollHeight;
 
-    // Save to localStorage
     if (save) {
 
         chats.push({
@@ -95,20 +93,49 @@ function loadChats() {
     });
 }
 
+function createChatItem() {
+
+    chatCount++;
+
+    const div = document.createElement("div");
+
+    div.classList.add("chat-item");
+
+    div.textContent = `Chat ${chatCount}`;
+
+    chatList.appendChild(div);
+
+    localStorage.setItem(
+        "chatCount",
+        chatCount
+    );
+}
+
+function loadSidebar() {
+
+    for (let i = 1; i <= chatCount; i++) {
+
+        const div = document.createElement("div");
+
+        div.classList.add("chat-item");
+
+        div.textContent = `Chat ${i}`;
+
+        chatList.appendChild(div);
+    }
+}
+
 function newChat() {
 
-    // Clear messages from UI
     messages.innerHTML = "";
 
-    // Clear chats array
     chats = [];
 
-    // Remove from localStorage
     localStorage.removeItem("chats");
 
-    // Show welcome screen
     welcomeScreen.style.display = "flex";
 
-    // Focus input
+    createChatItem();
+
     input.focus();
 }

@@ -89,15 +89,17 @@
 }
 
 .userMessage{
-      display: flex;
-      max-width: 500px;
-       padding:10px;
+       display: flex;
+       max-width:650px;
        border-radius: 20px;
        color: white;
-       float: inline-end;
-       align-self: flex-end;
        margin-top: 50px;
-       margin-right:180px;
+       margin-left:270px;
+       display: flex;
+       justify-content:flex-end;
+       flex: wrap;
+       
+       
     }
     
     
@@ -116,12 +118,13 @@
 
 .userMessage p{
    background-color: #2f2f2f;
-   padding: 10px;
-   border-radius: 10px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+   border-radius: 20px;
+   display: inline;
+   padding: 20px 10px;
 }
+
+
+
 .AIMessage{
       display: flex;
        max-width: 500px;

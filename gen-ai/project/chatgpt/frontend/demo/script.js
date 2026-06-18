@@ -7,7 +7,7 @@ const newChatBtn = document.querySelector(".newChat");
 let chats = JSON.parse(localStorage.getItem("chats")) || [];
 
 
-// key press kya jata hain jabhi hame msg send karna hain
+// jb key press kya jaye  jabhi hame msg send karna hain
 msgInput.addEventListener("keydown", (e) => {
 
     if(e.key === "Enter"){
@@ -16,7 +16,7 @@ msgInput.addEventListener("keydown", (e) => {
 
 });
 
-// our agra click krta hain send button pe tabhi msg send karna hain
+// our agra click kiya jaye  send button pe tabhi msg send karna hain
 sendBtn.addEventListener("click",sendMessage)
 
 
@@ -31,50 +31,60 @@ function sendMessage()
 
    //get value of message input 
    let prompt=msgInput.value.trim()
+   if(prompt==="")
+    return
    addMessage(prompt,"user")
    msgInput.value=""
-   msgInputinput.focus();
+   msgInput.focus();
 
    //Simulate AI response after 1 second
    setTimeout(() => {
    
-      addAIMessage("I received your message!","AI");
+      addMessage("Tell me how i can help ?","AI");
    
    }, 1000);
 
-   // automatic scroll
-   rightbar.scrollTop = rightbar.scrollHeight;
-   
-   
-    
-    
+
 }
 
 
-function addAIMessage(text,role) {
+function addMessage(text,role) {
 
-
-
-    //creae user message element with prompt
+    //creae  message element with prompt
     let div=document.createElement("div")
+    const avatar = role === "user" ? `<span class="material-symbols-outlined">person</span> ` : `  <span class="material-symbols-outlined"> robot_2 </span>`;
+    console.log("role:",role)
     div.classList.add(`${role}Message`)
-    div.innerHTML=`
-                       <span class="material-symbols-outlined">
-                           person
-                        </span> 
-                        <p>hello${text}</p>
-    `
-    
+    div.innerHTML=`${avatar}<p>${text}</p>`
     //append in right bar
     rightbar.appendChild(div)
+    rightbar.scrollTop = rightbar.scrollHeight;
+   
 }
 
+//new chat implemntaion
 newChatBtn.addEventListener("click", newChat);
 function newChat(){
 
-    rightbar.innerHTML = "";
+    const userMessage=document.querySelectorAll(".userMessage")
+    const AIMessage=document.querySelectorAll(".AIMessage")
 
-    welcomeScreen.style.display = "flex";
+    for(let item of userMessage)
+    {
+        item.innerHTML=""
+        item.innerHTML=""
+
+    }
+
+    for(let item of AIMessage)
+    {
+        item.innerHTML=""
+        item.innerHTML=""
+
+    }
+
+    welcomeScreen.style.display = "block";
+     inputArea.style.top="50vh"
 
     input.focus();
 }

@@ -3,23 +3,30 @@ const sendBtn = document.getElementById("send-btn");
 const messages = document.getElementById("messages");
 const welcomeScreen = document.getElementById("welcome-screen");
 const newChatBtn = document.getElementById("new-chat-btn");
+const chatList = document.getElementById("chat-list");
 
 // Load chats from localStorage
 let chats = JSON.parse(localStorage.getItem("chats")) || [];
 
-// Events
+// Sidebar chat count
+let chatCount = Number(localStorage.getItem("chatCount")) || 0;
+
+// Event Listeners
 sendBtn.addEventListener("click", sendMessage);
 
 input.addEventListener("keydown", (e) => {
+
     if (e.key === "Enter") {
         sendMessage();
     }
+
 });
 
 newChatBtn.addEventListener("click", newChat);
 
-// Load old chats when page opens
+// Load data when page opens
 loadChats();
+loadSidebar();
 
 function sendMessage() {
 
@@ -33,11 +40,20 @@ function sendMessage() {
 
     input.focus();
 
+    // Show typing indicator
+    showTypingIndicator();
+
     setTimeout(() => {
 
-        addMessage("I received your message!", "ai");
+        removeTypingIndicator();
+
+        addMessage(
+            "I received your message!",
+            "ai"
+        );
 
     }, 1000);
+
 }
 
 function addMessage(text, role, save = true) {
@@ -46,7 +62,10 @@ function addMessage(text, role, save = true) {
 
     message.classList.add("message", role);
 
-    const avatar = role === "user" ? "👤" : "🤖";
+    const avatar =
+        role === "user"
+            ? "👤"
+            : "🤖";
 
     message.innerHTML = `
         <div class="avatar">
@@ -61,13 +80,13 @@ function addMessage(text, role, save = true) {
     // Hide welcome screen
     welcomeScreen.style.display = "none";
 
-    // Add message to UI
+    // Add message
     messages.appendChild(message);
 
     // Auto scroll
     messages.scrollTop = messages.scrollHeight;
 
-    // Save to localStorage
+    // Save in localStorage
     if (save) {
 
         chats.push({
@@ -79,7 +98,43 @@ function addMessage(text, role, save = true) {
             "chats",
             JSON.stringify(chats)
         );
+
     }
+}
+
+function showTypingIndicator() {
+
+    const typing = document.createElement("div");
+
+    typing.classList.add("message", "ai");
+
+    typing.id = "typing-indicator";
+
+    typing.innerHTML = `
+        <div class="avatar">
+            🤖
+        </div>
+
+        <div class="message-content">
+            Typing...
+        </div>
+    `;
+
+    messages.appendChild(typing);
+
+    messages.scrollTop = messages.scrollHeight;
+}
+
+function removeTypingIndicator() {
+
+    const typing = document.getElementById(
+        "typing-indicator"
+    );
+
+    if (typing) {
+        typing.remove();
+    }
+
 }
 
 function loadChats() {
@@ -93,22 +148,61 @@ function loadChats() {
         );
 
     });
+
+}
+
+function createChatItem() {
+
+    chatCount++;
+
+    const div = document.createElement("div");
+
+    div.classList.add("chat-item");
+
+    div.textContent = `Chat ${chatCount}`;
+
+    chatList.appendChild(div);
+
+    localStorage.setItem(
+        "chatCount",
+        chatCount
+    );
+}
+
+function loadSidebar() {
+
+    for (let i = 1; i <= chatCount; i++) {
+
+        const div = document.createElement("div");
+
+        div.classList.add("chat-item");
+
+        div.textContent = `Chat ${i}`;
+
+        chatList.appendChild(div);
+
+    }
+
 }
 
 function newChat() {
 
-    // Clear messages from UI
+    // Clear messages
     messages.innerHTML = "";
 
-    // Clear chats array
+    // Reset chat array
     chats = [];
 
-    // Remove from localStorage
+    // Remove localStorage chats
     localStorage.removeItem("chats");
 
     // Show welcome screen
     welcomeScreen.style.display = "flex";
 
+    // Create sidebar item
+    createChatItem();
+
     // Focus input
     input.focus();
+
 }
