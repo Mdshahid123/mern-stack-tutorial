@@ -1,0 +1,16 @@
+Connect Gemini AI
+
+
+User
+ ↓
+Frontend
+ ↓
+Express Backend
+ ↓
+AI API (Gemini/OpenAI)
+ ↓
+Backend
+ ↓
+Frontend
+ ↓
+Display AI Response

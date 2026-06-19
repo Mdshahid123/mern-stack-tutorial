@@ -8,10 +8,10 @@ const chatList = document.getElementById("chat-list");
 // Load chats from localStorage
 let chats = JSON.parse(localStorage.getItem("chats")) || [];
 
-//Sidebar chat count
+// Sidebar chat count
 let chatCount = Number(localStorage.getItem("chatCount")) || 0;
 
-//Event Listeners
+// Event Listeners
 sendBtn.addEventListener("click", sendMessage);
 
 input.addEventListener("keydown", (e) => {
@@ -28,35 +28,47 @@ newChatBtn.addEventListener("click", newChat);
 loadChats();
 loadSidebar();
 
-function sendMessage() {
+async function sendMessage() {
 
     const text = input.value.trim();
 
     if (text === "") return;
 
-    showMessage(text, "user");
+    addMessage(text, "user");
 
     input.value = "";
 
     input.focus();
 
-    //Show typing indicator
     showTypingIndicator();
 
-    setTimeout(() => {
+    const response = await fetch(
+    "http://localhost:5000/chat",
+    {
+        method: "POST",
 
-        removeTypingIndicator();
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-        showMessage(
-            "I received your message!",
-            "ai"
-        );
+        body: JSON.stringify({
+            prompt: text
+        })
+    }
+);
 
-    }, 1000);
+const data = await response.json();
+
+removeTypingIndicator();
+
+addMessage( data.reply, "ai")
+
 
 }
 
-function showMessage(text, role, save = true) {
+
+
+function addMessage(text, role, save = true) {
 
     const message = document.createElement("div");
 
@@ -77,7 +89,7 @@ function showMessage(text, role, save = true) {
         </div>
     `;
 
-    // Hide welcome screen
+    //Hide welcome screen
     welcomeScreen.style.display = "none";
 
     // Add message
@@ -141,7 +153,7 @@ function loadChats() {
 
     chats.forEach(chat => {
 
-        showMessage(
+        addMessage(
             chat.text,
             chat.role,
             false
@@ -184,6 +196,8 @@ function loadSidebar() {
     }
 
 }
+
+
 
 function newChat() {
 
