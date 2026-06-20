@@ -1,0 +1,52 @@
+Step 12: MongoDB + Multiple Conversations
+
+Currently:
+
+Sidebar
+ ├── Chat 1
+ ├── Chat 2
+ └── Chat 3
+
+But all chats share the same messages.
+
+We want:
+
+Chat 1
+ ├── Hello
+ └── Hi!
+
+Chat 2
+ ├── What is React?
+ └── React is...
+
+Chat 3
+ ├── Explain Node.js
+ └── Node.js is...
+
+
+
+ MongoDB Design
+
+We'll create a collection called:
+
+conversations
+
+Each document:
+
+{
+    _id:"6852...",
+    title:"What is React?",
+
+    messages:[
+        {
+            role:"user",
+            text:"What is React?"
+        },
+        {
+            role:"ai",
+            text:"React is a JavaScript library..."
+        }
+    ],
+
+    createdAt:Date
+}
