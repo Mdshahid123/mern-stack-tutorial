@@ -1,0 +1,15 @@
+Refresh Page
+      ↓
+Sidebar loads from MongoDB
+      ↓
+Click Conversation
+      ↓
+Messages load
+      ↓
+Send Message
+      ↓
+Saved in MongoDB
+      ↓
+Refresh again
+      ↓
+Everything still exists

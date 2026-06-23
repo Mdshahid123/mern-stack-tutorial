@@ -22,3 +22,15 @@ function App() {
 }
 
 export default App;
+
+
+// internally child component call like this
+// Card({
+//   children: [
+//     <h1>React Course</h1>,
+//     <p>Learn MERN Stack Development</p>,
+//     <button>Start Learning</button>
+//   ]
+// });
+
+

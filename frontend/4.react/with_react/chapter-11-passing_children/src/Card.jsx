@@ -1,24 +1,9 @@
-import Card from "./App";
-
-function App() {
-
+function Card({ children }) {
   return (
-
-    <div>
-
-      <Card>
-
-        <h1>React Course</h1>
-
-        <p>Learn MERN Stack Development</p>
-
-        <button>Start Learning</button>
-
-      </Card>
-
-    </div>
-
-  )
+   <div style={{ border: "1px solid black",padding: "20px", borderRadius: "10px" }} >
+      {children}
+   </div>
+  );
 }
 
-export default App;
+export default Card;
