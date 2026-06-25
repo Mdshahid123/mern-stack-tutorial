@@ -1,9 +1,7 @@
 const input = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");
 
-
 let currentConversationId = null;
-
 
 // =======================
 // Event Listeners
@@ -13,13 +11,13 @@ sendBtn.addEventListener("click", sendMessage);
 
 input.addEventListener("keydown", (e) => {
 
-    if (e.key === "Enter") {
-        sendMessage();
-    }
+
+if (e.key === "Enter") {
+    sendMessage();
+}
+
 
 });
-
-
 
 // =======================
 // Send Message
@@ -27,106 +25,94 @@ input.addEventListener("keydown", (e) => {
 
 async function sendMessage() {
 
-    const text = input.value.trim();
 
-    if (text === "") return;
+// getting user input or prompt
+const text = input.value.trim();
 
-    // Create conversation if none selected
-    if (!currentConversationId) {
+if (text === "") return;
 
-        await newChat();
+// show user prompt
+showMessage(text, "user");
 
-    }
+input.value = "";
+input.focus();
 
-    addMessage(text, "user");
+// show typing indicator
+showTypingIndicator();
 
-    input.value = "";
+try {
 
-    input.focus();
+    // make API call to backend
+    const response = await fetch("/chat", {
+        method: "POST",
 
-    showTypingIndicator();
+        headers: {
+            "Content-Type": "application/json"
+        },
 
+        body: JSON.stringify({
+            prompt: text,
+            conversationId: currentConversationId
+        })
+    });
 
-    try {
+    const data = await response.json();
 
-        const response = await fetch(
-            "http://localhost:5000/chat",
-            {
-                method: "POST",
+    currentConversationId = data.conversationId;
 
-                headers: {
-                    "Content-Type":
-                    "application/json"
-                },
+    removeTypingIndicator();
 
-                body: JSON.stringify({ prompt: text, conversationId:currentConversationId })
+    // show AI response
+    showMessage(data.message, "AI");
 
-            }
-        );
+}
+catch (error) {
 
-        const data = await response.json();
+    console.log(error);
 
-        removeTypingIndicator();
-
-        addMessage(
-            data.reply,
-            "ai"
-        );
-
-
-    } catch (error) {
-
-         console.log(error);
-
-         removeTypingIndicator();
-
-    }
+    removeTypingIndicator();
 
 }
 
 
-
+}
 
 // =======================
 // Add Message To UI
 // =======================
 
-function addMessage(text, role) {
+function showMessage(text, role) {
 
-    const message =
-    document.createElement("div");
 
-    message.classList.add(
-        "message",
-        role
-    );
+const message = document.createElement("div");
 
-    const avatar =
-        role === "user"
+message.classList.add(
+    "message",
+    role
+);
+
+const avatar =
+    role === "user"
         ? "👤"
         : "🤖";
 
-    message.innerHTML = `
-        <div class="avatar">
-            ${avatar}
-        </div>
+message.innerHTML = `
+    <div class="avatar">
+        ${avatar}
+    </div>
 
-        <div class="message-content">
-            ${text}
-        </div>
-    `;
+    <div class="message-content">
+        ${text}
+    </div>
+`;
 
-    welcomeScreen.style.display =
-    "none";
+messages.appendChild(message);
 
-    messages.appendChild(message);
-
-    messages.scrollTop =
+messages.scrollTop =
     messages.scrollHeight;
 
+
 }
-
-
 
 // =======================
 // Typing Indicator
@@ -134,47 +120,45 @@ function addMessage(text, role) {
 
 function showTypingIndicator() {
 
-    const typing =
+const typing =
     document.createElement("div");
 
-    typing.classList.add(
-        "message",
-        "ai"
-    );
+typing.classList.add(
+    "message",
+    "ai"
+);
 
-    typing.id =
-    "typing-indicator";
+typing.id = "typing-indicator";
 
-    typing.innerHTML = `
-        <div class="avatar">
-            🤖
-        </div>
+typing.innerHTML = `
+    <div class="avatar">
+        🤖
+    </div>
 
-        <div class="message-content">
-            Typing...
-        </div>
-    `;
+    <div class="message-content">
+        Typing...
+    </div>
+`;
 
-    messages.appendChild(typing);
+messages.appendChild(typing);
 
-    messages.scrollTop =
+messages.scrollTop =
     messages.scrollHeight;
+
 
 }
 
-
 function removeTypingIndicator() {
 
-    const typing =
+
+const typing =
     document.getElementById(
         "typing-indicator"
     );
 
-    if (typing) {
-
-        typing.remove();
-
-    }
-
+if (typing) {
+    typing.remove();
 }
 
+
+}

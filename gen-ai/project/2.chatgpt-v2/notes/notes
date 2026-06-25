@@ -1,0 +1,78 @@
+
+
+// =========================
+// 1. public Folder
+// =========================
+
+
+The public folder is used to serve static files directly to the browser.
+
+Examples:
+
+HTML files
+CSS files
+JavaScript files
+Images (.jpg, .png, .svg)
+Videos
+Fonts
+
+
+
+app.use(express.static("public"));(CSS, JS, Images serve karne ke liye)
+
+Route → Controller → res.sendFile() or fs.readFile() (HTML serve karne ke liye)
+
+
+Folder Structure:
+
+project/
+│
+├── public/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+│       └── logo.png
+
+
+
+
+// =========================
+// 
+//   2. views Folder
+// =========================
+
+
+The views folder contains template files that are rendered by Express using a template engine.
+
+Common template engines:
+
+EJS (.ejs)
+Pug (.pug)
+Handlebars (.hbs)
+
+Example:
+
+project/
+│
+├── views/
+│   ├── home.ejs
+│   └── about.ejs
+
+Route:
+
+app.set("view engine", "ejs");
+
+app.get("/", (req, res) => {
+    res.render("home");
+});
+
+
+
+
+// =========================
+// 3.genrating a absolute path dynamically
+// =========================
+
+path.join(__dirname, ...) to generate the absolute path dynamically.
