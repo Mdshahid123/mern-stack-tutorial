@@ -15,7 +15,6 @@ app.use((req,res)=>{
 
 //routes handling 
 
-
 const port=process.env.port || 4000
 app.listen(port,()=>{
     console.log(`server is lisning at port :${port}`)

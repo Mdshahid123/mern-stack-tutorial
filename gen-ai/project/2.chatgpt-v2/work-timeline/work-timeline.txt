@@ -1,0 +1,22 @@
+//  Till now 
+
+✅ Receives prompt from frontend
+✅ Creates a new conversation if no conversationId exists
+✅ Loads an existing conversation if conversationId is provided
+✅ Sends request to Gemini API
+✅ Stores user message and AI response in MongoDB
+✅ Returns response to frontend
+
+
+
+Next Step: Maintain Chat History in Gemini so that  Gemini will remember previous messages.
+
+right now we sent latest message to llm so llm  forgets the previous conversation.
+
+
+
+
+
+
+
+

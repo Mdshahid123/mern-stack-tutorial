@@ -23,6 +23,7 @@ async function callToLlm(req, res) {
 
     try {
 
+
         // =========================
         // Create or Load Conversation
         // =========================
@@ -70,8 +71,17 @@ async function callToLlm(req, res) {
         // Gemini API Call
         // =========================
 
-        const response = await fetch(
+        // send a whole converstaion history not just current prompt
+        const contents = conversationDocument.messages.map(msg => ({
+            role: msg.role === "ai" ? "model" : "user",
+            parts: [
+                {
+                    text: msg.text
+                }
+            ]
+          }));
 
+        const response = await fetch(
             `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
 
             {
@@ -84,20 +94,7 @@ async function callToLlm(req, res) {
 
                 body: JSON.stringify({
 
-                    contents: [
-
-                        {
-                            role: "user",
-
-                            parts: [
-                                {
-                                    text: prompt
-                                }
-                            ]
-                        }
-
-                    ]
-
+                    contents
                 })
 
             }
@@ -136,7 +133,6 @@ async function callToLlm(req, res) {
         });
 
     }
-
     catch (error) {
 
         console.log(error);
@@ -147,7 +143,52 @@ async function callToLlm(req, res) {
 
 }
 
+
+// Get All Conversations
+async function getAllConversations(req, res) {
+
+    try {
+
+        const conversations = await conversationClass.find({},"title createdAt").sort({ createdAt: -1 });
+
+        res.status(200).json({ success: true, conversations });
+
+    }
+    catch (error) {
+
+        console.log("error while finding a all conversations:",error)
+        res.status(500).json({ success: false, error: error.message });
+
+    }
+
+}
+
+// Get One Conversation
+async function getConversation(req, res) {
+
+    try {
+
+        const conversation =await conversationClass.findById( req.params.id );
+
+        if (!conversation) {
+             return res.status(404).json({success: false,message: "Conversation not found"
+        });
+
+        }
+
+        res.status(200).json({ success: true,conversation});
+
+    }
+    catch (error) {
+        res.status(500).json({success: false,error: error.message });
+
+    }
+
+}
+
 module.exports = {
     showHomePage,
-    callToLlm
+    callToLlm,
+    getAllConversations,
+    getConversation
 };

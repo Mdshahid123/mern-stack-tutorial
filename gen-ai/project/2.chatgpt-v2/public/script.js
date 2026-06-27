@@ -1,3 +1,10 @@
+const welcome_screen = document.querySelector("#welcome-screen");
+const input_area = document.querySelector(".input-area");
+const new_chat_btn = document.querySelector("#new-chat-btn");
+const class_list = document.querySelector(".chat-list");
+const messages = document.querySelector("#messages");
+
+// Send Message Elements
 const input = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");
 
@@ -10,14 +17,28 @@ let currentConversationId = null;
 sendBtn.addEventListener("click", sendMessage);
 
 input.addEventListener("keydown", (e) => {
-
-
-if (e.key === "Enter") {
-    sendMessage();
-}
-
-
+    if (e.key === "Enter") {
+        sendMessage();
+    }
 });
+
+window.addEventListener( "DOMContentLoaded",loadConversations);
+
+// =======================
+// Active Chat
+// =======================
+
+function setActiveChat(chatElement) {
+
+    const allChats =document.querySelectorAll(".chat-item");
+
+    allChats.forEach(chat => {
+        chat.classList.remove("active");
+    });
+
+    chatElement.classList.add("active");
+
+}
 
 // =======================
 // Send Message
@@ -25,92 +46,125 @@ if (e.key === "Enter") {
 
 async function sendMessage() {
 
+    const text = input.value.trim();
 
-// getting user input or prompt
-const text = input.value.trim();
+    if (text === "") return;
 
-if (text === "") return;
+    const isNewConversation =currentConversationId === null;
 
-// show user prompt
-showMessage(text, "user");
+    welcome_screen.style.display = "none";
 
-input.value = "";
-input.focus();
+    input_area.style.top = "550px";
 
-// show typing indicator
-showTypingIndicator();
+    showMessage(text, "user");
 
-try {
+    input.value = "";
 
-    // make API call to backend
-    const response = await fetch("/chat", {
-        method: "POST",
+    input.focus();
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+    showTypingIndicator();
 
-        body: JSON.stringify({
-            prompt: text,
-            conversationId: currentConversationId
-        })
-    });
+    try {
 
-    const data = await response.json();
+        const response = await fetch("/llm", {
 
-    currentConversationId = data.conversationId;
+            method: "POST",
 
-    removeTypingIndicator();
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-    // show AI response
-    showMessage(data.message, "AI");
+            body: JSON.stringify({
 
-}
-catch (error) {
+                prompt: text,
 
-    console.log(error);
+                conversationId:currentConversationId
 
-    removeTypingIndicator();
+            })
 
-}
+        });
 
+        const data =await response.json();//it will collect all chunks ,parse it ,concatente it then return 
+
+        removeTypingIndicator();
+
+        // Create sidebar item
+        if (isNewConversation) {
+
+            const windowName = document.createElement("div");
+
+            windowName.classList.add("chat-item");
+
+            windowName.innerText =text.substring(0, 30);
+
+            windowName.dataset.id = data.conversationId;
+
+            windowName.addEventListener("click",() => {
+
+            setActiveChat(windowName);
+
+            loadConversation( data.conversationId);
+
+            }
+
+            );
+
+            setActiveChat( windowName);
+
+            class_list.prepend(windowName);
+
+        }
+
+        currentConversationId = data.conversationId;
+
+        showMessage( data.message, "AI");
+
+    }
+    catch(error) {
+
+        console.log(error);
+
+        removeTypingIndicator();
+
+    }
 
 }
 
 // =======================
-// Add Message To UI
+// Show Message
 // =======================
 
 function showMessage(text, role) {
 
+    const message =
+        document.createElement("div");
 
-const message = document.createElement("div");
+    message.classList.add(
+        "message",
+        role
+    );
 
-message.classList.add(
-    "message",
-    role
-);
+    const avatar =
+        role === "user"
+            ? "👤"
+            : "🤖";
 
-const avatar =
-    role === "user"
-        ? "👤"
-        : "🤖";
+    message.innerHTML = `
+        <div class="avatar">
+            ${avatar}
+        </div>
 
-message.innerHTML = `
-    <div class="avatar">
-        ${avatar}
-    </div>
+        <div class="message-content">
+            ${text}
+        </div>
+    `;
 
-    <div class="message-content">
-        ${text}
-    </div>
-`;
+    messages.appendChild(
+        message
+    );
 
-messages.appendChild(message);
-
-messages.scrollTop =
-    messages.scrollHeight;
-
+    messages.scrollTop =
+        messages.scrollHeight;
 
 }
 
@@ -120,45 +174,150 @@ messages.scrollTop =
 
 function showTypingIndicator() {
 
-const typing =
-    document.createElement("div");
+    const typing =
+        document.createElement("div");
 
-typing.classList.add(
-    "message",
-    "ai"
-);
+    typing.classList.add(
+        "message",
+        "ai"
+    );
 
-typing.id = "typing-indicator";
+    typing.id =
+        "typing-indicator";
 
-typing.innerHTML = `
-    <div class="avatar">
-        🤖
-    </div>
+    typing.innerHTML = `
+        <div class="avatar">
+            🤖
+        </div>
 
-    <div class="message-content">
-        Typing...
-    </div>
-`;
+        <div class="message-content">
+            Typing...
+        </div>
+    `;
 
-messages.appendChild(typing);
+    messages.appendChild(
+        typing
+    );
 
-messages.scrollTop =
-    messages.scrollHeight;
-
+    messages.scrollTop =
+        messages.scrollHeight;
 
 }
 
 function removeTypingIndicator() {
 
+    const typing =
+        document.getElementById(
+            "typing-indicator"
+        );
 
-const typing =
-    document.getElementById(
-        "typing-indicator"
-    );
+    if (typing) {
 
-if (typing) {
-    typing.remove();
+        typing.remove();
+
+    }
+
 }
 
+// =======================
+// New Chat
+// =======================
+
+new_chat_btn.addEventListener( "click", () => {
+
+        currentConversationId =null;
+
+        messages.innerHTML = "";
+
+        welcome_screen.style.display = "block";
+
+        input_area.style.top = "300px";
+
+        document.querySelectorAll(".chat-item" ).forEach(chat => {
+              chat.classList.remove("active");
+
+          });
+    }
+);
+
+
+// =======================
+// Load All Conversations
+// =======================
+
+async function loadConversations() {
+
+    try {
+
+        const response = await fetch( "/conversations");
+
+        const data = await response.json();
+
+        class_list.innerHTML = "";
+
+        data.conversations.forEach(conversation => {
+
+        const chatItem = document.createElement( "div");
+
+        chatItem.classList.add( "chat-item");
+
+        chatItem.innerText =conversation.title;
+
+        chatItem.dataset.id =conversation._id;
+
+        chatItem.addEventListener("click", () => {
+                     setActiveChat(chatItem);
+                    loadConversation(conversation._id );
+
+             });
+
+
+            class_list.appendChild( chatItem );
+
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+// =======================
+// Load One Conversation
+// =======================
+
+async function loadConversation(conversationId) {
+
+    try {
+
+        const response = await fetch(`/conversations/${conversationId}` );
+
+        const data = await response.json();
+
+        const conversation =data.conversation;
+
+        currentConversationId =conversation._id;
+
+        messages.innerHTML = "";
+
+        welcome_screen.style.display = "none";
+
+        input_area.style.top ="550px";
+
+        conversation.messages.forEach(message => {
+
+        showMessage( message.text, message.role === "ai" ? "AI" : "user");
+        
+        });
+
+    }
+    
+    catch (error) {
+        console.log(error);
+    }
 
 }
