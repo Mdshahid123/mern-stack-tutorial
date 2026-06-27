@@ -4,7 +4,8 @@ const new_chat_btn = document.querySelector("#new-chat-btn");
 const class_list = document.querySelector(".chat-list");
 const messages = document.querySelector("#messages");
 
-// Send Message Elements
+
+//Send Message Elements
 const input = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");
 
@@ -14,31 +15,15 @@ let currentConversationId = null;
 // Event Listeners
 // =======================
 
+//regiter the click event 
 sendBtn.addEventListener("click", sendMessage);
 
+// register the keydown event 
 input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         sendMessage();
     }
 });
-
-window.addEventListener( "DOMContentLoaded",loadConversations);
-
-// =======================
-// Active Chat
-// =======================
-
-function setActiveChat(chatElement) {
-
-    const allChats =document.querySelectorAll(".chat-item");
-
-    allChats.forEach(chat => {
-        chat.classList.remove("active");
-    });
-
-    chatElement.classList.add("active");
-
-}
 
 // =======================
 // Send Message
@@ -84,7 +69,7 @@ async function sendMessage() {
 
         });
 
-        const data =await response.json();//it will collect all chunks ,parse it ,concatente it then return 
+        const data =await response.json();//it will collect all chunks ,parse it ,concatente it and  then return whole reponse 
 
         removeTypingIndicator();
 
@@ -218,6 +203,25 @@ function removeTypingIndicator() {
     }
 
 }
+
+window.addEventListener( "DOMContentLoaded",loadConversations);
+
+// =======================
+// Active Chat
+// =======================
+
+function setActiveChat(chatElement) {
+
+    const allChats =document.querySelectorAll(".chat-item");
+
+    allChats.forEach(chat => {
+        chat.classList.remove("active");
+    });
+
+    chatElement.classList.add("active");
+
+}
+
 
 // =======================
 // New Chat
