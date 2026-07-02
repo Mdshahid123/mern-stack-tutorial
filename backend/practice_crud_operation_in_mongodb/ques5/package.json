@@ -1,0 +1,19 @@
+{
+  "name": "ques5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ques5.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ques5.js",
+    "dev": "nodemon ques5.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "mongoose": "^9.7.2"
+  }
+}
