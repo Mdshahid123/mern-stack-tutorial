@@ -1,11 +1,10 @@
 const express=require("express")
+const getHomePage=require("../controllers/userController")
 
 const userRoutes=express.Router() //function reutrn kargea
 
 
-userRoutes.get("/",(req,res)=>{
-     res.send("this is a chatgpt home page")
-})
+userRoutes.get("/",getHomePage)
 
 
 userRoutes.get("/login",(req,res)=>{
